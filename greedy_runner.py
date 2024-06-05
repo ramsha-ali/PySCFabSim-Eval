@@ -10,8 +10,8 @@ if not os.path.exists('greedy'):
     os.mkdir('greedy')
 
 for seed in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
-    for day in [365*2]:
-        for dataset, dispatcher in [('HVLM', 'fifo'), ('LVHM', 'cr')]:
+    for day in [10*2]:
+        for dataset, dispatcher in [('SMT2020_HVLM', 'fifo')]:#, ('SMT2020_LVHM', 'cr')]:
             def s(day_, dataset_, dispatcher_):
                 name_ = f'greedy/greedy_seed{seed}_{day}days_{dataset}_{dispatcher}.txt'
                 with io.open(name_, 'w') as f:
@@ -30,3 +30,5 @@ for t in threads:
     t.join()
 
 print('Done')
+
+##### this is the project
