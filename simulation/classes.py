@@ -37,6 +37,8 @@ class Machine:
         self.speed = speed
         self.minimize_setup_time = d['WAKERESRANK'] == 'wake_LeastSetupTime'
 
+        self.will_be_free = 0
+
         self.available_from = None
         self.available_to = None
 
@@ -67,6 +69,7 @@ class Machine:
         self.has_min_runs = False
 
         self.next_preventive_maintenance = None
+
 
     def __hash__(self):
         return self.idx
@@ -127,6 +130,9 @@ class Step:
         self.transport_time = ConstantDistribution(0)
 
         self.reworked = {}
+
+    def __repr__(self):
+        return f'Step {self.idx}'
 
     def has_to_perform(self):
         if self.sampling_percent == 100:
@@ -215,6 +221,7 @@ class Route:
     def __init__(self, idx, steps: List[Step]):
         self.idx = idx
         self.steps = steps
+        #print("----",self.steps)
 
 
 class FileRoute(Route):

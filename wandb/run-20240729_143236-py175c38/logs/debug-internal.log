@@ -1,0 +1,8 @@
+2024-07-29 14:32:36,198 INFO    StreamThr :2772 [internal.py:wandb_internal():85] W&B internal server running at pid: 2772, started at: 2024-07-29 14:32:36.182696
+2024-07-29 14:32:36,213 DEBUG   HandlerThread:2772 [handler.py:handle_request():158] handle_request: status
+2024-07-29 14:32:36,336 INFO    WriterThread:2772 [datastore.py:open_for_write():87] open: C:\Users\ramali\PycharmProjects\PySCFabSim-Eval - Copy\wandb\run-20240729_143236-py175c38\run-py175c38.wandb
+2024-07-29 14:32:36,367 DEBUG   SenderThread:2772 [sender.py:send():378] send: header
+2024-07-29 14:32:36,546 DEBUG   HandlerThread:2772 [handler.py:handle_request():158] handle_request: shutdown
+2024-07-29 14:32:36,546 INFO    HandlerThread:2772 [handler.py:finish():882] shutting down handler
+2024-07-29 14:32:37,357 INFO    WriterThread:2772 [datastore.py:close():296] close: C:\Users\ramali\PycharmProjects\PySCFabSim-Eval - Copy\wandb\run-20240729_143236-py175c38\run-py175c38.wandb
+2024-07-29 14:32:37,373 INFO    SenderThread:2772 [sender.py:finish():1545] shutting down sender

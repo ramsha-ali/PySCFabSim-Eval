@@ -8,9 +8,10 @@ threads = []
 
 if not os.path.exists('greedy'):
     os.mkdir('greedy')
-
-for seed in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
-    for day in [10*2]:
+if not os.path.exists('simulation_state'):
+    os.mkdir('simulation_state')
+for seed in [0]:
+    for day in [1*1]:
         for dataset, dispatcher in [('SMT2020_HVLM', 'fifo')]:#, ('SMT2020_LVHM', 'cr')]:
             def s(day_, dataset_, dispatcher_):
                 name_ = f'greedy/greedy_seed{seed}_{day}days_{dataset}_{dispatcher}.txt'

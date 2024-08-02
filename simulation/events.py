@@ -1,3 +1,6 @@
+import os
+
+
 class MachineDoneEvent:
 
     def __init__(self, timestamp, machines):
@@ -54,6 +57,7 @@ class BreakdownEvent:
         if not is_breakdown:
             machine.next_preventive_maintenance = timestamp
 
+
     def handle(self, instance):
         length = self.length.sample()
         if self.is_breakdown:
@@ -61,6 +65,30 @@ class BreakdownEvent:
         else:
             self.machine.pmed_time += length
         instance.handle_breakdown(self.machine, length)
+        #print(f'{self.machine} in {self.machine.family} breakdown at timestamp: {self.timestamp} for duration: {self.machine.bred_time}')
+
+
+
+
+        file_path = 'simulation_state/breakdown_log.txt'
+        header = 'Toolgroup Machineid at duration\n'
+
+
+        if not os.path.exists(file_path) or os.stat(file_path).st_size == 0:
+            write_mode = 'w'
+        else:
+            write_mode = 'a'
+        with open(file_path, write_mode) as file:
+            if write_mode == 'w':
+                file.write(header)
+            message = f"{self.machine.family} " \
+                      f"{self.machine} " \
+                      f"{int(self.timestamp)} " \
+                      f"{int(self.machine.bred_time)}\n"
+            file.write(message)
+
+
+
         for plugin in instance.plugins:
             if self.is_breakdown:
                 plugin.on_breakdown(instance, self)
@@ -73,3 +101,4 @@ class BreakdownEvent:
             self.machine,
             self.is_breakdown,
         ))
+

@@ -1,0 +1,8 @@
+2024-07-29 14:24:19,083 INFO    StreamThr :12512 [internal.py:wandb_internal():85] W&B internal server running at pid: 12512, started at: 2024-07-29 14:24:19.068008
+2024-07-29 14:24:19,099 DEBUG   HandlerThread:12512 [handler.py:handle_request():158] handle_request: status
+2024-07-29 14:24:19,199 INFO    WriterThread:12512 [datastore.py:open_for_write():87] open: C:\Users\ramali\PycharmProjects\PySCFabSim-Eval - Copy\wandb\run-20240729_142418-fu0fkpat\run-fu0fkpat.wandb
+2024-07-29 14:24:19,199 DEBUG   SenderThread:12512 [sender.py:send():378] send: header
+2024-07-29 14:24:19,468 DEBUG   HandlerThread:12512 [handler.py:handle_request():158] handle_request: shutdown
+2024-07-29 14:24:19,468 INFO    HandlerThread:12512 [handler.py:finish():882] shutting down handler
+2024-07-29 14:24:20,201 INFO    SenderThread:12512 [sender.py:finish():1545] shutting down sender
+2024-07-29 14:24:20,217 INFO    WriterThread:12512 [datastore.py:close():296] close: C:\Users\ramali\PycharmProjects\PySCFabSim-Eval - Copy\wandb\run-20240729_142418-fu0fkpat\run-fu0fkpat.wandb

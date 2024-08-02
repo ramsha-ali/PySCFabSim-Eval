@@ -1,0 +1,8 @@
+2024-07-29 14:14:57,792 INFO    StreamThr :1004 [internal.py:wandb_internal():85] W&B internal server running at pid: 1004, started at: 2024-07-29 14:14:57.776733
+2024-07-29 14:14:57,830 DEBUG   HandlerThread:1004 [handler.py:handle_request():158] handle_request: status
+2024-07-29 14:14:57,908 INFO    WriterThread:1004 [datastore.py:open_for_write():87] open: C:\Users\ramali\PycharmProjects\PySCFabSim-Eval - Copy\wandb\run-20240729_141457-lgvduxde\run-lgvduxde.wandb
+2024-07-29 14:14:57,945 DEBUG   SenderThread:1004 [sender.py:send():378] send: header
+2024-07-29 14:14:58,061 DEBUG   HandlerThread:1004 [handler.py:handle_request():158] handle_request: shutdown
+2024-07-29 14:14:58,061 INFO    HandlerThread:1004 [handler.py:finish():882] shutting down handler
+2024-07-29 14:14:58,932 INFO    WriterThread:1004 [datastore.py:close():296] close: C:\Users\ramali\PycharmProjects\PySCFabSim-Eval - Copy\wandb\run-20240729_141457-lgvduxde\run-lgvduxde.wandb
+2024-07-29 14:14:58,947 INFO    SenderThread:1004 [sender.py:finish():1545] shutting down sender

@@ -86,6 +86,7 @@ def main():
             )
 
         for k, v in sorted(r['machines'].items(), key=lambda k: k[0]):
+            print(k,v)
             machines[k][name] = dict(
                 avail=round(v["avail"][0] * 100, 2),
                 util=round(v["util"][0] * 100, 2),

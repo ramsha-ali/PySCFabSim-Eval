@@ -16,12 +16,12 @@ from simulation.read import read_all
 r = Randomizer()
 
 STATE_COMPONENTS_DEMO = (
-    E.A.L4M.S.OPERATION_TYPE.NO_LOTS_PER_BATCH,
+    #E.A.L4M.S.OPERATION_TYPE.NO_LOTS_PER_BATCH,
     E.A.L4M.S.OPERATION_TYPE.CR.MAX,
     E.A.L4M.S.OPERATION_TYPE.FREE_SINCE.MAX,
-    E.A.L4M.S.OPERATION_TYPE.SETUP.MIN_RUNS_OK,
-    E.A.L4M.S.OPERATION_TYPE.SETUP.NEEDED,
-    E.A.L4M.S.OPERATION_TYPE.SETUP.LAST_SETUP_TIME,
+    #E.A.L4M.S.OPERATION_TYPE.SETUP.MIN_RUNS_OK,
+    #E.A.L4M.S.OPERATION_TYPE.SETUP.NEEDED,
+    #E.A.L4M.S.OPERATION_TYPE.SETUP.LAST_SETUP_TIME,
 )
 
 
@@ -48,6 +48,7 @@ class DynamicSCFabSimulationEnvironment(Env):
         self.mavg = 0
         self.state_components = state_components
         self.reset()
+
 
     def seed(self, seed=None):
         if seed is None:

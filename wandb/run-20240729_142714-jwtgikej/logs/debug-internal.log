@@ -1,0 +1,8 @@
+2024-07-29 14:27:14,420 INFO    StreamThr :3504 [internal.py:wandb_internal():85] W&B internal server running at pid: 3504, started at: 2024-07-29 14:27:14.405166
+2024-07-29 14:27:14,442 DEBUG   HandlerThread:3504 [handler.py:handle_request():158] handle_request: status
+2024-07-29 14:27:14,574 INFO    WriterThread:3504 [datastore.py:open_for_write():87] open: C:\Users\ramali\PycharmProjects\PySCFabSim-Eval - Copy\wandb\run-20240729_142714-jwtgikej\run-jwtgikej.wandb
+2024-07-29 14:27:14,590 DEBUG   SenderThread:3504 [sender.py:send():378] send: header
+2024-07-29 14:27:14,775 DEBUG   HandlerThread:3504 [handler.py:handle_request():158] handle_request: shutdown
+2024-07-29 14:27:14,775 INFO    HandlerThread:3504 [handler.py:finish():882] shutting down handler
+2024-07-29 14:27:15,577 INFO    WriterThread:3504 [datastore.py:close():296] close: C:\Users\ramali\PycharmProjects\PySCFabSim-Eval - Copy\wandb\run-20240729_142714-jwtgikej\run-jwtgikej.wandb
+2024-07-29 14:27:15,593 INFO    SenderThread:3504 [sender.py:finish():1545] shutting down sender

@@ -69,8 +69,8 @@ class FileInstance(Instance):
                 lot.release_at = lot.deadline_at - lot_pre[lot.name]
             idx += 1
 
-        setups = {(s['CURSETUP'], s['NEWSETUP']): get_interval(s['STIME'], s['STUNITS']) for s in files['setup.txt']}
-        setup_min_run = {s['SETUP']: s['MINRUN'] for s in files['setupgrp.txt']}
+        #setups = {(s['CURSETUP'], s['NEWSETUP']): get_interval(s['STIME'], s['STUNITS']) for s in files['setup.txt']}
+        #setup_min_run = {s['SETUP']: s['MINRUN'] for s in files['setupgrp.txt']}
 
         downcals = {}
         for dc in files['downcal.txt']:
@@ -108,4 +108,4 @@ class FileInstance(Instance):
                         m.pms.append(br)
                     breakdowns.append(br)
 
-        super().__init__(machines, routes, lots, setups, setup_min_run, breakdowns, lot_for_machine, plugins)
+        super().__init__(machines, routes, lots, breakdowns, lot_for_machine, plugins)

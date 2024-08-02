@@ -40,3 +40,7 @@ class IPlugin(metaclass=ABCMeta):
 
     def on_cqt_violated(self, instance, machine, lot):
         pass
+
+    def on_next_day(self, instance, day_number: int):
+        pass
+
