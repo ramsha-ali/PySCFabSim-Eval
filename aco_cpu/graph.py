@@ -7,7 +7,9 @@ class Graph():
     def generate_graph(self, j, m, pheromone, device="cpu"):
 
         job = torch.tensor(j, device=device)
-        valid_operations_mask = (job[:, :, 0] != -1) & (job[:, :, 1] != -1)  # operations not [-1, -1]: padded
+        #print(job)
+        #valid_operations_mask = (job[:, :, 0] != -1) & (job[:, :, 1] != -1)  # operations not [-1, -1]: padded
+        valid_operations_mask = (job != -1).all(dim=2) # operations not padded
         valid_flat_mask = valid_operations_mask.view(-1)
 
         valid_operations = job.view(-1, job.size(2))[valid_flat_mask]
@@ -62,7 +64,8 @@ class Graph():
 
         machine_matrix = torch.zeros((num_valid_operations, num_machines), device=device)
 
-        tool_for_operation = job[:, :, 0].flatten()
+        tool_for_operation = job[:, :, 3].flatten()
+        #print(tool_for_operation)
         valid_tools = tool_for_operation != -1  # Remove padding
         tool_for_operation = tool_for_operation[valid_tools]
 
@@ -75,7 +78,8 @@ class Graph():
         #torch.set_printoptions(threshold=10_000)
         #for row in machine_matrix:
             #print(row.cpu().numpy())
-        return job, adjacency_matrix, machine_matrix
+
+        return m, job, adjacency_matrix, machine_matrix
 
     def update_pheromone(self, p_matrix, edges, contribution, rho, min_p_level):
         p_matrix *= (1-rho)

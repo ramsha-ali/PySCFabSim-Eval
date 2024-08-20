@@ -115,5 +115,21 @@ def print_logs(instance):
             file.write(machine_info)
 
 
+def get_process_time(instance):
+    file_path_lots = 'simulation_state/pro_time.txt'
+    with open(file_path_lots, 'w') as file:
+        print_head = f'Product Step Tool Processtime\n'
+        file.write(print_head)
+
+        for name, route in instance.routes.items():
+            name = name.replace('route', 'part').replace('.txt', '')
+            for step in route.steps:
+                message = f"{name} " \
+                          f"{step.order} " \
+                          f"{step.family} " \
+                          f"{int(step.processing_time.avg())}\n"
+                # print(repr(message))
+                file.write(message)
+
 
 

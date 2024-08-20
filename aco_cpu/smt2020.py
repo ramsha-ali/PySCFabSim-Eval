@@ -6,8 +6,8 @@ import numpy as np
 
 class SMT2020:
 
-    seed = 42
-    np.random.seed(seed)
+    #seed = 0
+    #np.random.seed(seed)
 
     products_data = {}
     wip_data = []
@@ -108,24 +108,22 @@ class SMT2020:
                         if step == steps:
                             tool_indices = np.where(self.machines['tool_group_name'] == tool)[0]
                             tool_number = tool_indices[0]
-                            op_info = (tool_number, pro_time)
+                            op_info = (lot, product, step, tool_number, pro_time)
                             info.append(op_info)
                             step_id += 1
                 job_info.append(info)
             max_operations = max(len(job) for job in job_info)
-            padded_job_info = [job + [(-1, -1)] * (max_operations - len(job)) for job in job_info]
+            padded_job_info = [job + [(-1, -1, -1, -1, -1)] * (max_operations - len(job)) for job in job_info]
             self.jobs = np.array(padded_job_info, dtype=int)
             #print(len(self.jobs))
+            #print(self.jobs)
         pass
 
 
 
-    def smt_caller(self, d, n):
+    def smt_caller(self, d, n, seed):
+        np.random.seed(seed)
         self.read_data(d)
         self.tool_mapping()
         self.get_remaining_operations(n)
         pass
-
-
-
-

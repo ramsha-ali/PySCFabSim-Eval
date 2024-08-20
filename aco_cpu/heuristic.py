@@ -1,13 +1,15 @@
 import torch
 
 
-def sequence(j, adjacency_matrix, pheromone_matrix, machine_matrix, device="cpu"):
-
+def sequence(j, adjacency_matrix, pheromone_matrix, machine_matrix, seed, device="cpu"):
+    torch.manual_seed(seed)  # Setting the seed for reproducibility
+    torch.cuda.manual_seed(seed)
     n = adjacency_matrix.size(0)
-    valid_operations_mask = (j[:, :, 0] != -1) & (j[:, :, 1] != -1)
+    #valid_operations_mask = (j[:, :, 0] != -1) & (j[:, :, 1] != -1)
+    valid_operations_mask = (j != -1).all(dim=2)  # operations not padded
     valid_flat_mask = valid_operations_mask.view(-1)
     valid_operations = j.view(-1, j.size(2))[valid_flat_mask]
-    processing_times = valid_operations[:, 1]
+    processing_times = valid_operations[:, 4]
 
     start_times = torch.zeros(n-1, dtype=torch.float, device=device)
     end_times = torch.zeros(n-1, dtype=torch.float, device=device)
@@ -113,9 +115,7 @@ def sequence(j, adjacency_matrix, pheromone_matrix, machine_matrix, device="cpu"
                             mask = mask.all(dim=0)
                             candidates = candidates[mask]
                     else:
-
                         schedule = torch.cat((schedule, selected))
-
                         visited[selected] = True
                         if edge_count == selected_edges.size(0):
 
@@ -135,10 +135,8 @@ def sequence(j, adjacency_matrix, pheromone_matrix, machine_matrix, device="cpu"
                         earliest_available_machine = available_machine_id[min_index]
                         earliest_available_machine = earliest_available_machine.unsqueeze(0)
                         selected_machine = torch.cat((selected_machine, earliest_available_machine), dim=0)
-
                         start_time_j = machine_times[earliest_available_machine]
                         end_time_j = start_time_j + pro_time_p
-
                         selected_indices = torch.where(schedule == selected)[0]
                         valid_i = selected_indices - 1
                         start_times[valid_i] = start_time_j
@@ -153,10 +151,8 @@ def sequence(j, adjacency_matrix, pheromone_matrix, machine_matrix, device="cpu"
 
     selected_edges = selected_edges[:edge_count]
     makespan = torch.max(machine_times).item()
-    #print(schedule)
-    #print("start_time", start_times, "end_times",end_times, "machine_times", machine_times)
-    #print("machine_times", machine_times)
-    return makespan, selected_edges
+
+    return makespan, selected_edges, schedule, selected_machine, start_times, end_times
 
 
 

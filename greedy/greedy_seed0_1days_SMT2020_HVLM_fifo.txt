@@ -1,4 +1,4 @@
-1.0000002035022806  days simulated in  0:00:04.141926
+1.0000002035022806  days simulated in  0:00:04.544487
 Machine Cnt avail util br
 DE_BE_11 10 98.73 0.03 1.27
 DE_BE_12 9 100.0 0.02 0.0

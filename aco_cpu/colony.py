@@ -8,11 +8,13 @@ class Colony():
         self.graph = Graph()
 
 
-        self.smt2020.smt_caller(parameters['dataset'], parameters['n'])
+        self.smt2020.smt_caller(parameters['dataset'], parameters['n'], parameters['seed'])
 
 
-        self.job_tensor, self.adjacency_matrix, self.machine_matrix = self.graph.generate_graph(self.smt2020.jobs,
+        self.machine_map, self.job_tensor, self.adjacency_matrix, self.machine_matrix = self.graph.generate_graph(self.smt2020.jobs,
                                                                                    self.smt2020.machines, parameters['pheromone_level'])
+
+
 
 
 

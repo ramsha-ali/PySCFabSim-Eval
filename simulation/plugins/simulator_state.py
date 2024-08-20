@@ -2,7 +2,6 @@
 from simulation.plugins.interface import IPlugin
 
 
-
 class SimulatorStateGeneratorPlugin(IPlugin):
 
     def on_sim_init(self, instance):

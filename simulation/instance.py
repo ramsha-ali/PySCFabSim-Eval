@@ -122,7 +122,6 @@ class Instance:
         self.lot_waiting_at_machine[machine.family] = (lwam[0] + len(lots),
                                                        lwam[1] + sum([self.current_time - l.free_since for l in lots]))
 
-
         for lot in lots:
             lot.waiting_time += self.current_time - lot.free_since
             #if lot.actual_step.batch_max > 1:
@@ -158,18 +157,7 @@ class Instance:
         lot_time = proc_t_samp
         for lot in lots:
             lot.processing_time += lot_time
-        #if len(lots[0].remaining_steps) > 0:
-            #tt = lots[0].remaining_steps[0].transport_time.sample()
-            #lot_time += tt
-            #for lot in lots:
-                #lot.transport_time += tt
-        #if lots[0].actual_step.processing_time == lots[0].actual_step.cascading_time:
-            #cascade_t_samp = proc_t_samp
-        #else:
-            #cascade_t_samp = lots[0].actual_step.cascading_time.sample()
         machine_time = 1
-
-
         machine.utilized_time += machine_time
         return lot_time, machine_time
 

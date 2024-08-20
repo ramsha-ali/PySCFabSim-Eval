@@ -1,3 +1,4 @@
+"""
 import os
 from typing import Dict, List
 
@@ -112,3 +113,4 @@ class GeneratorInstance(Instance):
         setups = {('Setup1', 'Setup2'): 1200, ('Setup1', 'Setup2'): 2400}
 
         super().__init__(machines, routes, lots, setups, [])
+"""

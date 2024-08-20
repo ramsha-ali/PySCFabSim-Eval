@@ -10,7 +10,7 @@ from simulation.file_instance import FileInstance
 from simulation.plugins.cost_plugin import CostPlugin
 from simulation.randomizer import Randomizer
 from simulation.read import read_all
-from simulation.stats import print_statistics, print_logs
+from simulation.stats import print_statistics, print_logs, get_process_time
 
 import argparse
 
@@ -94,6 +94,8 @@ def run_greedy():
     print(instance.current_time_days, ' days simulated in ', interval)
     print_statistics(instance, a.days, a.dataset, a.dispatcher, method='greedy_seed' + str(a.seed))
     print_logs(instance)
+    get_process_time(instance)
+
 
 
 
