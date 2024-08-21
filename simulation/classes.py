@@ -101,8 +101,8 @@ class Step:
             per_piece = get_interval(d['PartInterval'], d['PartIntUnits'])
             self.processing_time = get_distribution(d['PDIST'], d['PTUNITS'], d['PTIME'], d['PTIME2'])
             self.processing_time.m += per_piece * (pieces_per_lot - 1)
-            #self.cascading_time = ConstantDistribution(per_piece * pieces_per_lot)
-            #self.cascading = True
+            self.cascading_time = ConstantDistribution(per_piece * pieces_per_lot)
+            self.cascading = True
         else:
             if d['PTPER'] == 'per_piece':
                 m = pieces_per_lot
@@ -110,11 +110,11 @@ class Step:
                 m = 1
             self.processing_time = get_distribution(default(d, 'PDIST', 'constant'), d['PTUNITS'], d['PTIME'],
                                                     d['PTIME2'], multiplier=m)
-            #if type(d['BatchInterval']) in [float, int]:
-                #self.cascading_time = get_distribution('constant', d['BatchIntUnits'], d['BatchInterval'])
-                #self.cascading = True
-            #else:
-                #self.cascading_time = self.processing_time
+            if type(d['BatchInterval']) in [float, int]:
+                self.cascading_time = get_distribution('constant', d['BatchIntUnits'], d['BatchInterval'])
+                self.cascading = True
+            else:
+                self.cascading_time = self.processing_time
         self.batching = d['PTPER'] == 'per_batch'
         self.batch_min = 1 if d['BATCHMN'] == '' else int(d['BATCHMN'] / pieces_per_lot)
         self.batch_max = 1 if d['BATCHMX'] == '' else int(d['BATCHMX'] / pieces_per_lot)

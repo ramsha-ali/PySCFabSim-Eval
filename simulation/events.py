@@ -67,12 +67,8 @@ class BreakdownEvent:
         instance.handle_breakdown(self.machine, length)
         #print(f'{self.machine} in {self.machine.family} breakdown at timestamp: {self.timestamp} for duration: {self.machine.bred_time}')
 
-
-
-
         file_path = 'simulation_state/breakdown_log.txt'
         header = 'Toolgroup Machineid at duration\n'
-
 
         if not os.path.exists(file_path) or os.stat(file_path).st_size == 0:
             write_mode = 'w'
@@ -82,7 +78,7 @@ class BreakdownEvent:
             if write_mode == 'w':
                 file.write(header)
             message = f"{self.machine.family} " \
-                      f"{self.machine} " \
+                      f"{self.machine.idx} " \
                       f"{int(self.timestamp)} " \
                       f"{int(self.machine.bred_time)}\n"
             file.write(message)

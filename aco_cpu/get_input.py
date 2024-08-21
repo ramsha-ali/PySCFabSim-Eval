@@ -2,7 +2,7 @@ from pathlib import Path
 
 def get_user_input():
     script_dir = Path(__file__).resolve().parent.parent
-    default_dataset_name = "datasets/SMT2020_HVLM"
+    default_dataset_name = "datasets/SMT2020_HVLM_4_sch"
     default_dataset_path = script_dir / default_dataset_name
     #dataset_input = input("Enter new dataset or leave blank to use default (LVHM): ")
 

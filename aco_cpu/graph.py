@@ -5,7 +5,7 @@ class Graph():
 
     pheromone_matrix = None
     def generate_graph(self, j, m, pheromone, device="cpu"):
-
+        print(m)
         job = torch.tensor(j, device=device)
         #print(job)
         #valid_operations_mask = (job[:, :, 0] != -1) & (job[:, :, 1] != -1)  # operations not [-1, -1]: padded
