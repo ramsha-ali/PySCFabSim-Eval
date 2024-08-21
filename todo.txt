@@ -2,6 +2,7 @@
 Task1 @R
 Use the processing time from simulation for scheduling
 reference file for processing time "simulation_state\pro_time.txt"
+remark: done
 
 Task2 @R
 Based on the breakdown log update the machine matrix in the scheduling

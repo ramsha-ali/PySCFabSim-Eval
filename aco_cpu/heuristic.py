@@ -2,8 +2,9 @@ import torch
 
 
 def sequence(j, adjacency_matrix, pheromone_matrix, machine_matrix, seed, device="cpu"):
-    torch.manual_seed(seed)  # Setting the seed for reproducibility
-    torch.cuda.manual_seed(seed)
+    if seed is not None:
+        torch.manual_seed(seed)  # Setting the seed for reproducibility
+
     n = adjacency_matrix.size(0)
     #valid_operations_mask = (j[:, :, 0] != -1) & (j[:, :, 1] != -1)
     valid_operations_mask = (j != -1).all(dim=2)  # operations not padded

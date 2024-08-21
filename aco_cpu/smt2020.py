@@ -4,12 +4,10 @@ import pandas as pd
 import numpy as np
 
 
+
 class SMT2020:
 
-    #seed = 0
-    #np.random.seed(seed)
-
-    products_data = {}
+    product_route = {}
     wip_data = []
     tools_data = {}
     wip_data_batches = []
@@ -19,34 +17,52 @@ class SMT2020:
 
     def read_files(self, directory):
         route_pattern = re.compile(r"route_.*\.txt")
+        route_file = "route.txt"
         tool_file = 'tool.txt.1l'
         wip_file = 'WIP.txt'
         for filename in os.listdir(directory):
             file_path = os.path.join(directory, filename)
-            if route_pattern.match(filename):
-                self.process_route_file(file_path)
+            #if route_pattern.match(filename):
+                #self.process_route_file(file_path)
             if filename == tool_file:
                 self.process_tool_file(file_path)
             if filename == wip_file:
                 self.process_wip_file(file_path)
+            if filename == route_file:
+                self.process_route_file_sim(file_path)
         pass
 
     def process_route_file(self, file_path):
         df = pd.read_csv(file_path, sep='\t',
                          usecols=['ROUTE', 'STEP', 'STNFAM', 'PDIST', 'PTIME', 'PTIME2', 'PTUNITS', 'SETUP', 'STIME'])
-
         df['ROUTE_NUMBER'] = df['ROUTE'].str.extract('(\d+)').astype(float).fillna(0).astype(int)
         df['STEP'] = df['STEP'].astype(float).fillna(0).astype(int)
         df['PROCESSING_TIME'] = (np.random.uniform(df['PTIME2'].fillna(0), df['PTIME'].fillna(0)) + 1).astype(int)
+        df['PROCESSING_TIME'] = df['PROCESSING_TIME'] * 60
         df['SETUP'] = df['SETUP'].fillna('0').str.lower()
         df['STIME'] = df['STIME'].fillna('0').astype(int)
         df['STNFAM'] = df['STNFAM'].str.lower()
-
         transformed = df.groupby('ROUTE_NUMBER').apply(
-            lambda x: x[['ROUTE_NUMBER','STEP', 'STNFAM', 'PROCESSING_TIME', 'SETUP', 'STIME']].to_records(index=False).tolist()
+            lambda x: x[['ROUTE_NUMBER','STEP', 'STNFAM', 'PROCESSING_TIME']].to_records(index=False).tolist()
         )
         for route, routes in transformed.items():
-            self.products_data[route] = routes
+            self.product_route[route] = routes
+        #print(self.product_route)
+        pass
+
+    def process_route_file_sim(self, file_path):
+        df = pd.read_csv(file_path, sep=' ',
+                         usecols=['Product', 'Step', 'Tool', 'Processtime'])
+        df['Product'] = df['Product'].str.extract('(\d+)').astype(float).fillna(0).astype(int)
+        df['Step'] = df['Step'].astype(float).fillna(0).astype(int)
+        df['Processtime'] = df['Processtime'].astype(int)
+        df['Tool'] = df['Tool'].str.lower()
+        transformed = df.groupby('Product').apply(
+            lambda x: x[['Product','Step', 'Tool', 'Processtime']].to_records(index=False).tolist()
+        )
+        for route, routes in transformed.items():
+            self.product_route[route] = routes
+        #print(self.product_route)
         pass
 
     def process_tool_file(self, file_path):
@@ -102,9 +118,9 @@ class SMT2020:
                 step_id = 1
                 info = []
                 for steps in remaining_steps:
-                    for route in self.products_data[product]:
+                    for route in self.product_route[product]:
                         #print(route)
-                        product, step, tool, pro_time, _, _ = route
+                        product, step, tool, pro_time = route
                         if step == steps:
                             tool_indices = np.where(self.machines['tool_group_name'] == tool)[0]
                             tool_number = tool_indices[0]
@@ -120,10 +136,10 @@ class SMT2020:
         pass
 
 
-
-    def smt_caller(self, d, n, seed):
-        np.random.seed(seed)
+    def smt_caller(self, d, n):
+        #np.random.seed(seed)
         self.read_data(d)
         self.tool_mapping()
         self.get_remaining_operations(n)
         pass
+

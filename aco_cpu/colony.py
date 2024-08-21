@@ -1,6 +1,7 @@
 from smt2020 import SMT2020
 from graph import Graph
 
+
 class Colony():
 
     def __init__(self, parameters):
@@ -8,7 +9,7 @@ class Colony():
         self.graph = Graph()
 
 
-        self.smt2020.smt_caller(parameters['dataset'], parameters['n'], parameters['seed'])
+        self.smt2020.smt_caller(parameters['dataset'], parameters['n'])
 
 
         self.machine_map, self.job_tensor, self.adjacency_matrix, self.machine_matrix = self.graph.generate_graph(self.smt2020.jobs,

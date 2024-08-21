@@ -38,6 +38,7 @@ def print_statistics(instance, days, dataset, disp, method='greedy', dir='greedy
               round(machines[machine_name]['br'] * 100, 2),
               )
 
+
     plugins = {}
 
     for plugin in instance.plugins:
@@ -116,7 +117,7 @@ def print_logs(instance):
 
 
 def get_process_time(instance):
-    file_path_lots = 'simulation_state/pro_time.txt'
+    file_path_lots = 'datasets/SMT2020_HVLM/route.txt'
     with open(file_path_lots, 'w') as file:
         print_head = f'Product Step Tool Processtime\n'
         file.write(print_head)
