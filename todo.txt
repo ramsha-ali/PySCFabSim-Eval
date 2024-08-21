@@ -6,6 +6,7 @@ remark: done
 
 Task2 @R
 Based on the breakdown log update the machine matrix in the scheduling
+Handle breakdown situation where only 1 machine in toolgroup
 
 Task3 @R
 Regenrate the schedule using the processing time
