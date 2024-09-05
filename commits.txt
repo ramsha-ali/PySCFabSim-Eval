@@ -1,0 +1,7 @@
+Task4 @P: Update dispatching in simulation - Set uniform priority and updated sequence
+
+Task4 @P: Update dispatching in simulation
+
+- Set uniform priority (10) for all lots in dispatching, disregarding previous priority levels.
+- Adjusted code to simplify dispatching logic based on the new priority system.
+- Updated dispatching to follow the same sequence in schedule_output.txt.
