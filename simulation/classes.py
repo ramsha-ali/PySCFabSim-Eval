@@ -25,6 +25,7 @@ class Machine:
 
     def __init__(self, idx, d, speed):
         self.idx = idx
+        self.name = f"Machine_{idx}"  # Add this line to include a name attribute
         self.load_time = none_is_0(get_interval(d['LTIME'], d['LTUNITS']))
         self.unload_time = none_is_0(get_interval(d['ULTIME'], d['ULTUNITS']))
         self.group = d['STNGRP']
