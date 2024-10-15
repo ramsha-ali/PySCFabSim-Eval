@@ -1,0 +1,1108 @@
+% This is samplepaper.tex, a sample chapter demonstrating the
+% LLNCS macro package for Springer Computer Science proceedings;
+% Version 2.21 of 2022/01/12
+%
+\documentclass[runningheads]{llncs}
+%
+\usepackage[T1]{fontenc}
+% T1 fonts will be used to generate the final print and online PDFs,
+% so please use T1 fonts in your manuscript whenever possible.
+% Other font encondings may result in incorrect characters.
+%
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+
+\usepackage{multirow}
+\usepackage{algorithm2e}
+\SetKwInput{KwParam}{Parameters}
+\SetKw{KwFrom}{from}
+\SetCommentSty{textit}
+
+\usepackage{graphicx}
+% Used for displaying a sample figure. If possible, figure files should
+% be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following two lines
+% to display URLs in blue roman font according to Springer's eBook style:
+%\usepackage{color}
+%\renewcommand\UrlFont{\color{blue}\rmfamily}
+%\urlstyle{rm}
+%
+\begin{document}
+%
+\title{%Throughput Optimization and Scheduling under Different Machine Availability Scenarios
+	Dispatching and Scheduling in Semiconductor Manufacturing: Strategies for Deterministic vs. Stochastic Processing Times
+}
+%
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+%
+\author{First Author\inst{1}\orcidID{0000-1111-2222-3333} \and
+Second Author\inst{2,3}\orcidID{1111-2222-3333-4444} \and
+Third Author\inst{3}\orcidID{2222--3333-4444-5555}}
+%
+\authorrunning{F. Author et al.}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{Princeton University, Princeton NJ 08544, USA \and
+Springer Heidelberg, Tiergartenstr. 17, 69121 Heidelberg, Germany
+\email{lncs@springer.com}\\
+\url{http://www.springer.com/gp/computer-science/lncs} \and
+ABC Institute, Rupert-Karls-University Heidelberg, Heidelberg, Germany\\
+\email{\{abc,lncs\}@uni-heidelberg.de}}
+%
+\maketitle              % typeset the header of the contribution
+%
+\begin{abstract}
+The abstract should briefly summarize the contents of the paper in
+150--250 words.
+
+\keywords{First keyword  \and Second keyword \and Another keyword.}
+\end{abstract}
+%
+%
+%
+\section{Introduction}
+\label{sec:introduction}
+Scheduling production operations in complex manufacturing environments
+is one of the most challenging resource allocation tasks. The dynamic nature of real-world operations, subject to unpredictable process and demand fluctuations, supply chain delays, machine breakdowns, etc., further amplifies the complexity.
+Therefore, production scheduling needs not only be (near-)optimal, but also robust and flexible to adapt to frequent problem changes.
+To handle these phenomena, a scheduling method should be efficient enough to provide and update solutions in short time.      
+
+In the scheduling literature, the Job Shop Scheduling Problem (JSSP) \cite{xiong2022survey} and the Flexible Job Shop Scheduling Problem (FJSSP) \cite{xie2019review} stand out as popular and general scheduling models.
+Both JSSP and FJSSP are NP-hard combinatorial optimization problems, where the latter extends JSSP by introducing flexibility in assigning operations to machines. This flexibility is crucial in modern manufacturing environments, as the capability to respond to changing demands and utilize resources efficiently impacts the overall production performance.  
+
+In this paper, we address a large-scale Semiconductor Manufacturing Scheduling Problem (SMSP) \cite{kopp2020smt2020}, which can also be understood as FJSSP on instances that represent the diverse operations
+and high throughputs of semiconductor production.
+A semiconductor manufacturing facility, called fab for short, is a complex production environment characterized by customized job flows and high-tech machines.
+Particular challenges of SMSP include:
+\begin{itemize}
+	\item \textbf{Long production routes}: Hundreds of operations to be performed on a lot can span over several months, which necessitates detailed scheduling to realize an efficient process flow.
+	\item \textbf{Product-specific machine setups}: Production operations may require specific machine setups, which increases the complexity of operation sequencing and machine allocation.
+	\item \textbf{Maintenance and stochastic events}: Preventive maintenance procedures and unpredictable yet frequent events, such as machine breakdowns or process deviations, demand for a highly adaptive and responsive scheduling system.
+\end{itemize}
+
+To meet the growing demands for semiconductors and manage the complexity of modern semiconductor production, manufacturers are increasingly striving for automated production scheduling and control systems. Such systems are conceived to optimize the resource utilization, regulate sophisticated sequences of manufacturing steps, and adjust to process deviations in real time. The overall goal is to minimize the production times and costs, while maximizing fab throughput and product quality.
+
+In contrast to classical FJSSP benchmarks, where
+small to medium-scale instances include up to 500 operations and 60 machines
+\cite{behnke2012test},
+modern semiconductor fabs
+process tens of thousands of operations per day using more than 1000 machines
+\cite{kopp2020smt2020}.
+These machines are organized in tool groups with specific functionalities,
+e.g., diffusion, etching, or metrology,
+and each manufacturing step can be flexibly allocated to a machine 
+providing the required functionality.
+Hence, the scheduling of semiconductor production operations consists of the
+sub-tasks of assigning operations to machines and sequencing the operations on each machine.
+However, in case of machine breakdowns or process deviations,
+a schedule must be revised to adapt to the changed environment.
+To this end, we propose a Greedy Search based Ant Colony Optimization (GSACO)
+algorithm for (re-)scheduling semiconductor production operations.
+Our algorithm harnesses Ant Colony Optimization (ACO) \cite{dorigo2019ant} for exploration, while
+Greedy Search (GS) \cite{papste82a} enables responses in short time. 
+% In fact, we show that
+In this way,
+GSACO overcomes limitations of a
+state-of-the-art Constraint Programming approach \cite{pediga23a}
+on large-scale SMSP % semiconductor manufacturing scheduling 
+instances.
+
+The paper is organized as follows. 
+Section~\ref{sec:lit_rev} provides literature reviews on FJSSP and ACO.
+In Section~\ref{sec:problem_f}, we formulate SMSP in terms of the well-known FJSSP. 
+% and Section \ref{sec:aco} describes the overview of the ACO approach. 
+Our GSACO algorithm is presented in Section~\ref{sec:gsaco}.
+Section~\ref{sec:results} provides and discusses experimental results.
+Finally, Section~\ref{sec:conclusion} concludes the paper.
+
+\section{literature Review}
+\label{sec:lit_rev}
+
+We briefly survey the relevant literature on FJSSP, which we use as general
+scheduling model to represent semiconductor production processes and SMSP,
+as well as ACO and its application to FJSSP solving.
+
+\subsection{Flexible Job Shop Scheduling} % Problem}
+%\todo[inline]{swarm intelligence, flexible job shop, scheduling, dispatching, ant colony, scheduling and dispatching in long/short term planning}
+%\cite{McKay2003} xyzhsk
+
+\label{sec:fjssp}
+
+Exact mathematical models of the NP-hard FJSSP allow for solving small-scale instances to optimality. For example, \cite{meng2020mixed} devise Mixed-Integer Linear Programming (MILP) and Constraint Programming (CP) models for a distributed FJSSP setting. 
+They observe that CP performs well at exploring feasible solutions,
+leading to high-quality solutions in relatively short computing time.
+Similarly, \cite{gedik2018constraint} make use of a CP model to effectively solve small to medium-scale FJSSP instances.
+
+The scalability limits of exact optimization approaches motivate the design
+of approximation methods, where a large variety of heuristics and meta-heuristics have been proposed for FJSSP solving.
+Respective techniques include
+tabu search \cite{saidi2007flexible},
+simulated annealing \cite{sobeyko2016heuristic},
+particle swarm optimization \cite{gao2006solving},
+genetic algorithms \cite{ho2007effective},
+artificial bee colony algorithms \cite{li2014discrete}, and
+ACO \cite{wang2017flexible} as well as
+hybrid approaches based on local search with meta-heuristics \cite{li2010improved,xing2010knowledge,thammano2013hybrid,el2017dual}.
+
+In their recent work, \cite{shang2023study} 
+train deep neural networks on historical FJSSP data to identify patterns and predict effective scheduling strategies.
+Related approaches based on deep reinforcement learning \cite{stockermann2023dispatching,tassel2023semiconductor} or
+genetic algorithms \cite{kovacs2023optimizing} aim at
+optimizing the decision making and control within simulation models of semiconductor fabs.
+While these methods allocate production lots one by one based on their features,
+we address the task of scheduling the operations on given lots in advance.
+
+
+\subsection{Ant Colony Optimization}
+\label{sec:aco}
+
+\begin{table*}[t]
+\caption{Basic notations}\label{notations} \centering
+\begin{tabular}{ll}
+	\hline
+	Symbol & Description \\ \hline
+	$J$ & Total number of \emph{jobs}        \\
+	$T$ & Total number of \emph{tool groups} \\
+	$M$ & Total number of \emph{machines}    \\
+	$N$ & Total number of \emph{operations} \\
+	$t_{m}$ & Tool group $t$ of machine $m$ \\
+	$O_{i,j,t}$ & Operation $i$ of job $j$ on tool group $t$  \\
+	$d_{i,j,t}$ & \emph{Duration} of operation $O_{i,j,t}$ on tool group $t$ \\
+	$O_{i,j,t,m}$ & Operation $i$ of job $j$ on machine $m$ of tool group $t$  \\
+	$s_{i,j,t,m}$ & \emph{Start time} of operation $O_{i,j,t}$ on machine $m$ of tool group $t$  \\
+	\hline
+\end{tabular}
+\end{table*}
+
+ACO is a
+meta-heuristic algorithm that mimics the foraging behavior of ants \cite{dorigo2019ant}.
+
+It was originally devised to solve the traveling salesperson problem \cite{stutzle1999aco},
+and meanwhile ACO has been adopted to various optimization problems, including routing \cite{rizzoli2007ant}, scheduling \cite{luo2008ant}, task allocation \cite{rugwiro2019task}, project planning \cite{khelifa2020holonic}, and network optimization \cite{wang2009hopnet}.
+
+The common idea is that artificial ants construct paths through a graph,
+making probabilistic decisions based on problem-specific heuristic information as well as temporary pheromone trails that indicate
+promising search directions.
+Particular strengths of ACO lie in the high potential for parallelization,
+given that ants can be simulated in parallel,
+and a certain robustness against getting stuck in local optima,
+as the probabilistic decision rules of ants promote exploration.
+However, a specific difficulty in the ACO algorithm design concerns the
+tuning of hyperparameters, such as the number of ants to consider,
+the trade-off between heuristic information and pheromone trails, and
+the pheromone evaporation rate. 
+
+Among meta-heuristic FJSSP solving techniques,
+ACO has been shown to be a particularly promising approach \cite{turkyilmaz2020research}.
+The practical difficulty remains to escape local optima and reliably
+converge to high-quality solutions within a short computing time limit.
+This challenge has brought about a variety of extended ACO algorithms as well as
+hybrid approaches that combine ACO with local search methods
+\cite{leung2010integrated,li2010improved,xing2010knowledge,thammano2013hybrid,arnaout2014two,el2017dual}.
+While these methods have been designed and evaluated
+on small to medium-scale FJSSP benchmarks \cite{arnaout2014two},
+our work addresses the large-scale SMSP instances encountered in
+the domain of semiconductor production scheduling \cite{kopp2020smt2020}.
+Beyond FJSSP and SMSP investigated here,
+we note that hybrid optimization algorithms integrating meta-heuristics and
+local search have also been adopted in a variety of other application settings
+\cite{abdel2021hybrid,fontes2023hybrid,li2021hybrid,mohd2023improved,suid2023novel}.
+
+
+\section{Problem Formulation}
+\label{sec:problem_f}
+
+We formulate SMSP in terms of the general FJSSP model,
+using the basic notations listed in Table~\ref{notations}. 
+In detail, our setting for scheduling the production of a semiconductor fab is characterized as follows:
+
+\begin{itemize}
+	\item The fab consists of $M$ machines, which are partitioned into $T$
+	tool groups, where $t_m\in\{1,\dots,T\}$ denotes the tool group
+	to which a machine $m\in\{1,\dots,M\}$ belongs.
+	\item There are $J$ jobs, where each $j\in\{1,\dots,J\}$ represents a
+	sequence $O_{1,j,t_1},\dots,O_{n_j,j,t_n}$ of operations to be performed on a production lot.
+	Note that $t_i\in\{1,\dots,T\}$ specifies the tool group 
+	responsible for processing an operation $O_{i,j,t_i}$, % for $i\in\{1,\dots,n_j\}$
+	but not a specific machine of $t_i$,
+	which reflects flexibility in assigning operations to machines.
+	The total number of operations is denoted by
+	$N = \sum_{j\in\{1,\dots,J\}}n_j$.
+	\item For each operation $O_{i,j,t}$,
+	the duration $d_{i,j,t}$ is required for processing $O_{i,j,t}$
+	on some machine of the tool group~$t$.
+\end{itemize}
+
+Our SMSP model reflects several features originating from the
+semiconductor production scenarios of the SMT2020 dataset \cite{kopp2020smt2020}.
+In the SMT2020 scenarios, jobs are associated with particular products, and
+their operation sequences, also called production routes,
+coincide for the same product.
+Since such production routes include hundreds of operations
+that are performed over several months in the physical fab,
+distinct lots of the same product are frequently at different
+steps of their routes when they get (re-)scheduled.
+Hence, we do not explicitly distinguish production routes by products
+but consider operation sequences of length $n_j$ relative to a job~$j$,
+which allows for separating the operations on lots that are at
+different manufacturing steps of the same route.
+
+Moreover, the machines belonging to a tool group are assumed to be uniform,
+i.e., an operation requiring the tool group can be processed by any of its
+machines.
+This simplifying assumption ignores specific machine setups, which may be
+needed for some operations and take additional equipping time,
+as well as unavailabilities due to maintenance procedures or breakdowns.
+However, the greedy machine assignment performed by our GSACO algorithm
+in Section~\ref{sec:gsaco} can take such conditions into account for
+allocating an operation to the earliest available machine.
+In addition, some transportation time is required to move
+a lot from one machine to another between operations,
+which is not explicitly given but taken as part of the operation duration
+in the SMT2020 scenarios.
+
+\begin{table}[t]
+	\caption{GSACO parameters}\label{tab:parameters} \centering
+	\begin{tabular}{ll}
+		\hline
+		Parameter & Description \\ \hline
+		$l$ & Cycles/time limit        \\
+		$n$ & Planning horizon \\
+		$k$ & Number of ants \\
+		$\tau_{y}$ & Initial pheromone level \\
+		$\tau_{z}$ & Minimum pheromone level \\
+		$\tau_{e}$ & Pheromone level on edge $e$ \\
+		%	$\eta_{e}$ & Heuristic information on edge $e$ \\
+		$\rho$ & Evaporation rate \\
+		$c$ & Contribution of best schedules \\
+		%	$\alpha$ & Influence of pheromone $\tau_{e}$ \\
+		%	$\beta$ & Influence of heuristic $\eta_{e}$    \\
+		\hline
+	\end{tabular}
+\end{table}
+
+A schedule allocates each operation $O_{i,j,t}$ to some machine
+$m\in\{1,\dots,M\}$ such that $t_m=t$, and we denote the machine
+assignment by $O_{i,j,t,m}$.
+Each machine performs its assigned operations in sequence without
+preemption, i.e.,
+$s_{i,j,t,m} + d_{i,j,t} \leq s_{i',j',t,m}$ or
+$s_{i',j',t,m} + d_{i',j',t} \leq s_{i,j,t,m}$
+must hold for the start times
+$s_{i,j,t,m}$ and $s_{i',j',t,m}$ of operations
+$O_{i,j,t,m}\neq O_{i',j',t,m}$
+allocated to the same machine~$m$.
+The precedence between operations of a job $j\in\{1,\dots,J\}$ needs to be
+respected as well, necessitating that
+$s_{i,j,t,m} + d_{i,j,t} \leq s_{i+1,j,t',m'}$ when $i<n_j$.
+Assuming that $0\leq s_{1,j,t,m}$ for each job $j\in\{1,\dots,J\}$,
+the makespan to complete all jobs is given by
+$\max\{s_{n_j,j,t,m} + d_{n_j,j,t} \mid j\in\{1,\dots,J\}\}$.
+We take makespan minimization as the optimization objective for scheduling,
+since it reflects efficient machine utilization and
+maximization of fab throughput.
+
+An example schedule (generated by GSACO) for three jobs with three
+operations each is displayed in Figure~\ref{fig:sch}.
+The start times for the operations of job~$1$ illustrate
+the scheduling constraints.
+That is, we have $s_{1,1,3,5} + d_{1,1,3} = 0 + 10 = s_{2,1,4,7}$
+due to the precedence between the first and second operation,
+while the machine~$7$ performing the second operation is already available
+at time~$9$.
+Regarding the start of the third operation,
+$s_{2,1,4,7} + d_{2,1,4} = 10 + 2 < 13 = s_{3,1,1,1}$, i.e.,
+the third operation needs to wait for machine~$1$ to complete
+the execution of another operation (of job~$2$).
+The completion time $s_{3,3,1,2} + d_{3,3,1} = 12 + 13$ of the third
+operation of job~$3$ constitutes the makespan~$25$ of the example schedule in Figure~\ref{fig:sch}.
+
+\section{GSACO Algorithm}
+\label{sec:gsaco}
+
+The framework of our % proposed
+GSACO algorithm, whose (input and internal) parameters are summarized in Table~\ref{tab:parameters},
+is displayed in Figure~\ref{fig:aco-flowchart}.
+Its four submodules, indicated in bold, are described in separate subsections below.
+% In the following, we detail the four modules incorporated in GSACO.
+
+Moreover, Algorithm~\ref{gsaco} provides a pseudo-code representation of
+GSACO.
+For a configurable cycle number or time limit~$l$,
+each of the $k$ ants applies greedy search
+using the GS procedure (detailed in Algorithm~\ref{gs}).
+That is, the first GS phase constructs an operation sequence, which is
+then taken as basis for greedily assigning the operations to machines
+in the second phase.   
+Note that the ants run independently, so that their GS trials
+can be performed in parallel.
+As a result, $k$ schedules along with edges between operations
+(described in Subsection~\ref{subsec:initialization})
+that have been selected for their construction are obtained.
+If some of these schedules improves the makespan over the best
+schedule found in previous iterations (if any),
+the best schedule gets updated.
+As common for ACO algorithms,
+pheromones $\tau_e$ on edges~$e$ are subject to evaporation,
+according to the formula $\rho\cdot\tau_e$,
+while edges selected to construct the best schedule obtained
+so far also receive a pheromone contribution,
+calculated as $\tau_e+c$.
+Such pheromone deposition increases the chance for edges contributing to the
+current best schedule
+to get re-selected % by the GS procedure
+in forthcoming iterations.
+
+%
+\begin{algorithm}[t]
+	\caption{Greedy Search based ACO (GSACO)}
+	\label{gsaco}
+	\KwIn{dataset, $l$}
+	\KwOut{best schedule found by ants}
+	\KwParam{$n$, $k$, $\tau_{y}$, $\tau_{z}$, $\rho$, $c$} % , $\alpha$, $\beta$
+	Initialize 
+	adjacency, pheromone, and machine matrix\; % and the heuristic information on edges\rlap{\;}
+	$\mathit{makespan}\leftarrow \infty$\; 
+	%	Set parameters; \\
+	%	$n, k, \tau_{y}, \tau_{z}, \alpha, \beta, \rho, c$\;
+	%	\ForEach{cycle \KwFrom $1$ \KwTo $l$}{
+		\While{cycle or time limit $l$ is not reached}{
+			\ForEach{ant \KwFrom $1$ \KwTo $k$}{
+				Run GS procedure to find a schedule\;
+				%			place ant at starting node (0)\;
+				%			apply greedy search\;
+			}
+			$\mathit{new}\leftarrow {}$ shortest makespan of ants' sched\rlap{ules\;}
+			\If{$\mathit{new}<\mathit{makespan}$}{ % schedule is better than current best}{
+				$\mathit{makespan}\leftarrow \mathit{new}$\;
+				$\mathit{best}\leftarrow {}$an ant's schedule of $\mathit{makespan}$\rlap{\;}
+			}
+			\ForEach{edge $e$ in pheromone matrix}{
+				%			evaporate pheromones\;
+				$\tau_{e} \leftarrow \max\{\rho\cdot\tau_e,\tau_z\}$\tcp*[r]{evaporation}% e pheromones}
+		}
+		\ForEach{edge $e$ selected by $\mathit{best}$ ant}{
+			%			deposit pheromones on best edges\;
+			$\tau_{e} \leftarrow \tau_e+c$\tcp*[r]{deposit pheromones}
+		}
+	}
+	\Return $\mathit{best}$\;
+\end{algorithm}
+
+\subsection{Input Module}
+
+This module reads in an SMSP instance, e.g.,
+obtained from the SMT2020 dataset \cite{kopp2020smt2020},
+specifying production routes,
+the tool groups with their machines, and the jobs to be performed.
+% The dataset is publicly available.
+Moreover, a limit~$l$ on the number of cycles and/or the time to spend
+on optimization by GSACO is given as input.
+
+\subsection{Initialization Module}
+\label{subsec:initialization}
+In view of long production routes with hundreds of operations
+in the SMT2020 dataset, we introduce a configurable planning horizon~$n$
+as upper bound on the length $n_j$ of the operation sequence for a job~$j$.
+The planning horizon thus constitutes a scaling factor for the size and
+the resulting complexity of SMSP instances.
+% This horizon is crucial in planning and decision-making, especially within large-scale production systems. 
+In practice, unpredictable stochastic events make long-term schedules obsolete and necessitate frequent re-scheduling,
+where limiting the planning horizon upfront provides a means to
+control the search and enable short response times.
+
+To express SMSP as a search problem on graphs,
+we identify an instance with the disjunctive graph
+
+whose vertices~$V$ contain the operations $O_{i,j,t}$ plus
+a dummy start node~$0$,
+conjunctive edges\linebreak[1]%
+%
+\begin{equation}
+	\begin{array}{@{}r@{}l@{}}
+		E_c = {}
+		& \{(0,O_{1,j,t_1}) \mid O_{1,j,t_1}\in V\}
+		\\ {} \cup {}
+		& \{(O_{i-1,j,t_{i-1}},O_{i,j,t_i}) \mid O_{i,j,t_i}\in V, i > 1\}
+	\end{array}
+\end{equation}
+%
+connect the dummy start node~$0$ to the first operation
+and each operation on to its successor (if any) in the sequence for a job,
+and disjunctive edges\linebreak[1]%
+%
+\begin{equation}
+	E_d = \{(O_{i,j,t},O_{i',j',t}) \mid O_{i,j,t}\in V,O_{i',j',t}\in V, j\neq j'\}
+\end{equation}
+%
+link operations (of distinct jobs) sharing a common tool group,
+as such operations may be allocated to the same machine.
+
+Any feasible schedule induces an acyclic subgraph $(V,E)$ of 
+the disjunctive graph~$G$
+such that $E_c\subseteq E$, and $(O_{i,j,t},O_{i',j',t})\in E_d\cap E$
+iff $s_{i,j,t,m}+d_{i,j,t} < s_{i',j',t,m}$ for distinct jobs $j\neq j'$,
+i.e., the operation
+$O_{i,j,t}$ is processed before $O_{i',j',t}$ by the same machine~$m$
+of tool group $t_m=t$.
+Conversely,
+the search for a high-quality solution can be accomplished by
+determining an acyclic subgraph $(V,E)$ of~$G$ that represents a schedule
+of short makespan.
+
+For example, Table~\ref{tab:operations} shows nine operations
+belonging to the operation sequences for three jobs, as they can
+be obtained with the parameter $n=3$ for the planning horizon.
+Conjunctive edges connect the dummy start node~$0$ to
+the operations numbered $1$, $4$, and $7$, which come first in their jobs,
+then operation~$1$ is connected on to $2$ as well as $2$ to $3$,
+and similarly for the other two jobs.
+In addition, mutual disjunctive edges link operations
+to be processed on the same tool group, e.g., those
+numbered $4$ and $7$ have the tool group \textit{Diffusion\_FE\_120}
+in common.
+The resulting $(N+1)\times(N+1)$ adjacency matrix, where $N=9$ is the
+total number of operations, $0$ entries indicate the absence, and
+$1$ entries the existence of edges, is given in Figure~\ref{fig:a}.
+
+\begin{table}[t]
+	\caption{Example operations}\label{tab:operations} \centering
+	\begin{tabular}{lllr}
+		\hline
+		No. & Operation & Tool group name & Duration\\ \hline
+		$1$ & $O_{1,1,3}$ & Diffusion\_FE\_125 & $10$ \\
+		$2$ & $O_{2,1,4}$ & WE\_FE\_84         & $2$ \\
+		$3$ & $O_{3,1,1}$ & DefMet\_FE\_118    & $6$ \\
+		$4$ & $O_{1,2,2}$ & Diffusion\_FE\_120 & $8$ \\
+		$5$ & $O_{2,2,4}$ & WE\_FE\_84         & $1$ \\
+		$6$ & $O_{3,2,1}$ & DefMet\_FE\_118    & $4$ \\
+		$7$ & $O_{1,3,2}$ & Diffusion\_FE\_120 & $9$ \\
+		$8$ & $O_{2,3,4}$ & WE\_FE\_84         & $3$ \\
+		$9$ & $O_{3,3,1}$ & DefMet\_FE\_118    & $13$ \\
+		\hline
+	\end{tabular}
+\end{table}
+%
+\begin{figure}[h]
+	\centering 
+	$\begin{array}{c@{}c}
+		& \begin{array}{cccccccccc} 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \end{array} \\
+		\begin{array}{c} 0 \\ 1 \\ 2 \\ 3 \\ 4 \\ 5 \\ 6 \\ 7 \\ 8 \\ 9 \end{array} &
+		\left[\begin{array}{cccccccccc}
+			0 & 1 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 \\
+			0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 \\
+			0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 & 0 \\
+			0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 \\
+			0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 \\
+			0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 1 \\
+			0 & 0 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 \\
+		\end{array}\right]
+	\end{array}$
+	\caption{Adjacency matrix for the operations in Table~\ref{tab:operations}}
+	\label{fig:a}
+\end{figure}
+
+As initial pheromone level on edges $e\in E_c\cup E_d$,
+we take $\tau_y=1$ by default.
+In general, representing pheromone levels by an $(N+1)\times(N+1)$
+matrix similar to the adjacency matrix,
+the entries~$\tau_{e}$ are initialized according to the following condition:\linebreak[1]%
+%
+\begin{equation}
+	\tau_{e} =
+	%\begin{cases}
+		%\tau_y & \text{if $e\in E_c\cup E_d$} \\
+		%0      & \text{otherwise}
+	%\end{cases}
+\end{equation}  
+%
+With $\tau_y=1$, this reproduces the adjacency matrix in Figure~\ref{fig:a}
+as initial pheromone matrix for our example.
+
+We additionally represent the possible machine assignments
+by an $(N+1)\times M$ machine matrix, where $M$ is the total number of
+machines.
+For example, with two machines per tool group and the mapping
+$t_m=\lceil \frac{m}{2} \rceil$ from machine identifiers
+$m\in \{1,\dots,8\}$ to the tool groups $t\in\{1,\dots,4\}$,
+responsible for processing the operations in Table~\ref{tab:operations},
+we obtain the machine matrix shown in Figure~\ref{fig:c}.
+While the dummy start node~$0$ needs no machine to process it,
+the operation $O_{1,1,3}$ numbered $1$ can be allocated to either the
+machine~$5$ or~$6$ of tool group~$3$, and
+corresponding $1$ entries indicate the machines available to perform
+the other operations as well.
+%
+\begin{figure}[h]
+	\centering 
+	$\begin{array}{c@{}c}
+		& \begin{array}{cccccccc} 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8  \end{array} \\
+		\begin{array}{c} 0 \\ 1 \\ 2 \\ 3 \\ 4 \\ 5 \\ 6 \\ 7 \\ 8 \\ 9 \end{array} &
+		\left[\begin{array}{cccccccccc}
+			0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0 & 1 & 1 & 0 & 0 \\
+			0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 \\
+			1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+			0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 \\
+			1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+			0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 \\
+			1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+		\end{array}\right]
+	\end{array}$
+	\caption{Machine matrix for the operations in Table~\ref{tab:operations}}
+	\label{fig:c}
+\end{figure}
+
+\subsection{GS Module}
+
+The general goal of greedy search methods consists of using heuristic decisions
+to find high-quality, but not necessarily optimal solutions in short time.
+Within GSACO, each ant applies greedy search to efficiently construct some
+feasible schedule for a given SMSP instance.
+The respective GS procedure, outlined by the pseudo-code in Algorithm~\ref{gs},
+includes two phases: 
+operation sequencing and machine assignment.
+%
+
+The first phase constructs a sequence comprising all operations
+of an SMSP instance.
+To this end, a probabilistic decision rule based on the pheromone
+matrix selects edges $(O',O_{i,j,t})$
+and adds their target operations $O_{i,j,t}$
+to the sequence one by one.
+As invariant ensuring the feasibility of a resulting schedule,
+the predecessor operation $O_{i-1,j,t'}$ of the same job~$j$
+must already belong to the sequence in case $i>1$.
+This is accomplished by maintaining a set $\mathit{next}$
+of selectable conjunctive and disjunctive edges $(O',O_{i,j,t})$
+such that $O'$ is the dummy start node~$0$ or already in sequence,
+while $O_{i,j,t}$ is the first yet unsequenced operation of its job~$j$.
+
+
+For example, starting with an empty sequence for the operations
+in Table~\ref{tab:operations},
+the initially selectable edges are
+$(0,O_{1,1,3})$, $(0,O_{1,2,2})$, and $(0,O_{1,3,2})$.
+Assuming that $(0,O_{1,2,2})$ gets selected,
+the first operation $O_{1,2,2}$ of job $2$ is added to the sequence,
+and the conjunctive edge $(O_{1,2,2},O_{2,2,4})$ as well as the
+disjunctive edge $(O_{1,2,2},O_{1,3,2})$ replace $(0,O_{1,2,2})$
+among the selectable edges.
+The process of selecting some edge to a yet unsequenced operation
+is repeated until each operation along with an edge targeting it
+has been processed.
+Note that selected disjunctive edges link operations based on tool groups,
+i.e., they do not reflect a machine assignment to be made in the second phase.
+
+With a sequence of operations at hand,
+the second phase allocates operations one by one to an earliest
+available machine.
+Reconsidering the operations $O_{1,2,2}$ and $O_{1,3,2}$ as well as the machine matrix in Figure~\ref{fig:c}, where these operations are numbered $4$ and $7$,
+we can first allocate $O_{1,2,2}$ to the free machine~$3$ with
+the start time $s_{1,2,2,3}=0$.
+This means that machine $3$ becomes available again at time
+$a_3 = s_{1,2,2,3} + d_{1,2,2} = 8$.
+However, the other machine~$4$ of tool group~$2$ is still free, so that
+$O_{1,3,2}$ is greedily assigned to machine~$4$ with the start time
+$s_{1,3,2,4}=0$ and the updated availability
+$a_4 = s_{1,3,2,4} + d_{1,3,2} = 9$.
+As we have that $a_3=8<9=a_4$,
+if a third operation were to be allocated to either the machine~$3$
+or~$4$ of tool group~$2$,
+our greedy assignment strategy would decide for machine~$3$.
+The described machine assignment process allocates operations
+according to the sequence from the first phase, yielding a
+feasible schedule that assigns the machines and start times for all operations.
+
+
+%
+Figure~\ref{fig:run} displays a sequence
+for the operations in Table~\ref{tab:operations}, 
+where sequence numbers indicate the order in which
+edges to the operations are selected,
+as it can be generated by the GS procedure.
+The edges running vertically are conjunctive and connect 
+the dummy start node~$0$ to the first operations 
+of the three jobs as well as predecessors to their
+successor operations.
+In addition, two disjunctive edges are selected between
+the second or third
+operation, respectively, of job~$2$ and the corresponding operation of job~$1$, considering that these operations have the tool group~$4$ or~$1$ in common.
+
+\begin{figure*}[t]
+\centering 
+$\begin{array}{c@{}c}
+	& \begin{array}{cccccccccc} 0\phantom{.5} & 1\phantom{.5} & 2\phantom{.5} & 3\phantom{.5} & 4\phantom{.5} & 5\phantom{.5} & 6\phantom{.5} & 7\phantom{.5} & 8\phantom{.5} & 9\phantom{.5} \end{array} \\
+	\begin{array}{c} 0 \\ 1 \\ 2 \\ 3 \\ 4 \\ 5 \\ 6 \\ 7 \\ 8 \\ 9 \end{array} &
+	\left[\begin{array}{cccccccccc}
+		0 & 1.3 & 0 & 0 & 1.3 & 0 & 0 & 1.3 & 0 & 0 \\
+		0 & 0 & 1.3 & 0 & 0 & 0 & 0 & 0 & 0 & 0     \\
+		0 & 0 & 0 & 1.3 & 0 & 4.9 & 0 & 0 & 4.9 & 0 \\
+		0 & 0 & 0 & 0 & 0 & 0 & 4.9 & 0 & 0 & 4.9   \\
+		0 & 0 & 0 & 0 & 0 & 1.3 & 0 & 4.9 & 0 & 0   \\
+		0 & 0 & 4.9 & 0 & 0 & 0 & 1.3 & 0 & 4.9 & 0 \\
+		0 & 0 & 0 & 4.9 & 0 & 0 & 0 & 0 & 0 & 4.9   \\
+		0 & 0 & 0 & 0 & 4.9 & 0 & 0 & 0 & 1.3 & 0   \\
+		0 & 0 & 4.9 & 0 & 0 & 4.9 & 0 & 0 & 0 & 1.3 \\
+		0 & 0 & 0 & 4.9 & 0 & 0 & 4.9 & 0 & 0 & 0   \\
+	\end{array}\right]
+\end{array}$
+\caption{Updated pheromone matrix for the operations in Table~\ref{tab:operations} after a few GSACO iterations}
+\label{fig:update_p}
+\end{figure*}
+
+
+
+The resulting greedy machine assignment, computed in the second phase
+of the GS procedure, is denoted by $m$ within the node labels $O_{i,j,t,m}$
+in Figure~\ref{fig:run}.
+In view of two machines available per tool group and three operations sharing each of the tool groups~$1$ and~$4$,
+the first two operations according to the sequence from the first phase, i.e., $O_{2,2,4}$ and $O_{2,3,4}$ or $O_{3,2,1}$ and $O_{3,3,1}$, 
+respectively, get distributed among the two machines of each tool group,
+which leads to the machine assignments
+$O_{2,2,4,7}$ and $O_{2,3,4,8}$ as well as $O_{3,2,1,1}$ and $O_{3,3,1,2}$.
+Which machines of the tool groups~$4$ and~$1$ then become available first to allocate the operations $O_{2,1,4}$ and $O_{3,1,1}$ can be read off the
+corresponding schedule shown in Figure~\ref{fig:sch}.
+That is, the machine~$7$ of tool group~$4$ is available from time~$9$,
+yielding the greedy assignment $O_{2,1,4,7}$.
+Similarly, $O_{3,1,1,1}$
+is obtained because the machine~$1$ gets free at time~$13$,
+while the other machine~$2$ of tool group~$1$ processes the third operation
+of job~$3$ until time $25$, which is the makespan of the constructed schedule.
+Given that this makespan coincides with the cumulative duration of job~$3$
+and its operations must be processed in sequence, the feasible schedule
+in Figure~\ref{fig:sch} happens to be optimal for the operations in Table~\ref{tab:operations}.
+
+\subsection{Evaluation Module}
+While each ant independently constructs a feasible schedule by means of the
+GS procedure, the evaluation module collects the results obtained
+by the ants in a GSACO iteration.
+Among them, a schedule of shortest makespan is determined as outcome of the
+iteration and stored as new best solution in case it improves over the schedules found in previous iterations (if any).
+After evaporating pheromones~$\tau_e$ by $\rho\cdot\tau_e$,
+where $\tau_z$ remains as minimum pheromone level if the obtained value
+would be smaller,
+the edges~$e$ that have been selected by the GS procedure for constructing the current best schedule receive a pheromone contribution and are updated to $\tau_e+c$.
+
+Note that our contribution parameter $c$ is a constant,
+while approaches in the literature often take the inverse of an objective value
+\cite{turkyilmaz2020research}, i.e., of the makespan in our case.
+The latter requires careful scaling to obtain non-marginal
+pheromone contributions, in particular, when makespans get as large
+as for SMSP instances.
+We instead opt for pheromone contributions such that the
+edges selected to construct best schedules are certain to have an increased chance
+of getting re-selected in forthcoming iterations.
+For our example in Table~\ref{tab:operations}, Figure~\ref{fig:update_p} provides the updated pheromone matrix
+after a few iterations of GSACO with the parameter values
+$\rho=0.7$ and $c=0.5$, showing a clear separation between the more frequently
+selected and futile edges.%
+
+\section{\uppercase{Experimental Evaluation}}
+\label{sec:results}
+
+We implemented our GSACO algorithm in Python using PyTorch, as it handles tensor operations efficiently and provides a multiprocessing library for
+parallelization, thus significantly speeding up the ants' execution of the GS procedure in each GSACO iteration.%
+\footnote{The source code is publicly available in our GitHub repository:
+\url{https://github.com/prosysscience/GSACO}}
+The first challenge consists of determining suitable values for the input
+parameters listed in Table~\ref{tab:parameters}, i.e.,
+all parameters but the internally calculated pheromone level $\tau_e$ on edges~$e$.
+We commit to the values given in Table~\ref{tab:p_value},
+where a time limit~$l$ of $10$ minutes and a planning horizon~$n$ of
+up to $5$ operations per job are plausible for SMSP instances
+based on the SMT2020 dataset, whose stochastic events necessitate frequent
+re-scheduling in practice.
+For the initial pheromone level~$\tau_y$,
+we start from value~$1$, and take $0.00001$ as the minimum $\tau_z$
+to avoid going down to $0$, considering that the GS procedure can only
+select edges with non-zero entries in the pheromone matrix.
+The values for the number~$k$ of ants, the evaporation rate~$\rho$,
+and the pheromone contribution~$c$ are more sophisticated to pick.
+That is, we tuned these parameters in a trial-and-error process that,
+starting from a baseline, inspects deviations of the final makespan and convergence speed obtained with iterative modifications.
+Certainly, an automated approach would be desirable to
+perform this task efficiently for new instance sets.%
+%
+\begin{table}[t]
+\caption{GSACO input parameter values}\label{tab:p_value} \centering
+\begin{tabular}{ll}
+	\hline
+	Parameter & Value \\ \hline
+	$l$ & $10$        \\
+	$n$ & $1$--$5$ \\
+	$k$ & $10$ \\
+	$\tau_{y}$ & $1$ \\
+	$\tau_{z}$ & $0.00001$ \\
+	%		$\alpha$ & 1  \\
+	%		$\beta$ & 1     \\
+	$\rho$ & $0.7$ \\
+	$c$ & $0.5$ \\
+	\hline
+\end{tabular}
+\end{table}
+
+To compare GSACO with the state of the art in FJSSP solving,
+we also run the CP solver OR-Tools (version 9.5) \cite{pediga23a},
+while heuristic and meta-heuristic methods from the literature could not
+be reproduced due to the inaccessibility of source code or tuned hyperparameters.
+Note that CP approaches have been shown to be particularly effective among
+exact optimization techniques for FJSSP \cite{kubec16a},
+where the free and open-source solver OR-Tools excels
+as serial winner of the Mi\-ni\-Zinc Challenge.\footnote{\url{https://www.minizinc.org/challenge}}
+
+We performed our experiments on a TUXEDO Pulse 14 Gen1 machine
+equipped with an 8-core AMD Ryzen 7 4800H processor at 2.9GHz and onboard
+Radeon graphics card.
+
+
+Table~\ref{tab:benchmarkresults} illustrates the strengths of CP models on a benchmark set of
+small to medium-scale FJSSP instances \cite{arnaout2014two},
+where the instances MK1--MK4 are due to 
+\cite{brandimarte1993routing} and the remaining eight instances
+have been introduced in
+\cite{fattahi2007mathematical}.
+In view of the small numbers $J$ and $M$ of jobs or machines, respectively,
+in these classical FJSSP instances,
+OR-Tools solves all of them to optimality within a few seconds,
+so that the CP column shows the minimal makespan for each instance.
+Since GSACO is an approximation method, its best schedules are not
+necessarily optimal, as it can be observed on instances other than
+SFJSSP1--SFJSSP4.
+This reconfirms that exact models,
+particularly those based on CP \cite{kubec16a},
+are the first choice for FJSSP instances
+of moderate size and complexity.%
+%
+\begin{table}[t]
+\caption{FJSSP results obtained with CP and GSACO}\label{tab:benchmarkresults} \centering
+\begin{tabular}{lrrrr}
+	\hline
+	Instance & $J$  & $M$ & CP  & GSACO \\ \hline
+	MK1      & $10$ & $6$ & $40$  & $44$     \\ 
+	MK2      & $10$ & $6$ & $27$  & $40$     \\ 
+	MK3      & $15$ & $8$ & $204$ & $239$    \\ 
+	MK4      & $15$ & $8$ & $60$  & $83$     \\ 
+	SFJSSP1   & $2$ & $2$ & $66$  & $66$     \\ 
+	SFJSSP2   & $2$ & $2$ & $107$ & $107$    \\ 
+	SFJSSP3   & $3$ & $2$ & $221$ & $221$    \\ 
+	SFJSSP4   & $3$ & $2$ & $355$ & $355$    \\ 
+	MFJSSP1   & $5$ & $6$ & $468$ & $498$    \\ 
+	MFJSSP2   & $5$ & $7$ & $446$ & $470$    \\ 
+	MFJSSP3   & $6$ & $7$ & $466$ & $523$    \\ 
+	MFJSSP4   & $7$ & $7$ & $554$ & $664$    \\ 
+	\hline
+\end{tabular}
+\end{table}
+
+
+%
+To evaluate large-scale SMSP instances,
+we consider two semiconductor production scenarios of the SMT2020 dataset:
+Low-Volume/High-Mix (LV/HM) and High-Volume/Low-Mix (HV/LM).
+As indicated in Table~\ref{tab:Dataset},
+both scenarios include more than $2000$ jobs and more than $1300$ machines,
+modeling the production processes of modern semiconductor fabs.
+The main difference is given by the number of products and associated production routes for jobs, where LV/HM considers $10$ production routes varying between
+$200$--$600$ steps in total, while HV/LM comprises $2$ production routes with about
+$300$ or $600$ steps, respectively.
+Originally, the LV/HM and HV/LM scenarios have been designed to represent fab load at the
+start of simulation runs, so that the jobs are at different steps of their
+production routes.
+We here instead focus on scheduling for planning horizons~$n$ from~$1$ to~$5$,
+standing for the up to $5$ next operations to be performed per job.
+Hence, the operations $O$ to schedule gradually increase from the
+number $J$ of jobs, in case of the planning horizon $n=1$,
+% , given in Table~\ref{tab:Dataset},
+to more than $10000$ operations % obtained
+for the longest % planning 
+horizon $n=5$.
+
+\begin{table}[t]
+\caption{Number of jobs, machines, and operations for SMSP instances}\label{tab:Dataset} \centering
+\begin{tabular}{lccc}
+	\hline
+	Scenario & $J$    & $M$    & $O$              \\ \hline
+	LV/HM    & $2156$ & $1313$ & up to $10747$    \\ 
+	HV/LM    & $2256$ & $1443$ & up to $11218$    \\
+	\hline
+\end{tabular}
+\end{table}
+%
+\begin{table*}[t]
+\caption{SMSP results obtained with CP and GSACO}\label{tab:results} \centering
+\begin{tabular}{rlrrrrrrrrrr}
+	\hline
+	&
+	&
+	\multicolumn{2}{c}{$1$ min} &
+	\multicolumn{2}{c}{$3$ min} &
+	\multicolumn{2}{c}{$5$ min} &
+	\multicolumn{2}{c}{$7$ min} &
+	\multicolumn{2}{c}{$9$ min} \\ \cline{3-12} 
+	$n$ & Scenario & CP & GSACO & CP & GSACO & CP & GSACO & CP & GSACO & CP & GSACO \\ \hline
+	\multirow{2}{*}{$1$} & LV/HM & - & $3735$ & $18572$ & $3725$ & $3746$ & $3725$ & $3723$ & $3725$ & $3723$ & $3725$  \\
+	& HV/LM & - & $1405$ & - & $1405$ & $2242$ & $1405$ & $1609$ & $1405$ & $1600$ & $1405$ \\
+	\multirow{2}{*}{$2$} & LV/HM & - & $3773$ & - & $3751$ & - & $3750$ & - & $3739$ & $4398$ & $3739$ \\
+	& HV/LM & - & $1653$ & - & $1644$ & - & $1611$ & - & $1611$ & - & $1611$   \\
+	\multirow{2}{*}{$3$} & LV/HM & - & $3880$ & - & $3867$ & - & $3836$ & - & $3834$ & - & $3834$   \\
+	& HV/LM & - & $1902$ & - & $1889$ & - & $1889$ & - & $1876$ & - & $1876$     \\
+	\multirow{2}{*}{$4$} & LV/HM & - & $4578$ & - & $4540$ & - & $4540$ & - & $4540$ & - & $4540$     \\
+	& HV/LM & - & $2207$ & - & $2113$ & - & $2113$ & - & $2093$ & - & $2093$  \\
+	\multirow{2}{*}{$5$} & LV/HM & - & $4680$ & - & $4680$ & - & $4553$ & - & $4553$ & - & $4553$   \\	
+	& HV/LM & - & $2667$ & - & $2566$ & - & $2566$ & - & $2518$ & - & $2518$ \\
+	\hline  
+\end{tabular}
+\end{table*}
+
+
+%
+While running with a time limit $l$ of $10$ minutes,
+Table~\ref{tab:results} reports the makespans of current best schedules
+found by the CP solver OR-Tools and our GSACO implementation
+at $1$, $3$, $5$, $7$, and $9$ minutes of computing time.
+Considering that the SMSP instances are large,
+OR-Tools now takes $3$ minutes to come up with the first solution(s)
+for the shortest planning horizon $n=1$ on the LV/HM scenario.
+Within the same fraction of computing time, GSACO already converges to a
+makespan of $3725$ and then proceeds with iterations that do not
+yield further improvements.
+That the best schedule found by GSACO is not optimal is witnessed by a
+marginally better solution obtained by OR-Tools after $7$ minutes.
+However, for the other SMSP instances, OR-Tools is unable to improve over
+GSACO within $9$ minutes, and it cannot even provide feasible schedules
+for planning horizons from $n=2$ on the HV/LM scenario or $n=3$ 
+on LV/HM.
+
+The quick convergence of our GSACO implementation is also outlined by the makespan improvements plotted in Figure~\ref{fig:makespan}.
+On the LV/HM scenario displayed in Figure~\ref{subfig:l}, 
+GSACO obtains its best schedules within $7$ minutes
+for all planning horizons.
+Only for the longest planning horizon $n=5$
+on the HV/LM scenario in Figure~\ref{subfig:h},
+an improvement occurs after more than the $9$ minutes of computing time
+listed in the rightmost column of Table~\ref{tab:results}.
+Comparing the SMSP instances for which OR-Tools manages to provide
+feasible schedules,
+the convergence to makespans in roughly the range of GSACO's results
+takes significantly more computing time.
+Hence, the time limit that would be necessary to break even with GSACO,
+as accomplished within $7$ minutes for the shortest planning horizon
+$n=1$ on the LV/HM scenario,
+cannot be predicted for the SMSP instances with longer planning horizons.
+Moreover, we observe that the initial schedules obtained 
+in the first GSACO iteration by some of the ants running in parallel are of relatively high quality, while
+OR-Tools sometimes finds outliers as its first solutions.
+This phenomenon occurs for the planning horizons $n=1$ and $n=2$
+on the LV/HM or HV/LM scenario, respectively, where the latter
+schedule of makespan $17664$ is found after more than $9$ minutes
+and thus not listed in Table~\ref{tab:results}.
+
+\section{\uppercase{Conclusion}}
+\label{sec:conclusion}
+
+Modern semiconductor fabs are highly complex and dynamic production
+environments, whose efficient operation by means of automated scheduling
+and control systems constitutes a pressing research challenge.
+In this work, we model the production processes of large-scale
+semiconductor fabs in terms of the well-known FJSSP.
+In contrast to classical FJSSP benchmarks,
+this leads to large-scale scheduling problems,
+even if short planning horizons cover only a fraction of the long
+production routes with hundreds of operations.
+The resulting size and complexity of large-scale SMSP instances
+exceed the capabilities of common FJSSP solving methods.
+We thus propose the GSACO algorithm combining probabilistic
+operation sequencing with greedy machine assignment.
+Its efficient implementation utilizing tensor operations and
+parallel ant simulations enables GSACO's convergence to high-quality
+solutions in short time.
+In this way, GSACO overcomes the scalability limits of
+exact optimization by means of a state-of-the-art CP approach
+and achieves the performance required for frequent re-scheduling
+in reaction to process deviations. % in physical fabs.
+
+
+While simplified FJSSP models of semiconductor manufacturing processes
+provide insights regarding the scalability of scheduling methods,
+in future work, we aim at extending GSACO to incorporate the specific
+conditions and functionalities of tools performing the production operations.
+Such features include, e.g.,
+machine setups to be equipped before performing operations,
+preventive maintenance procedures for which a machine needs to stay idle, and
+batch processing capacities to handle several production lots in one pass.
+In practice, these specifics matter for machine assignment strategies
+and should also be reflected in the respective greedy phase of GSACO.
+
+Our second target of future work concerns the utilization of schedules 
+found by GSACO for decision making and control within simulation models
+of semiconductor fabs.
+This goes along with the extension of optimization objectives to
+practically relevant performance indicators, such as deadlines for the
+completion of jobs and minimizing the tardiness.
+In view of the dynamic nature of real-world production operations and
+unpredictable stochastic events,
+quantifying the improvements by optimized scheduling methods
+requires their integration and evaluation in simulation.
+
+
+%\section*{Acknowledgments}
+\section*{ACKNOWLEDGEMENTS}
+
+This work has been funded by the FFG project 894072 (SwarmIn).
+We are grateful to the anonymous reviewers for constructive 
+comments that helped to improve the presentation of this paper.
+
+\section{Add-on}
+Dispatching and scheduling are critical in semiconductor manufacturing because they directly impact the throughput and utilization of resources. Dispatching refers to the process of assigning work to specific machines in real-time, while scheduling involves pre-planning the sequence and timing of operations to optimize certain objectives, such as minimizing the total completion time or balancing the load across different machines \cite{schumann2022scheduling}.
+
+For smaller volumes at workcenters in the fab, which are modeled as flexible job shops, optimal solutions can be achieved using mathematical optimization \cite{waschneck2018deep}. However, in larger and more dynamic environments, the complexity and computational time constraints limit the feasibility of applying mathematical optimization. Consequently, optimization is typically implemented on a local scale, isolated to individual workcenters. In complex job shop scenarios, this localized approach to production scheduling may lead to solutions that are globally sub-optimal.
+
+The complexity of scheduling is intensified by the unpredictable nature of processing times and machine availability. Variability in processing times may arise from differences in equipment performance, material handling durations, or the unique characteristics of each set of wafers. Furthermore, frequent machine breakdowns can lead to substantial disruptions, underscoring the need for strong and adaptable scheduling strategies \cite{leachman1996benchmarking}.
+
+
+The objectives of this paper are to:
+\begin{enumerate}
+	\item Compare the dispatcher and scheduler over the planning horizon 
+	\item Scheduling under different machine availabilities
+\end{enumerate}
+
+
+\subsection{A Subsection Sample}
+Please note that the first paragraph of a section or subsection is
+not indented. The first paragraph that follows a table, figure,
+equation etc. does not need an indent, either.
+
+Subsequent paragraphs, however, are indented.
+
+\subsubsection{Sample Heading (Third Level)} Only two levels of
+headings should be numbered. Lower level headings remain unnumbered;
+they are formatted as run-in headings.
+
+\paragraph{Sample Heading (Fourth Level)}
+The contribution should contain no more than four levels of
+headings. Table~\ref{tab1} gives a summary of all heading levels.
+
+\begin{table}
+\caption{Table captions should be placed above the
+tables.}\label{tab1}
+\begin{tabular}{|l|l|l|}
+\hline
+Heading level &  Example & Font size and style\\
+\hline
+Title (centered) &  {\Large\bfseries Lecture Notes} & 14 point, bold\\
+1st-level heading &  {\large\bfseries 1 Introduction} & 12 point, bold\\
+2nd-level heading & {\bfseries 2.1 Printing Area} & 10 point, bold\\
+3rd-level heading & {\bfseries Run-in Heading in Bold.} Text follows & 10 point, bold\\
+4th-level heading & {\itshape Lowest Level Heading.} Text follows & 10 point, italic\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\noindent Displayed equations are centered and set on a separate
+line.
+\begin{equation}
+x + y = z
+\end{equation}
+Please try to avoid rasterized images for line-art diagrams and
+schemas. Whenever possible, use vector graphics instead (see
+Fig.~\ref{fig1}).
+
+\begin{figure}
+\includegraphics[width=\textwidth]{fig1.eps}
+\caption{A figure caption is always placed below the illustration.
+Please note that short captions are centered, while long ones are
+justified by the macro package automatically.} \label{fig1}
+\end{figure}
+
+\begin{theorem}
+This is a sample theorem. The run-in heading is set in bold, while
+the following text appears in italics. Definitions, lemmas,
+propositions, and corollaries are styled the same way.
+\end{theorem}
+%
+% the environments 'definition', 'lemma', 'proposition', 'corollary',
+% 'remark', and 'example' are defined in the LLNCS documentclass as well.
+%
+\begin{proof}
+Proofs, examples, and remarks have the initial word in italics,
+while the following text appears in normal font.
+\end{proof}
+For citations of references, we prefer the use of square brackets
+and consecutive numbers. Citations using labels or the author/year
+convention are also acceptable. The following bibliography provides
+a sample reference list with entries for journal
+articles~\cite{ref_article1}, an LNCS chapter~\cite{ref_lncs1}, a
+book~\cite{ref_book1}, proceedings without editors~\cite{ref_proc1},
+and a homepage~\cite{ref_url1}. Multiple citations are grouped
+\cite{ref_article1,ref_lncs1,ref_book1},
+\cite{ref_article1,ref_book1,ref_proc1,ref_url1}.
+
+\begin{credits}
+\subsubsection{\ackname} A bold run-in heading in small font size at the end of the paper is
+used for general acknowledgments, for example: This study was funded
+by X (grant number Y).
+
+\subsubsection{\discintname}
+It is now necessary to declare any competing interests or to specifically
+state that the authors have no competing interests. Please place the
+statement with a bold run-in heading in small font size beneath the
+(optional) acknowledgments\footnote{If EquinOCS, our proceedings submission
+system, is used, then the disclaimer can be provided directly in the system.},
+for example: The authors have no competing interests to declare that are
+relevant to the content of this article. Or: Author A has received research
+grants from Company W. Author B has received a speaker honorarium from
+Company X and owns stock in Company Y. Author C is a member of committee Z.
+\end{credits}
+%
+% ---- Bibliography ----
+%
+% BibTeX users should specify bibliography style 'splncs04'.
+% References will then be sorted and formatted in the correct style.
+%
+% \bibliographystyle{splncs04}
+% \bibliography{mybibliography}
+%
+\begin{thebibliography}{8}
+\bibitem{schumann2022scheduling}
+Pinedo, M. L.: Scheduling: theory, algorithms, and systems. 6th edn. Springer (2022) 
+
+\bibitem{waschneck2018deep}
+Waschneck, B., Reichstaller, A., Belzner, L., Altenmüller, T., Bauernhansl, T., Knapp, A., Kyek, A.: Deep reinforcement learning for semiconductor production scheduling. In 2018 29th annual SEMI advanced semiconductor manufacturing conference (ASMC) pp. 301-306. IEEE, (2018, April)
+
+\bibitem{leachman1996benchmarking}
+Leachman, R. C., Hodges, D. A.: Benchmarking semiconductor manufacturing. IEEE transactions on semiconductor manufacturing 9(2), 158-169 (1996)
+
+\bibitem{McKay2003}
+McKay, K. N., Wiers, V. C.: Planning, scheduling and dispatching tasks in production control. Cognition, Technology \& Work, 5, 82-93 (2003)
+
+\bibitem{ref_article1}
+Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
+
+\bibitem{ref_lncs1}
+Author, F., Author, S.: Title of a proceedings paper. In: Editor,
+F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
+Springer, Heidelberg (2016). \doi{10.10007/1234567890}
+
+\bibitem{ref_book1}
+Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
+Location (1999)
+
+\bibitem{ref_proc1}
+Author, A.-B.: Contribution title. In: 9th International Proceedings
+on Proceedings, pp. 1--2. Publisher, Location (2010)
+
+\bibitem{ref_url1}
+LNCS Homepage, \url{http://www.springer.com/lncs}, last accessed 2023/10/25
+\end{thebibliography}
+\end{document}

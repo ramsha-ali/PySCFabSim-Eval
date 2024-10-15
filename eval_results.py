@@ -46,7 +46,7 @@ def main():
     results = {}
     names = set()
 
-    runs = 10
+    runs = 2
 
     lots = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
     machines = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
@@ -90,10 +90,10 @@ def main():
             machines[k][name] = dict(
                 avail=round(v["avail"][0] * 100, 2),
                 util=round(v["util"][0] * 100, 2),
-                pm=round(v["pm"][0] * 100, 2),
+                #pm=round(v["pm"][0] * 100, 2),
                 br=round(v["br"][0] * 100, 2),
-                setup=round(v["setup"][0] * 100, 2),
-                waiting_time=round(v["waiting_time"][0], 2),
+                #setup=round(v["setup"][0] * 100, 2),
+                #waiting_time=round(v["waiting_time"][0], 2),
             )
 
     print('\t', end='')

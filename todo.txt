@@ -7,17 +7,19 @@ remark: done
 Task2 @R
 Based on the breakdown log update the machine matrix in the scheduling
 Handle breakdown situation where only 1 machine in toolgroup
+remark: done
 
 Task3 @R
 Regenrate the schedule using the processing time
-Make sure the units are same. Change to seconds or minutes (preferable minutes)
+Make sure the units are same. Change to seconds or minutes (seconds : consisency with sim)
 file for schedule "aco_cpu\schedule_output.txt"
+remark: done
 
 Task4 @P
 Update the dispatching in simulation:
 Use the same sequence in the schedule_output.txt for dispatching
 
-Task5 @P
+Task5 @
 Write a method for re-schedule
 
 Task6 @R

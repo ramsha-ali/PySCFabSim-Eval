@@ -1,74 +1,58 @@
-
+import logging
 
 
 def get_schedule(job_matrix, machine_map, sequence, machine_asigned, start_job, end_job):
+    #print(machine_map)
+    last_step = {4:342, 3:582}
     valid_entries = (job_matrix != -1).all(dim=2) # operations not padded
     valid_jobs = job_matrix[valid_entries]
+    #print(sequence)
+    #print(machine_asigned)
     lot_product_step = []
-
+    scheduled_lots = {}
+    schedule_file = 'schedule_output.txt'
     i = 0
     idx = 1
-    with open('schedule_output.txt', 'w') as file:
-        # Write the header to the file
-        file.write("lot\tproduct\tstep\ttool\tmachine\tstart_time\tend_time\n")
+    try:
+        with open(schedule_file, 'w') as file:
+            file.write("lot\tproduct\tstep\ttool\tmachine\tstart_time\tend_time\n")
+            for op_id in sequence[1:]:
+                if i < len(valid_jobs):# and idx > 0:
+                    required_lot = valid_jobs[op_id - 1]
+                    #print(required_lot)
+                    lot = required_lot[0].item()
+                    product = required_lot[1].item()
+                    step = required_lot[2].item()
+                    tool = required_lot[3].item()
+                    get_tool = machine_map[tool]
+                    #print(tool)
+                    #print(get_tool)
+                    tool_name = get_tool[0]
+                    machine = machine_asigned[idx]
+                    #print(tool_name, machine)
+                    start_time = start_job[i]
+                    end_time = end_job[i]
+                    i += 1
+                    idx += 1
+                    tup = (lot, product, step, tool, machine, start_time, end_time)
+                    lot_product_step.append(tup)
+                    file.write(f"{lot}\t{product}\t{step}\t{tool_name}\t{machine}\t{start_time}\t{end_time}\n")
+                    file.flush()
 
-        for op_id in sequence[1:]:
-            if i < len(valid_jobs) and idx > 0:
-                required_lot = valid_jobs[op_id - 1]
-                lot = required_lot[0]
-                product = required_lot[1]
-                step = required_lot[2]
-                tool = required_lot[3]
+                    if (lot, product) not in scheduled_lots or scheduled_lots[(lot, product)] < step:
+                        scheduled_lots[(lot, product)] = step
 
-                get_tool = machine_map[tool]
-                tool_name = get_tool[0]
-                machine = machine_asigned[idx]
-
-                start_time = start_job[i]
-                end_time = end_job[i]
-                i += 1
-                idx += 1
-
-                tup = (lot, product, step, tool, machine, start_time, end_time)
-                lot_product_step.append(tup)
-
-                file.write(f"{lot}\t{product}\t{step}\t{tool_name}\t{machine}\t{start_time}\t{end_time}\n")
+        logging.info(f"Data written to {schedule_file} successfully")
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
 
 
+    done_lots = set()
+    for lot_prod, step in scheduled_lots.items():
+        product = lot_prod[1]
+        if product in last_step and step >= last_step[product]:
+            done_lots.add(lot_prod)
 
-    print("Done")
-    #for t in lot_product_step:
-        #print(f"Lot: {t[0]}, Product: {t[1]}, Step: {t[2]}, Tool: {t[3]}, Machine: {t[4]}, Start_time: {t[5]}, End_time: {t[6]}")
+    print(f"Throughput: {len(done_lots)}")
+    print()
 
-
-
-
-"""
-
-def get_schedule(job_matrix, sequence, machine_asigned, start_job, end_job):
-    valid_entries = (job_matrix != -1).all(dim=2) # operations not padded
-    valid_jobs = job_matrix[valid_entries]
-    lot_product_step = []
-    i = 0
-    idx = 1
-    for op_id in sequence[1:]:
-        if i < len(valid_jobs) and idx > 0:
-            required_lot = valid_jobs[op_id - 1]
-            lot = required_lot[0]
-            product = required_lot[1]
-            step = required_lot[2]
-            tool = required_lot[3]
-            machine = machine_asigned[idx]
-
-            start_time = start_job[i]
-            end_time = end_job[i]
-            i += 1
-            idx += 1
-
-            tup = (lot, product, step, tool, machine, start_time, end_time)
-            lot_product_step.append(tup)
-
-    for t in lot_product_step:
-        print(
-            f"Lot: {t[0]}, Product: {t[1]}, Step: {t[2]}, Tool: {t[3]}, Machine: {t[4]}, Start_time: {t[5]}, End_time: {t[6]}")
-"""

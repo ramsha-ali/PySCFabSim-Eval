@@ -1,3 +1,4 @@
+import sys
 from typing import Dict, List
 
 from simulation.classes import Machine, FileRoute, Lot
@@ -16,61 +17,66 @@ class FileInstance(Instance):
         family_locations = {}
         for d_m in files['tool.txt.1l']:
             for i in range(int(d_m['STNQTY'])):
-                speed = 1  # r.random.uniform(0.7, 1.3)
+                speed = 1
                 m = Machine(idx=machine_id, d=d_m, speed=speed)
                 family_locations[m.family] = m.loc
                 machines.append(m)
                 machine_id += 1
-
-        from_to = {(a['FROMLOC'], a['TOLOC']): get_distribution(a['DDIST'], a['DUNITS'], a['DTIME'], a['DTIME2']) for a
-                   in files['fromto.txt']}
 
         pieces = max([a['PIECES'] for a in files['order.txt'] + files['WIP.txt']])
         routes = {}
         route_keys = [key for key in files.keys() if 'route' in key]
         for rk in route_keys:
             route = FileRoute(rk, pieces, files[rk])
-            last_loc = None
             for s in route.steps:
                 s.family_location = family_locations[s.family]
-                key = (last_loc, s.family_location)
-                if last_loc is not None and key in from_to:
-                    s.transport_time = from_to[key]
-                last_loc = s.family_location
             routes[rk] = route
 
         parts = {p['PART']: p['ROUTEFILE'] for p in files['part.txt']}
 
+        # for gsaco dispatch
+        file_path = 'aco_cpu/schedule_output.txt'
+        schedule = []
+        with open(file_path, 'r') as f:
+            next(f)
+            for line in f:
+                lot, product, step, tool, machine, start_time, end_time = line.strip().split('\t')
+                schedule.append((int(lot), int(product), int(step), int(machine), float(start_time)))
+        sorted(schedule, key=lambda x: x[4])
+        scheduled_lots = [(lot, machine) for lot, product, step, machine, _ in schedule]
+        gsaco_schedule = {}
+        for i in scheduled_lots:
+            l, m = i
+            if m not in gsaco_schedule:
+                gsaco_schedule[m] = []
+            gsaco_schedule[m].append(l)
+        min_steps = {}
+        for lot, part, curstep, _, _ in schedule:
+            key = (lot, part)
+            if key not in min_steps or curstep < min_steps[key][0]:
+                min_steps[key] = (curstep, f"Init_Lot_{part}_{lot}")
+
+        ## ------------------------------------------------  ##
+
         lots = []
         idx = 0
         lot_pre = {}
-        for order in files['order.txt']:
-            assert pieces == order['PIECES']
-            first_release = 0
-            release_interval = get_interval(order['REPEAT'], order['RUNITS'])
-            relative_deadline = (date_time_parse(order['DUE']) - date_time_parse(order['START'])).total_seconds()
-
-            for i in range(order['RPT#']):
-                rel_time = first_release + i * release_interval
-                lot = Lot(idx, routes[parts[order['PART']]], order['PRIOR'], rel_time, relative_deadline, order)
-                lots.append(lot)
-                lot_pre[lot.name] = relative_deadline
-                idx += 1
-                if rel_time > run_to:
-                    break
-
         for wip in files['WIP.txt']:
             assert pieces == wip['PIECES']
             first_release = 0
             relative_deadline = (date_time_parse(wip['DUE']) - date_time_parse(wip['START'])).total_seconds()
             if wip['CURSTEP'] < len(routes[parts[wip['PART']]].steps) - 1:
+                #idx = wip['LOT'].split('_')[-1]
                 lot = Lot(idx, routes[parts[wip['PART']]], wip['PRIOR'], first_release, relative_deadline, wip)
                 lots.append(lot)
+                lot_pre[lot.name] = relative_deadline
                 lot.release_at = lot.deadline_at - lot_pre[lot.name]
             idx += 1
 
-        #setups = {(s['CURSETUP'], s['NEWSETUP']): get_interval(s['STIME'], s['STUNITS']) for s in files['setup.txt']}
-        #setup_min_run = {s['SETUP']: s['MINRUN'] for s in files['setupgrp.txt']}
+        sys.stderr.write(
+            f'lots: {len(lots)} '
+            f'machines: {len(machines)}'
+            f'\n')
 
         downcals = {}
         for dc in files['downcal.txt']:
@@ -96,16 +102,11 @@ class FileInstance(Instance):
                 ne, le = pmcals[a['CALNAME']]
             if distribution is None:
                 distribution = ne
-            if a['FOAUNITS'] == '':
-                for m in m_break:
-                    m.piece_per_maintenance.append(ne.c)
-                    m.pieces_until_maintenance.append(a['FOA'])
-                    m.maintenance_time.append(le)
-            else:
-                for m in m_break:
-                    br = BreakdownEvent(distribution.sample(), le, ne, m, is_breakdown)
-                    if not is_breakdown:
-                        m.pms.append(br)
-                    breakdowns.append(br)
 
-        super().__init__(machines, routes, lots, breakdowns, lot_for_machine, plugins)
+            for m in m_break:
+                br = BreakdownEvent(distribution.sample(), le, ne, m, is_breakdown)
+                breakdowns.append(br)
+
+        #super().__init__(machines, routes, lots, breakdowns, lot_for_machine, plugins)
+        super().__init__(machines, routes, lots, breakdowns, lot_for_machine, gsaco_schedule, run_to, plugins)
+

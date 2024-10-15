@@ -1,0 +1,753 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.7)  15 OCT 2024 11:08
+entering extended mode
+ \write18 enabled.
+ %&-line parsing enabled.
+**./samplepaper.tex
+(samplepaper.tex
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-07-20>
+(llncs.cls
+Document Class: llncs 2024/01/29 v2.24 
+ LaTeX document class for Lecture Notes in Computer Science
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2024/02/08 v1.4n Standard LaTeX document class
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count194
+\c@section=\count195
+\c@subsection=\count196
+\c@subsubsection=\count197
+\c@paragraph=\count198
+\c@subparagraph=\count199
+\c@figure=\count266
+\c@table=\count267
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2024/05/23 v1.9h multicolumn formatting (FMi)
+\c@tracingmulticols=\count268
+\mult@box=\box52
+\multicol@leftmargin=\dimen142
+\c@unbalance=\count269
+\c@collectmore=\count270
+\doublecol@number=\count271
+\multicoltolerance=\count272
+\multicolpretolerance=\count273
+\full@width=\dimen143
+\page@free=\dimen144
+\premulticols=\dimen145
+\postmulticols=\dimen146
+\multicolsep=\skip51
+\multicolbaselineskip=\skip52
+\partial@page=\box53
+\last@line=\box54
+\mc@boxedresult=\box55
+\maxbalancingoverflow=\dimen147
+\mult@rightbox=\box56
+\mult@grightbox=\box57
+\mult@firstbox=\box58
+\mult@gfirstbox=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\c@minrows=\count274
+\c@columnbadness=\count275
+\c@finalcolumnbadness=\count276
+\last@try=\dimen148
+\multicolovershoot=\dimen149
+\multicolundershoot=\dimen150
+\mult@nat@firstbox=\box96
+\colbreak@box=\box97
+\mc@col@check@num=\count277
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\aliascnt.sty
+Package: aliascnt 2018/09/07 v1.5 Alias counters (HO)
+)
+\c@chapter=\count278
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 379.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 380.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 381.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 382.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 383.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 384.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 385.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 386.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 387.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 388.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 389.
+LaTeX Info: Redefining \vec on input line 394.
+\tocchpnum=\dimen151
+\tocsecnum=\dimen152
+\tocsectotal=\dimen153
+\tocsubsecnum=\dimen154
+\tocsubsectotal=\dimen155
+\tocsubsubsecnum=\dimen156
+\tocsubsubsectotal=\dimen157
+\tocparanum=\dimen158
+\tocparatotal=\dimen159
+\tocsubparanum=\dimen160
+\@tempcntc=\count279
+\fnindent=\dimen161
+\c@@inst=\count280
+\c@@auth=\count281
+\c@auco=\count282
+\instindent=\dimen162
+\authrun=\box98
+\authorrunning=\toks17
+\tocauthor=\toks18
+\titrun=\box99
+\titlerunning=\toks19
+\toctitle=\toks20
+\c@theorem=\count283
+\c@case=\count284
+\c@conjecture=\count285
+\c@corollary=\count286
+\c@definition=\count287
+\c@example=\count288
+\c@exercise=\count289
+\c@lemma=\count290
+\c@note=\count291
+\c@problem=\count292
+\c@property=\count293
+\c@proposition=\count294
+\c@question=\count295
+\c@solution=\count296
+\c@remark=\count297
+\headlineindent=\dimen163
+) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2024/05/23 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.
+cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.de
+f
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen164
+\Gin@req@width=\dimen165
+) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
+\col@sep=\dimen166
+\ar@mcellbox=\box100
+\extrarowheight=\dimen167
+\NC@list=\toks22
+\extratabsurround=\skip53
+\backup@length=\skip54
+\ar@cellbox=\box101
+)
+\everycr=\toks23
+\minrowclearance=\skip55
+\rownum=\count298
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip56
+\multirow@cntb=\count299
+\multirow@dima=\skip57
+\bigstrutjot=\dimen168
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2
+e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count300
+ (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip58
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.st
+y
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count301
+) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip59
+\skiplinenumber=\skip60
+\skiprule=\skip61
+\skiphlne=\skip62
+\skiptext=\skip63
+\skiplength=\skip64
+\algomargin=\skip65
+\skipalgocfslide=\skip66
+\algowidth=\dimen169
+\inoutsize=\dimen170
+\inoutindent=\dimen171
+\interspacetitleruled=\dimen172
+\interspacealgoruled=\dimen173
+\interspacetitleboxruled=\dimen174
+\algocf@ruledwidth=\skip67
+\algocf@inoutbox=\box102
+\algocf@inputbox=\box103
+\AlCapSkip=\skip68
+\AlCapHSkip=\skip69
+\algoskipindent=\skip70
+\algocf@nlbox=\box104
+\algocf@hangingbox=\box105
+\algocf@untilbox=\box106
+\algocf@skipuntil=\skip71
+\algocf@capbox=\box107
+\algocf@lcaptionbox=\skip72
+\algoheightruledefault=\skip73
+\algoheightrule=\skip74
+\algotitleheightruledefault=\skip75
+\algotitleheightrule=\skip76
+\c@algocfline=\count302
+\c@algocfproc=\count303
+\c@algocf=\count304
+\algocf@algoframe=\box108
+\algocf@algobox=\box109
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
+ftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count305
+\l__pdf_internal_box=\box110
+) (samplepaper.aux)
+\openout1 = `samplepaper.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
+LaTeX Font Info:    ... okay on input line 31.
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.m
+kii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count306
+\scratchdimen=\dimen175
+\scratchbox=\box111
+\nofMPsegments=\count307
+\nofMParguments=\count308
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count309
+\MPscratchDim=\dimen176
+\MPnumerator=\count310
+\makeMPintoPDFobject=\count311
+\everyMPtoPDFconversion=\toks25
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-
+base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.
+cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 56.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 56.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 56.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 56.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
+6.
+ (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+)
+Title too long for running head. Please supply
+a shorter form with \titlerunning prior to \maketitle
+
+LaTeX Warning: Citation `xiong2022survey' on page 1 undefined on input line 74.
+
+
+
+LaTeX Warning: Citation `xie2019review' on page 1 undefined on input line 74.
+
+
+LaTeX Warning: Citation `kopp2020smt2020' on page 1 undefined on input line 77.
+
+
+
+Overfull \hbox (0.10089pt too wide) in paragraph at lines 77--81
+[]\T1/cmr/m/n/10 In this pa-per, we ad-dress a large-scale Semi-con-duc-tor Man
+-u-fac-tur-ing Schedul-
+ []
+
+
+
+[1
+
+{C:/Users/ramali/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+
+LaTeX Warning: Citation `behnke2012test' on page 2 undefined on input line 91.
+
+
+LaTeX Warning: Citation `kopp2020smt2020' on page 2 undefined on input line 94.
+
+
+
+LaTeX Warning: Citation `dorigo2019ant' on page 2 undefined on input line 105.
+
+
+LaTeX Warning: Citation `papste82a' on page 2 undefined on input line 106.
+
+
+LaTeX Warning: Citation `pediga23a' on page 2 undefined on input line 110.
+
+
+LaTeX Warning: Citation `meng2020mixed' on page 2 undefined on input line 135.
+
+
+LaTeX Warning: Citation `gedik2018constraint' on page 2 undefined on input line
+ 138.
+
+
+
+[2]
+
+LaTeX Warning: Citation `saidi2007flexible' on page 3 undefined on input line 1
+43.
+
+
+LaTeX Warning: Citation `sobeyko2016heuristic' on page 3 undefined on input lin
+e 144.
+
+
+LaTeX Warning: Citation `gao2006solving' on page 3 undefined on input line 145.
+
+
+
+LaTeX Warning: Citation `ho2007effective' on page 3 undefined on input line 146
+.
+
+
+LaTeX Warning: Citation `li2014discrete' on page 3 undefined on input line 147.
+
+
+
+LaTeX Warning: Citation `wang2017flexible' on page 3 undefined on input line 14
+8.
+
+
+LaTeX Warning: Citation `li2010improved' on page 3 undefined on input line 149.
+
+
+
+LaTeX Warning: Citation `xing2010knowledge' on page 3 undefined on input line 1
+49.
+
+
+LaTeX Warning: Citation `thammano2013hybrid' on page 3 undefined on input line 
+149.
+
+
+LaTeX Warning: Citation `el2017dual' on page 3 undefined on input line 149.
+
+
+LaTeX Warning: Citation `shang2023study' on page 3 undefined on input line 151.
+
+
+
+LaTeX Warning: Citation `stockermann2023dispatching' on page 3 undefined on inp
+ut line 153.
+
+
+LaTeX Warning: Citation `tassel2023semiconductor' on page 3 undefined on input 
+line 153.
+
+
+LaTeX Warning: Citation `kovacs2023optimizing' on page 3 undefined on input lin
+e 154.
+
+
+LaTeX Warning: Citation `dorigo2019ant' on page 3 undefined on input line 182.
+
+
+LaTeX Warning: Citation `stutzle1999aco' on page 3 undefined on input line 184.
+
+
+
+LaTeX Warning: Citation `rizzoli2007ant' on page 3 undefined on input line 185.
+
+
+
+LaTeX Warning: Citation `luo2008ant' on page 3 undefined on input line 185.
+
+
+LaTeX Warning: Citation `rugwiro2019task' on page 3 undefined on input line 185
+.
+
+
+LaTeX Warning: Citation `khelifa2020holonic' on page 3 undefined on input line 
+185.
+
+
+LaTeX Warning: Citation `wang2009hopnet' on page 3 undefined on input line 185.
+
+
+
+
+[3]
+
+LaTeX Warning: Citation `turkyilmaz2020research' on page 4 undefined on input l
+ine 200.
+
+
+LaTeX Warning: Citation `leung2010integrated' on page 4 undefined on input line
+ 205.
+
+
+LaTeX Warning: Citation `li2010improved' on page 4 undefined on input line 205.
+
+
+
+LaTeX Warning: Citation `xing2010knowledge' on page 4 undefined on input line 2
+05.
+
+
+LaTeX Warning: Citation `thammano2013hybrid' on page 4 undefined on input line 
+205.
+
+
+LaTeX Warning: Citation `arnaout2014two' on page 4 undefined on input line 205.
+
+
+
+LaTeX Warning: Citation `el2017dual' on page 4 undefined on input line 205.
+
+
+LaTeX Warning: Citation `arnaout2014two' on page 4 undefined on input line 207.
+
+
+
+LaTeX Warning: Citation `kopp2020smt2020' on page 4 undefined on input line 209
+.
+
+
+LaTeX Warning: Citation `abdel2021hybrid' on page 4 undefined on input line 213
+.
+
+
+LaTeX Warning: Citation `fontes2023hybrid' on page 4 undefined on input line 21
+3.
+
+
+LaTeX Warning: Citation `li2021hybrid' on page 4 undefined on input line 213.
+
+
+LaTeX Warning: Citation `mohd2023improved' on page 4 undefined on input line 21
+3.
+
+
+LaTeX Warning: Citation `suid2023novel' on page 4 undefined on input line 213.
+
+
+Overfull \hbox (32.16933pt too wide) in paragraph at lines 227--235
+[]\T1/cmr/m/n/10 There are $\OML/cmm/m/it/10 J$ \T1/cmr/m/n/10 jobs, where each
+ $\OML/cmm/m/it/10 j \OMS/cmsy/m/n/10 2 f\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; []
+ ; J\OMS/cmsy/m/n/10 g$ \T1/cmr/m/n/10 rep-re-sents a se-quence $\OML/cmm/m/it/
+10 O[]; [] ; O[]$
+ []
+
+
+LaTeX Warning: Citation `kopp2020smt2020' on page 4 undefined on input line 241
+.
+
+
+
+[4]
+
+LaTeX Warning: Reference `fig:sch' on page 5 undefined on input line 310.
+
+
+LaTeX Warning: Reference `fig:sch' on page 5 undefined on input line 322.
+
+
+LaTeX Warning: Reference `fig:aco-flowchart' on page 5 undefined on input line 
+329.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[5]
+
+LaTeX Warning: Reference `gs' on page 6 undefined on input line 337.
+
+
+LaTeX Warning: Citation `kopp2020smt2020' on page 6 undefined on input line 399
+.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[6]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[7]
+Overfull \hbox (5.19756pt too wide) in paragraph at lines 524--528
+\T1/cmr/m/n/10 With $\OML/cmm/m/it/10 ^^\[] \OT1/cmr/m/n/10 = 1$\T1/cmr/m/n/10 
+, this re-pro-duces the ad-ja-cency ma-trix in Fig-ure 1[] as ini-tial pheromon
+e
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `gs' on page 8 undefined on input line 571.
+
+
+
+[8]
+
+[9]
+
+LaTeX Warning: Reference `fig:run' on page 10 undefined on input line 628.
+
+
+LaTeX Warning: Reference `fig:run' on page 10 undefined on input line 667.
+
+
+LaTeX Warning: Reference `fig:sch' on page 10 undefined on input line 674.
+
+
+LaTeX Warning: Reference `fig:sch' on page 10 undefined on input line 683.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[10]
+
+LaTeX Warning: Citation `turkyilmaz2020research' on page 11 undefined on input 
+line 698.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 716--716
+ [][]\T1/cmr/m/n/9 The source code is pub-licly avail-able in our GitHub repos-
+i-tory:
+ []
+
+
+LaTeX Warning: Citation `pediga23a' on page 11 undefined on input line 755.
+
+
+LaTeX Warning: Citation `kubec16a' on page 11 undefined on input line 759.
+
+
+
+[11]
+Overfull \hbox (9.33365pt too wide) in paragraph at lines 763--766
+[]\T1/cmr/m/n/10 We per-formed our ex-per-i-ments on a TUXEDO Pulse 14 Gen1 ma-
+chine equipped
+ []
+
+
+LaTeX Warning: Citation `arnaout2014two' on page 12 undefined on input line 769
+.
+
+
+LaTeX Warning: Citation `brandimarte1993routing' on page 12 undefined on input 
+line 771.
+
+
+LaTeX Warning: Citation `fattahi2007mathematical' on page 12 undefined on input
+ line 773.
+
+
+LaTeX Warning: Citation `kubec16a' on page 12 undefined on input line 782.
+
+
+
+[12]
+Overfull \hbox (2.11755pt too wide) in paragraph at lines 869--885
+[]\T1/cmr/m/n/10 While run-ning with a time limit $\OML/cmm/m/it/10 l$ \T1/cmr/
+m/n/10 of $\OT1/cmr/m/n/10 10$ \T1/cmr/m/n/10 min-utes, Ta-ble 7[] re-ports the
+ makespans
+ []
+
+
+LaTeX Warning: Reference `fig:makespan' on page 13 undefined on input line 886.
+
+
+
+LaTeX Warning: Reference `subfig:l' on page 13 undefined on input line 887.
+
+
+LaTeX Warning: Reference `subfig:h' on page 13 undefined on input line 891.
+
+
+
+[13]
+
+[14]
+
+[15]
+Package epstopdf Info: Source file: <fig1.eps>
+(epstopdf)                    date: 2024-09-24 09:34:37
+(epstopdf)                    size: 357553 bytes
+(epstopdf)             Output file: <fig1-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-09-24 09:35:07
+(epstopdf)                    size: 36500 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=fig1-eps-converted-t
+o.pdf fig1.eps>
+(epstopdf)             \includegraphics on input line 1022.
+Package epstopdf Info: Output file is already uptodate.
+<fig1-eps-converted-to.pdf, id=78, 345.29pt x 142.5325pt>
+File: fig1-eps-converted-to.pdf Graphic file (type pdf)
+<use fig1-eps-converted-to.pdf>
+Package pdftex.def Info: fig1-eps-converted-to.pdf  used on input line 1022.
+(pdftex.def)             Requested size: 347.12354pt x 143.29115pt.
+
+
+[16]
+
+[17 <./fig1-eps-converted-to.pdf>] (samplepaper.aux)
+ ***********
+LaTeX2e <2024-06-01> patch level 2
+L3 programming layer <2024-07-20>
+ ***********
+
+
+LaTeX Warning: There were undefined references.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 3896 strings out of 473898
+ 61173 string characters out of 5726008
+ 1960960 words of memory out of 5000000
+ 26741 multiletter control sequences out of 15000+600000
+ 571349 words of font info for 61 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 57i,19n,79p,619b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecr
+m0600.pk> <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
+600\ecrm0700.pk> <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
+/ec/dpi600\ecti1000.pk> <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\ecti0900.pk> <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/l
+jfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\ramali\AppData\Local\MiKTeX\fon
+ts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\ramali\AppData\Local\MiK
+TeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0900.pk> <C:\Users\ramali\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\ramali\App
+Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\ram
+ali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Us
+ers\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk>
+ <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1
+440.pk><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ramali/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ramali/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ramali/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/ramali
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Use
+rs/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb
+><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmr6.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmr7.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmr9.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/ramali/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ramali/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/ramali/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Use
+rs/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pf
+b>
+Output written on samplepaper.pdf (17 pages, 409445 bytes).
+PDF statistics:
+ 618 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+

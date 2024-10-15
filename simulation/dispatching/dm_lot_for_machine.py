@@ -7,14 +7,12 @@ class LotForMachineDispatchManager:
         self.usable_machines = set()
 
     @staticmethod
-    def free_up_lots(self, lot):
+    def free_up_lots(self, lot, schedule):
         for machine in self.family_machines[lot.actual_step.family]:
-            di = lot.actual_step.order
-            if di not in lot.dedications or machine.idx == lot.dedications[di]:
-                machine.waiting_lots.append(lot)
-                lot.waiting_machines.append(machine)
-                if self.free_machines[machine.idx]:
-                    self.usable_machines.add(machine)
+            machine.waiting_lots.append(lot)
+            lot.waiting_machines.append(machine)
+            if self.free_machines[machine.idx]:
+                self.usable_machines.add(machine)
 
     @staticmethod
     def free_up_machine(self, machine):
@@ -24,12 +22,16 @@ class LotForMachineDispatchManager:
             self.usable_machines.add(machine)
 
     @staticmethod
-    def reserve(self, lots, machine):
+    def reserve(self, lots, machine, schedule):
         self.free_machines[machine.idx] = False
         self.usable_machines.remove(machine)
+        #print(lots)
         for lot in lots:
+            #print(lot, lot.waiting_machines)
             for mx in lot.waiting_machines:
+                #print(mx, mx.waiting_lots)
                 mx.waiting_lots.remove(lot)
+                #print(mx, mx.waiting_lots)
                 if len(mx.waiting_lots) == 0 and mx in self.usable_machines:
                     self.usable_machines.remove(mx)
             lot.waiting_machines.clear()
