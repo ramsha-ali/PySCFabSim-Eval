@@ -1,6 +1,7 @@
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import seaborn as sns
 
 def read_schedule_and_visualize(schedule_file, tool_file):
     time = 3600
@@ -12,7 +13,7 @@ def read_schedule_and_visualize(schedule_file, tool_file):
     df_tools = pd.read_csv(tool_file, sep='\t', usecols=['STNFAM', 'STNGRP'])
     df_tools['STNFAM'] = df_tools['STNFAM'].str.lower()
 
-    print(df_utilization)
+
 
     df_merged = pd.merge(df_utilization, df_tools, left_on='tool', right_on='STNFAM', how='left')
 
@@ -32,6 +33,32 @@ def read_schedule_and_visualize(schedule_file, tool_file):
     plt.tight_layout()
     plt.show()
 
+    df_schedule_lots = pd.read_csv(schedule_file, delimiter='\t', usecols=['lot', 'product', 'step'])
+    distinct_steps = df_schedule_lots.groupby(['lot', 'product'])['step'].nunique()
+
+    # Creating a dictionary to store the counts
+    lot_product_steps = distinct_steps.to_dict()
+
+    print(lot_product_steps)
+    counts = list(lot_product_steps.values())
+
+    min_count = np.min(counts)
+    max_count = np.max(counts)
+    median_count = np.median(counts)
+
+    print(min_count, max_count, median_count)
+    algorithm_name = ['GSACO'] * len(counts)
+
+    # Prepare the plot data
+    algorithm_data = pd.DataFrame({'Algorithm': algorithm_name, 'Distinct Step Counts': counts})
+    plt.figure(figsize=(8, 6))
+    sns.boxplot(x='Algorithm', y='Distinct Step Counts', data=algorithm_data, width=0.3)
+    plt.title('Step Count Range for Algorithm FIFO')
+    plt.xlabel('Algorithm')
+    plt.ylabel('WIP Range')
+    plt.grid(True)
+    plt.show()
+
 
 # Replace 'path_to_your_schedule_file.csv' with the actual path of your file
-read_schedule_and_visualize('schedule_output.txt', '../datasets/SMT2020_HVLM/tool.txt.1l')
+read_schedule_and_visualize('..\schedule_output\schedule_output_3600s.txt', '../datasets/SMT2020_HVLM/tool.txt.1l')

@@ -13,7 +13,7 @@ def get_user_input():
         "instance" : simulation_instance,
         "dataset": default_dataset_path,   # (script_dir / f'../{dataset_input}') if dataset_input else default_dataset_path
         "n": 15,  # max number of steps per lot
-        "days": 3600,  # int(input("enter planning days: "))
+        "days": 21600,  # int(input("enter planning days: "))
         "state": "deterministic",  # deterministic/dynamic
         "breakdown": "no",  # yes/no
         "availability": "complete",  # complete/partial/no
@@ -21,9 +21,9 @@ def get_user_input():
         "rho": float(0.3),
         "contribution": float(0.5),
         "min_pheromone": float(0.00001),
-        "time_limit": 1,  # int(input("enter time limit for scheduler: "))
-        "cycle": 1,  # int(input("enter max cycles: "))
-        "num_ants": 1,  # int(input("enter number of ants: "))
+        "time_limit": 300,  # int(input("enter time limit for scheduler: "))
+        "cycle": 20,  # int(input("enter max cycles: "))
+        "num_ants": 10,  # int(input("enter number of ants: "))
     }
 
     parameters['dataset'] = Path(parameters['dataset'])

@@ -24,9 +24,9 @@ parameters = get_user_input()
 
 def worker(args):
     availability, machine_map, job_tensor, adjacency_matrix, pheromone_matrix, machine_matrix, availability_matrix, availability_time_matrix, current_time, num_day, device, seed = args
-    np.random.seed(seed)
-    random.seed(seed)
-    torch.manual_seed(seed)
+    #np.random.seed(seed)
+    #random.seed(seed)
+    #torch.manual_seed(seed)
     job_tensor = job_tensor.to(device)
     adjacency_matrix = adjacency_matrix.to(device)
     pheromone_matrix = pheromone_matrix.to(device)
@@ -76,6 +76,7 @@ if __name__ == '__main__':
     print("Initializing scheduler")
     mp.set_start_method('spawn', force=True)
     colony = Colony(parameters)
+    period = parameters['days']
     print("Pre-processing done")
     for seed in parameters['seed']:
         profiler = Profiler()
@@ -86,11 +87,11 @@ if __name__ == '__main__':
         cycle_best_operations = []
         print(f'State: processing time: {parameters["state"]}, breakdown: {parameters["breakdown"]}, availability: {parameters["availability"]}')
         print("Searching for good solution")
-        while time.time() - start_time < parameters["time_limit"] or n_cycles <= parameters["cycle"]:
+        while time.time() - start_time < parameters["time_limit"]:# or n_cycles <= parameters["cycle"]:
             cycle_seed = seed + n_cycles
-            np.random.seed(cycle_seed)
-            random.seed(cycle_seed)
-            torch.manual_seed(cycle_seed)
+            #np.random.seed(cycle_seed)
+            #random.seed(cycle_seed)
+            #torch.manual_seed(cycle_seed)
             op, m, e, s, mac, start, end = initialize_colony_parallel(parameters["num_ants"], cycle_seed, device)
             ops = torch.tensor(op)
             makespans = torch.tensor(m)
@@ -115,7 +116,7 @@ if __name__ == '__main__':
                 cycle_best_operations.append(global_best_operations)
                 #print(f"New makespan found: {global_best_makespan}")
                 #print(f"New operations found: {global_best_operations}")
-                print("Best operations found")
+                print(f"Best operations found: {global_best_operations}")
             else:
                 global_best_operations = global_best_operations
                 global_best_makespan = global_best_makespan
@@ -127,7 +128,7 @@ if __name__ == '__main__':
                                           parameters["rho"], parameters["min_pheromone"])
 
             #print(f'cycle {n_cycles} completed in {time.time() - start_time}')
-            print(f'Remaining time: {int(time.time() - start_time)}/{parameters["time_limit"]} Cycle {n_cycles}/{parameters["cycle"]} completed')
+            print(f'Remaining time: {int(time.time() - start_time)}/{parameters["time_limit"]} Cycle {n_cycles} completed')
             #print(f'Cycle {n_cycles}/{parameters["cycle"]} completed')
             n_cycles+=1
 
@@ -146,7 +147,7 @@ if __name__ == '__main__':
         start_job = global_best_start_time
         end_job = global_best_end_time
 
-        get_schedule(job_matrix, machine_map, sequence, machine_asigned, start_job, end_job)
+        get_schedule(job_matrix, machine_map, sequence, machine_asigned, start_job, end_job, period)
 
 
 
