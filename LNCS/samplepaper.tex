@@ -11,7 +11,7 @@
 %
 \usepackage{graphicx}
 \usepackage[table,xcdraw]{xcolor}
-
+\usepackage{helvet,times,courier}
 \usepackage{multirow}
 \usepackage{algorithm2e}
 \SetKwInput{KwParam}{Parameters}
@@ -28,30 +28,33 @@
 %\renewcommand\UrlFont{\color{blue}\rmfamily}
 %\urlstyle{rm}
 %
+\sloppy
+\hyphenation{make-span}
 \begin{document}
 %
-\title{%Throughput Optimization and Scheduling under Different Machine Availability Scenarios
-	Dispatching and Scheduling in Semiconductor Manufacturing: Strategies for Deterministic vs. Stochastic Processing Times
+\title{Swarm Intelligence-Driven Dispatching Rules for Large-Scale Semiconductor Production: Integrating Simulation and Optimization to Enhance Operational Efficiency
 }
 %
 %\titlerunning{Abbreviated paper title}
 % If the paper title is too long for the running head, you can set
 % an abbreviated paper title here
 %
-\author{First Author\inst{1}\orcidID{0000-1111-2222-3333} \and
-Second Author\inst{2,3}\orcidID{1111-2222-3333-4444} \and
-Third Author\inst{3}\orcidID{2222--3333-4444-5555}}
+\author{Ramsha Ali\inst{1}\orcidID{0000-0002-4794-6560} \and
+Peyman Eftekhari\inst{1}\orcidID{0009-0007-4198-392X} \and
+Martin Gebser\inst{1}\orcidID{0000-0002-8010-4752} \and
+Stephan Leitner\inst{2}\orcidID{0000-0001-6790-4651} \and
+Gerhard Friedrich\inst{1}\orcidID{0000-0002-1992-4049}
+}
 %
-\authorrunning{F. Author et al.}
+\authorrunning{R. Author et al.}
 % First names are abbreviated in the running head.
 % If there are more than two authors, 'et al.' is used.
 %
-\institute{Princeton University, Princeton NJ 08544, USA \and
-Springer Heidelberg, Tiergartenstr. 17, 69121 Heidelberg, Germany
-\email{lncs@springer.com}\\
-\url{http://www.springer.com/gp/computer-science/lncs} \and
-ABC Institute, Rupert-Karls-University Heidelberg, Heidelberg, Germany\\
-\email{\{abc,lncs\}@uni-heidelberg.de}}
+\institute{Department of Artificial Intelligence and Cybersecurity, \and
+	Department of Management Control and Strategic Management, \\ University of Klagenfurt, Austria \\
+	\email{\{ramsha.ali,peyman.eftekhari,martin.gebser, \\ stephan.leitner,gerhard.friedrich\}@aau.at} \\
+	\url{https://www.aau.at}}
+
 %
 \maketitle              % typeset the header of the contribution
 %
@@ -59,39 +62,26 @@ ABC Institute, Rupert-Karls-University Heidelberg, Heidelberg, Germany\\
 The abstract should briefly summarize the contents of the paper in
 150--250 words.
 
-\keywords{First keyword  \and Second keyword \and Another keyword.}
+\keywords{Swarm intelligence \and Ant colony optimization \and Greedy search \and Semiconductor production \and Scheduling \and Dispatching \and Simulation}
 \end{abstract}
 %
 %
 %
 \section{Introduction}
 \label{sec:introduction}
-Scheduling production operations in complex manufacturing environments
-is one of the most challenging resource allocation tasks. The dynamic nature of real-world operations, subject to unpredictable process and demand fluctuations, supply chain delays, machine breakdowns, etc., further amplifies the complexity.
-Therefore, production scheduling needs not only be (near-)optimal, but also robust and flexible to adapt to frequent problem changes.
-To handle these phenomena, a scheduling method should be efficient enough to provide and update solutions in short time.      
+As the digital transformation deepens across various sectors, the demand for more powerful, energy-efficient, and smaller semiconductors continues to escalate. This surge in demand places immense pressure on semiconductor manufacturers to scale up production without compromising quality. Semiconductor production involves hundreds of sophisticated steps, each of which must be precisely controlled to ensure the functionality and yield of the final product \cite{kopp2020smt2020}. The complexity is exacerbated by the rapid pace of innovation in semiconductor design, which frequently shifts production parameters and process requirements.
 
-In the scheduling literature, the Job Shop Scheduling Problem (JSSP) \cite{xiong2022survey} and the Flexible Job Shop Scheduling Problem (FJSSP) \cite{xie2019review} stand out as popular and general scheduling models.
-Both JSSP and FJSSP are NP-hard combinatorial optimization problems, where the latter extends JSSP by introducing flexibility in assigning operations to machines. This flexibility is crucial in modern manufacturing environments, as the capability to respond to changing demands and utilize resources efficiently impacts the overall production performance.  
+Dispatching in semiconductor production is a particularly challenging aspect of factory operations. It involves determining the sequence and timing of various production tasks, from wafer fabrication to assembly and testing, to maximize throughput \cite{Hopp2011}. In large-scale operations, the complexity is magnified by the sheer number of variables involved, including machine availability, maintenance schedules, workforce shifts, and rapidly changing order priorities. Traditional dispatching solutions often fall short in such an environment, as they cannot adequately adapt to the dynamic and complex nature of semiconductor production. This inadequacy can lead to sub-optimal decisions that compromise operational efficiency and product quality \cite{Uzsoy1992}.
 
-In this paper, we address a large-scale Semiconductor Manufacturing Scheduling Problem (SMSP) \cite{kopp2020smt2020}, which can also be understood as FJSSP on instances that represent the diverse operations
-and high throughputs of semiconductor production.
-A semiconductor manufacturing facility, called fab for short, is a complex production environment characterized by customized job flows and high-tech machines.
-Particular challenges of SMSP include:
-\begin{itemize}
-	\item \textbf{Long production routes}: Hundreds of operations to be performed on a lot can span over several months, which necessitates detailed scheduling to realize an efficient process flow.
-	\item \textbf{Product-specific machine setups}: Production operations may require specific machine setups, which increases the complexity of operation sequencing and machine allocation.
-	\item \textbf{Maintenance and stochastic events}: Preventive maintenance procedures and unpredictable yet frequent events, such as machine breakdowns or process deviations, demand for a highly adaptive and responsive scheduling system.
-\end{itemize}
+On the other hand, scheduling in large-scale semiconductor production is a cornerstone of operational management that directly influences the effectiveness and efficiency of the entire manufacturing process \cite{schumann2022scheduling}. It involves planning and organizing production activities to ensure that resources are utilized optimally and product flows are synchronized across various stages of the manufacturing process. Effective scheduling is critical not only for maintaining high throughput but also for minimizing production delays and reducing inventory and holding costs.
 
-To meet the growing demands for semiconductors and manage the complexity of modern semiconductor production, manufacturers are increasingly striving for automated production scheduling and control systems. Such systems are conceived to optimize the resource utilization, regulate sophisticated sequences of manufacturing steps, and adjust to process deviations in real time. The overall goal is to minimize the production times and costs, while maximizing fab throughput and product quality.
+The scheduling of semiconductor manufacturing is notably complex due to the high variability in production processes, the sensitive nature of the materials involved, and the stringent quality requirements \cite{May2006}. Each semiconductor product may pass through hundreds of processing steps, requiring precise timing and coordination. Moreover, the high mix of product types, each with different processing needs and priorities, adds another layer of complexity \cite{Mönch2011}. This complexity is further exacerbated by the need to integrate new product introductions seamlessly into the production schedule without disrupting ongoing operations.
 
-In contrast to classical FJSSP benchmarks, where
-small to medium-scale instances include up to 500 operations and 60 machines
-\cite{behnke2012test},
-modern semiconductor fabs
-process tens of thousands of operations per day using more than 1000 machines
-\cite{kopp2020smt2020}.
+Scheduling production operations within the intricate landscape of semiconductor manufacturing represents one of the most daunting challenges in resource allocation. The dynamic nature of manufacturing environments—characterized by unpredictable fluctuations in process and demand, supply chain delays, and frequent machine breakdowns—significantly intensifies this complexity. Consequently, production scheduling must not only strive for near-optimal outcomes but also maintain robustness and flexibility to adapt swiftly to frequent changes in the production landscape.     
+
+In this paper, we address a large-scale Semiconductor Manufacturing Scheduling Problem (SMSP) \cite{kopp2020smt2020}, called fab for short, is a complex production environment characterized by customized job flows and high-tech machines.
+
+Modern semiconductor fabs process tens of thousands of operations per day using more than 1000 machines \cite{kopp2020smt2020}.
 These machines are organized in tool groups with specific functionalities,
 e.g., diffusion, etching, or metrology,
 and each manufacturing step can be flexibly allocated to a machine 
@@ -100,27 +90,33 @@ Hence, the scheduling of semiconductor production operations consists of the
 sub-tasks of assigning operations to machines and sequencing the operations on each machine.
 However, in case of machine breakdowns or process deviations,
 a schedule must be revised to adapt to the changed environment.
-To this end, we propose a Greedy Search based Ant Colony Optimization (GSACO)
-algorithm for (re-)scheduling semiconductor production operations.
-Our algorithm harnesses Ant Colony Optimization (ACO) \cite{dorigo2019ant} for exploration, while
-Greedy Search (GS) \cite{papste82a} enables responses in short time. 
+
+To this end, we proposed a Greedy Search based Ant Colony Optimization (GSACO)
+algorithm for (re-)scheduling semiconductor production operations \cite{Ali2024}. 
+Our algorithm harnesses Ant Colony Optimization (ACO) \cite{Dorigo2019} for exploration, while
+Greedy Search (GS) \cite{Papadimitriou} enables responses in short time. 
 % In fact, we show that
 In this way,
 GSACO overcomes limitations of a
-state-of-the-art Constraint Programming approach \cite{pediga23a}
+state-of-the-art Constraint Programming approach \cite{Perron2023}
 on large-scale SMSP % semiconductor manufacturing scheduling 
-instances.
+instances. 
+
+In our previous research \cite{Ali2024}, we introduced a novel approach that synergistically combines probabilistic operation sequencing with a greedy machine assignment strategy, targeting up to five operations per lot with the primary objective of minimizing makespan. Building on this foundational work, the current paper extends these initial concepts by proposing an enhanced algorithm, GSACO-1, specifically designed to optimize operational throughput. This development marks a significant advancement in our methodology, aiming to refine the dispatching rules further though simulation.
 
 The paper is organized as follows. 
 Section~\ref{sec:lit_rev} provides literature reviews on FJSSP and ACO.
 In Section~\ref{sec:problem_f}, we formulate SMSP in terms of the well-known FJSSP. 
 % and Section \ref{sec:aco} describes the overview of the ACO approach. 
-Our GSACO algorithm is presented in Section~\ref{sec:gsaco}.
+Our GSACO-1 algorithm is presented in Section~\ref{sec:gsaco}.
+In Section~\ref{sec:sim} we present the customized simulation adopted from \cite{Kovács2022}.
 Section~\ref{sec:results} provides and discusses experimental results.
 Finally, Section~\ref{sec:conclusion} concludes the paper.
 
 \section{literature Review}
 \label{sec:lit_rev}
+\input{lit_review.tex}
+
 
 We briefly survey the relevant literature on FJSSP, which we use as general
 scheduling model to represent semiconductor production processes and SMSP,
@@ -225,7 +221,7 @@ In detail, our setting for scheduling the production of a semiconductor fab is c
 	tool groups, where $t_m\in\{1,\dots,T\}$ denotes the tool group
 	to which a machine $m\in\{1,\dots,M\}$ belongs.
 	\item There are $J$ jobs, where each $j\in\{1,\dots,J\}$ represents a
-	sequence $O_{1,j,t_1},\dots,O_{n_j,j,t_n}$ of operations to be performed on a production lot.
+	sequence of operations $O_{1,j,t_1},\dots,O_{n_j,j,t_n}$, to be performed on a production lot.
 	Note that $t_i\in\{1,\dots,T\}$ specifies the tool group 
 	responsible for processing an operation $O_{i,j,t_i}$, % for $i\in\{1,\dots,n_j\}$
 	but not a specific machine of $t_i$,
@@ -271,7 +267,8 @@ in the SMT2020 scenarios.
 		\hline
 		Parameter & Description \\ \hline
 		$l$ & Cycles/time limit        \\
-		$n$ & Planning horizon \\
+		$n$ & Operations per lot \\
+		$d$ & Planning horizon \\
 		$k$ & Number of ants \\
 		$\tau_{y}$ & Initial pheromone level \\
 		$\tau_{z}$ & Minimum pheromone level \\
@@ -363,10 +360,10 @@ in forthcoming iterations.
 	\label{gsaco}
 	\KwIn{dataset, $l$}
 	\KwOut{best schedule found by ants}
-	\KwParam{$n$, $k$, $\tau_{y}$, $\tau_{z}$, $\rho$, $c$} % , $\alpha$, $\beta$
+	\KwParam{$d$, $n$, $k$, $\tau_{y}$, $\tau_{z}$, $\rho$, $c$} % , $\alpha$, $\beta$
 	Initialize 
 	adjacency, pheromone, and machine matrix\; % and the heuristic information on edges\rlap{\;}
-	$\mathit{makespan}\leftarrow \infty$\; 
+	$\mathit{operations}\leftarrow \infty$\; 
 	%	Set parameters; \\
 	%	$n, k, \tau_{y}, \tau_{z}, \alpha, \beta, \rho, c$\;
 	%	\ForEach{cycle \KwFrom $1$ \KwTo $l$}{
@@ -376,10 +373,10 @@ in forthcoming iterations.
 				%			place ant at starting node (0)\;
 				%			apply greedy search\;
 			}
-			$\mathit{new}\leftarrow {}$ shortest makespan of ants' sched\rlap{ules\;}
-			\If{$\mathit{new}<\mathit{makespan}$}{ % schedule is better than current best}{
-				$\mathit{makespan}\leftarrow \mathit{new}$\;
-				$\mathit{best}\leftarrow {}$an ant's schedule of $\mathit{makespan}$\rlap{\;}
+			$\mathit{new}\leftarrow {}$ maximum operations of ants' schedules\;
+			\If{$\mathit{new}>\mathit{operations}$}{ % schedule is better than current best}{
+				$\mathit{operations}\leftarrow \mathit{new}$\;
+				$\mathit{best}\leftarrow {}$an ant's schedule of $\mathit{operations}$\;
 			}
 			\ForEach{edge $e$ in pheromone matrix}{
 				%			evaporate pheromones\;
@@ -706,6 +703,10 @@ For our example in Table~\ref{tab:operations}, Figure~\ref{fig:update_p} provide
 after a few iterations of GSACO with the parameter values
 $\rho=0.7$ and $c=0.5$, showing a clear separation between the more frequently
 selected and futile edges.%
+
+\section{Simulation}
+\label{sec:sim}
+
 
 \section{\uppercase{Experimental Evaluation}}
 \label{sec:results}
@@ -1073,36 +1074,5 @@ Company X and owns stock in Company Y. Author C is a member of committee Z.
 % \bibliographystyle{splncs04}
 % \bibliography{mybibliography}
 %
-\begin{thebibliography}{8}
-\bibitem{schumann2022scheduling}
-Pinedo, M. L.: Scheduling: theory, algorithms, and systems. 6th edn. Springer (2022) 
-
-\bibitem{waschneck2018deep}
-Waschneck, B., Reichstaller, A., Belzner, L., Altenmüller, T., Bauernhansl, T., Knapp, A., Kyek, A.: Deep reinforcement learning for semiconductor production scheduling. In 2018 29th annual SEMI advanced semiconductor manufacturing conference (ASMC) pp. 301-306. IEEE, (2018, April)
-
-\bibitem{leachman1996benchmarking}
-Leachman, R. C., Hodges, D. A.: Benchmarking semiconductor manufacturing. IEEE transactions on semiconductor manufacturing 9(2), 158-169 (1996)
-
-\bibitem{McKay2003}
-McKay, K. N., Wiers, V. C.: Planning, scheduling and dispatching tasks in production control. Cognition, Technology \& Work, 5, 82-93 (2003)
-
-\bibitem{ref_article1}
-Author, F.: Article title. Journal \textbf{2}(5), 99--110 (2016)
-
-\bibitem{ref_lncs1}
-Author, F., Author, S.: Title of a proceedings paper. In: Editor,
-F., Editor, S. (eds.) CONFERENCE 2016, LNCS, vol. 9999, pp. 1--13.
-Springer, Heidelberg (2016). \doi{10.10007/1234567890}
-
-\bibitem{ref_book1}
-Author, F., Author, S., Author, T.: Book title. 2nd edn. Publisher,
-Location (1999)
-
-\bibitem{ref_proc1}
-Author, A.-B.: Contribution title. In: 9th International Proceedings
-on Proceedings, pp. 1--2. Publisher, Location (2010)
-
-\bibitem{ref_url1}
-LNCS Homepage, \url{http://www.springer.com/lncs}, last accessed 2023/10/25
-\end{thebibliography}
+\input{bib.tex}
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.7)  15 OCT 2024 11:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.7)  23 OCT 2024 15:29
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -215,6 +215,15 @@ Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
 \minrowclearance=\skip55
 \rownum=\count298
 )
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\helvet.sty
+Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\courier.sty
+Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
+)
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip56
@@ -277,6 +286,12 @@ Package: relsize 2013/03/29 ver 4.1
 \algocf@algoframe=\box108
 \algocf@algobox=\box109
 )
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 33
+.
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
 ftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
@@ -285,20 +300,20 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 ) (samplepaper.aux)
 \openout1 = `samplepaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.m
 kii
@@ -326,266 +341,269 @@ cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 56.
+(Font)              <7> on input line 59.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 56.
+(Font)              <5> on input line 59.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 56.
+(Font)              <9> on input line 59.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 56.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 5
-6.
- (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
-File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
+(Font)              <6> on input line 59.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 59
+.
+ (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 Title too long for running head. Please supply
 a shorter form with \titlerunning prior to \maketitle
-
-LaTeX Warning: Citation `xiong2022survey' on page 1 undefined on input line 74.
-
-
-
-LaTeX Warning: Citation `xie2019review' on page 1 undefined on input line 74.
-
-
-LaTeX Warning: Citation `kopp2020smt2020' on page 1 undefined on input line 77.
-
-
-
-Overfull \hbox (0.10089pt too wide) in paragraph at lines 77--81
-[]\T1/cmr/m/n/10 In this pa-per, we ad-dress a large-scale Semi-con-duc-tor Man
--u-fac-tur-ing Schedul-
- []
-
-
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 6
+5.
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 
 [1
 
-{C:/Users/ramali/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+{C:/Users/ramali/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ram
+ali/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+Underfull \vbox (badness 5726) has occurred while \output is active []
 
-LaTeX Warning: Citation `behnke2012test' on page 2 undefined on input line 91.
 
 
-LaTeX Warning: Citation `kopp2020smt2020' on page 2 undefined on input line 94.
+[2] (lit_review.tex
 
+LaTeX Warning: Citation `el2023hybrid' on page 3 undefined on input line 4.
 
 
-LaTeX Warning: Citation `dorigo2019ant' on page 2 undefined on input line 105.
+LaTeX Warning: Citation `fang2023problems' on page 3 undefined on input line 7.
 
 
-LaTeX Warning: Citation `papste82a' on page 2 undefined on input line 106.
 
+LaTeX Warning: Citation `wang2014hybrid' on page 3 undefined on input line 10.
 
-LaTeX Warning: Citation `pediga23a' on page 2 undefined on input line 110.
 
-
-LaTeX Warning: Citation `meng2020mixed' on page 2 undefined on input line 135.
-
-
-LaTeX Warning: Citation `gedik2018constraint' on page 2 undefined on input line
- 138.
-
-
-
-[2]
-
-LaTeX Warning: Citation `saidi2007flexible' on page 3 undefined on input line 1
-43.
-
-
-LaTeX Warning: Citation `sobeyko2016heuristic' on page 3 undefined on input lin
-e 144.
-
-
-LaTeX Warning: Citation `gao2006solving' on page 3 undefined on input line 145.
-
-
-
-LaTeX Warning: Citation `ho2007effective' on page 3 undefined on input line 146
-.
-
-
-LaTeX Warning: Citation `li2014discrete' on page 3 undefined on input line 147.
-
-
-
-LaTeX Warning: Citation `wang2017flexible' on page 3 undefined on input line 14
-8.
-
-
-LaTeX Warning: Citation `li2010improved' on page 3 undefined on input line 149.
-
-
-
-LaTeX Warning: Citation `xing2010knowledge' on page 3 undefined on input line 1
-49.
-
-
-LaTeX Warning: Citation `thammano2013hybrid' on page 3 undefined on input line 
-149.
-
-
-LaTeX Warning: Citation `el2017dual' on page 3 undefined on input line 149.
-
-
-LaTeX Warning: Citation `shang2023study' on page 3 undefined on input line 151.
-
-
-
-LaTeX Warning: Citation `stockermann2023dispatching' on page 3 undefined on inp
-ut line 153.
-
-
-LaTeX Warning: Citation `tassel2023semiconductor' on page 3 undefined on input 
-line 153.
-
-
-LaTeX Warning: Citation `kovacs2023optimizing' on page 3 undefined on input lin
-e 154.
-
-
-LaTeX Warning: Citation `dorigo2019ant' on page 3 undefined on input line 182.
-
-
-LaTeX Warning: Citation `stutzle1999aco' on page 3 undefined on input line 184.
-
-
-
-LaTeX Warning: Citation `rizzoli2007ant' on page 3 undefined on input line 185.
-
-
-
-LaTeX Warning: Citation `luo2008ant' on page 3 undefined on input line 185.
-
-
-LaTeX Warning: Citation `rugwiro2019task' on page 3 undefined on input line 185
-.
-
-
-LaTeX Warning: Citation `khelifa2020holonic' on page 3 undefined on input line 
-185.
-
-
-LaTeX Warning: Citation `wang2009hopnet' on page 3 undefined on input line 185.
-
+LaTeX Warning: Citation `dauzere2024flexible' on page 3 undefined on input line
+ 12.
 
 
 
 [3]
-
-LaTeX Warning: Citation `turkyilmaz2020research' on page 4 undefined on input l
-ine 200.
-
-
-LaTeX Warning: Citation `leung2010integrated' on page 4 undefined on input line
- 205.
+<FJSSP.png, id=18, 284.39583pt x 84.98416pt>
+File: FJSSP.png Graphic file (type png)
+<use FJSSP.png>
+Package pdftex.def Info: FJSSP.png  used on input line 17.
+(pdftex.def)             Requested size: 173.56177pt x 51.86488pt.
 
 
-LaTeX Warning: Citation `li2010improved' on page 4 undefined on input line 205.
+LaTeX Warning: Citation `zhang2022novel' on page 4 undefined on input line 18.
+
+
+LaTeX Warning: Citation `lei2022multi' on page 4 undefined on input line 23.
+
+
+LaTeX Warning: Citation `lei2022multi' on page 4 undefined on input line 23.
+
+
+LaTeX Warning: Citation `zhang2020evolving' on page 4 undefined on input line 2
+6.
+
+
+LaTeX Warning: Citation `mamur2022future' on page 4 undefined on input line 28.
+
+
+<ACO.png, id=20, 853.1875pt x 624.3325pt>
+File: ACO.png Graphic file (type png)
+<use ACO.png>
+Package pdftex.def Info: ACO.png  used on input line 33.
+(pdftex.def)             Requested size: 173.56177pt x 127.00775pt.
+
+LaTeX Warning: Citation `rajan2015investigation' on page 4 undefined on input l
+ine 34.
+
+
+LaTeX Warning: Citation `nayar2021ant' on page 4 undefined on input line 39.
+
+
+LaTeX Warning: Citation `zhou2022parameter' on page 4 undefined on input line 3
+9.
+
+
+LaTeX Warning: Citation `li2024modified' on page 4 undefined on input line 41.
+
+
+LaTeX Warning: Citation `shao2010minimising' on page 4 undefined on input line 
+41.
+
+
+LaTeX Warning: Citation `skackauskas2022dynamic' on page 4 undefined on input l
+ine 43.
+
+
+LaTeX Warning: Citation `skackauskas2022dynamic' on page 4 undefined on input l
+ine 43.
+
+
+LaTeX Warning: Citation `wang2021time' on page 4 undefined on input line 45.
 
 
 
-LaTeX Warning: Citation `xing2010knowledge' on page 4 undefined on input line 2
-05.
+[4 <./FJSSP.png>])
+
+LaTeX Warning: Citation `meng2020mixed' on page 5 undefined on input line 131.
 
 
-LaTeX Warning: Citation `thammano2013hybrid' on page 4 undefined on input line 
-205.
-
-
-LaTeX Warning: Citation `arnaout2014two' on page 4 undefined on input line 205.
-
-
-
-LaTeX Warning: Citation `el2017dual' on page 4 undefined on input line 205.
-
-
-LaTeX Warning: Citation `arnaout2014two' on page 4 undefined on input line 207.
+LaTeX Warning: Citation `gedik2018constraint' on page 5 undefined on input line
+ 134.
 
 
 
-LaTeX Warning: Citation `kopp2020smt2020' on page 4 undefined on input line 209
+[5 <./ACO.png>]
+
+LaTeX Warning: Citation `saidi2007flexible' on page 6 undefined on input line 1
+39.
+
+
+LaTeX Warning: Citation `sobeyko2016heuristic' on page 6 undefined on input lin
+e 140.
+
+
+LaTeX Warning: Citation `gao2006solving' on page 6 undefined on input line 141.
+
+
+
+LaTeX Warning: Citation `ho2007effective' on page 6 undefined on input line 142
 .
 
 
-LaTeX Warning: Citation `abdel2021hybrid' on page 4 undefined on input line 213
+LaTeX Warning: Citation `li2014discrete' on page 6 undefined on input line 143.
+
+
+
+LaTeX Warning: Citation `wang2017flexible' on page 6 undefined on input line 14
+4.
+
+
+LaTeX Warning: Citation `li2010improved' on page 6 undefined on input line 145.
+
+
+
+LaTeX Warning: Citation `xing2010knowledge' on page 6 undefined on input line 1
+45.
+
+
+LaTeX Warning: Citation `thammano2013hybrid' on page 6 undefined on input line 
+145.
+
+
+LaTeX Warning: Citation `el2017dual' on page 6 undefined on input line 145.
+
+
+LaTeX Warning: Citation `shang2023study' on page 6 undefined on input line 147.
+
+
+
+LaTeX Warning: Citation `stockermann2023dispatching' on page 6 undefined on inp
+ut line 149.
+
+
+LaTeX Warning: Citation `tassel2023semiconductor' on page 6 undefined on input 
+line 149.
+
+
+LaTeX Warning: Citation `kovacs2023optimizing' on page 6 undefined on input lin
+e 150.
+
+
+LaTeX Warning: Citation `dorigo2019ant' on page 6 undefined on input line 178.
+
+
+LaTeX Warning: Citation `stutzle1999aco' on page 6 undefined on input line 180.
+
+
+
+LaTeX Warning: Citation `rizzoli2007ant' on page 6 undefined on input line 181.
+
+
+
+LaTeX Warning: Citation `luo2008ant' on page 6 undefined on input line 181.
+
+
+LaTeX Warning: Citation `rugwiro2019task' on page 6 undefined on input line 181
 .
 
 
-LaTeX Warning: Citation `fontes2023hybrid' on page 4 undefined on input line 21
-3.
+LaTeX Warning: Citation `khelifa2020holonic' on page 6 undefined on input line 
+181.
 
 
-LaTeX Warning: Citation `li2021hybrid' on page 4 undefined on input line 213.
+LaTeX Warning: Citation `wang2009hopnet' on page 6 undefined on input line 181.
 
 
-LaTeX Warning: Citation `mohd2023improved' on page 4 undefined on input line 21
-3.
+
+LaTeX Warning: Citation `turkyilmaz2020research' on page 6 undefined on input l
+ine 196.
 
 
-LaTeX Warning: Citation `suid2023novel' on page 4 undefined on input line 213.
+LaTeX Warning: Citation `leung2010integrated' on page 6 undefined on input line
+ 201.
 
 
-Overfull \hbox (32.16933pt too wide) in paragraph at lines 227--235
-[]\T1/cmr/m/n/10 There are $\OML/cmm/m/it/10 J$ \T1/cmr/m/n/10 jobs, where each
- $\OML/cmm/m/it/10 j \OMS/cmsy/m/n/10 2 f\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; []
- ; J\OMS/cmsy/m/n/10 g$ \T1/cmr/m/n/10 rep-re-sents a se-quence $\OML/cmm/m/it/
-10 O[]; [] ; O[]$
- []
+LaTeX Warning: Citation `li2010improved' on page 6 undefined on input line 201.
 
 
-LaTeX Warning: Citation `kopp2020smt2020' on page 4 undefined on input line 241
+
+LaTeX Warning: Citation `xing2010knowledge' on page 6 undefined on input line 2
+01.
+
+
+LaTeX Warning: Citation `thammano2013hybrid' on page 6 undefined on input line 
+201.
+
+
+LaTeX Warning: Citation `arnaout2014two' on page 6 undefined on input line 201.
+
+
+
+LaTeX Warning: Citation `el2017dual' on page 6 undefined on input line 201.
+
+
+LaTeX Warning: Citation `arnaout2014two' on page 6 undefined on input line 203.
+
+
+
+LaTeX Warning: Citation `abdel2021hybrid' on page 6 undefined on input line 209
 .
 
 
-
-[4]
-
-LaTeX Warning: Reference `fig:sch' on page 5 undefined on input line 310.
+LaTeX Warning: Citation `fontes2023hybrid' on page 6 undefined on input line 20
+9.
 
 
-LaTeX Warning: Reference `fig:sch' on page 5 undefined on input line 322.
+LaTeX Warning: Citation `li2021hybrid' on page 6 undefined on input line 209.
 
 
-LaTeX Warning: Reference `fig:aco-flowchart' on page 5 undefined on input line 
-329.
+LaTeX Warning: Citation `mohd2023improved' on page 6 undefined on input line 20
+9.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[5]
-
-LaTeX Warning: Reference `gs' on page 6 undefined on input line 337.
-
-
-LaTeX Warning: Citation `kopp2020smt2020' on page 6 undefined on input line 399
-.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Citation `suid2023novel' on page 6 undefined on input line 209.
 
 
 
 [6]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
 [7]
-Overfull \hbox (5.19756pt too wide) in paragraph at lines 524--528
-\T1/cmr/m/n/10 With $\OML/cmm/m/it/10 ^^\[] \OT1/cmr/m/n/10 = 1$\T1/cmr/m/n/10 
-, this re-pro-duces the ad-ja-cency ma-trix in Fig-ure 1[] as ini-tial pheromon
-e
- []
+
+LaTeX Warning: Reference `fig:sch' on page 8 undefined on input line 307.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Reference `fig:sch' on page 8 undefined on input line 319.
 
 
-LaTeX Warning: Reference `gs' on page 8 undefined on input line 571.
+LaTeX Warning: Reference `fig:aco-flowchart' on page 8 undefined on input line 
+326.
+
+
+LaTeX Warning: Reference `gs' on page 8 undefined on input line 334.
 
 
 
@@ -593,88 +611,92 @@ LaTeX Warning: Reference `gs' on page 8 undefined on input line 571.
 
 [9]
 
-LaTeX Warning: Reference `fig:run' on page 10 undefined on input line 628.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:run' on page 10 undefined on input line 667.
+
+[10]
+
+LaTeX Warning: Reference `gs' on page 11 undefined on input line 568.
 
 
-LaTeX Warning: Reference `fig:sch' on page 10 undefined on input line 674.
+
+[11]
+
+LaTeX Warning: Reference `fig:run' on page 12 undefined on input line 625.
 
 
-LaTeX Warning: Reference `fig:sch' on page 10 undefined on input line 683.
+LaTeX Warning: Reference `fig:run' on page 12 undefined on input line 664.
+
+
+LaTeX Warning: Reference `fig:sch' on page 12 undefined on input line 671.
+
+
+LaTeX Warning: Reference `fig:sch' on page 12 undefined on input line 680.
+
+
+Underfull \vbox (badness 1102) has occurred while \output is active []
+
+
+
+[12]
+
+LaTeX Warning: Citation `turkyilmaz2020research' on page 13 undefined on input 
+line 695.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 717--717
+ [][]\T1/ptm/m/n/9 The source code is pub-licly avail-able in our GitHub repos-
+i-tory:
+ []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-[10]
+[13]
 
-LaTeX Warning: Citation `turkyilmaz2020research' on page 11 undefined on input 
-line 698.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 716--716
- [][]\T1/cmr/m/n/9 The source code is pub-licly avail-able in our GitHub repos-
-i-tory:
- []
+LaTeX Warning: Citation `pediga23a' on page 14 undefined on input line 756.
 
 
-LaTeX Warning: Citation `pediga23a' on page 11 undefined on input line 755.
+LaTeX Warning: Citation `kubec16a' on page 14 undefined on input line 760.
 
 
-LaTeX Warning: Citation `kubec16a' on page 11 undefined on input line 759.
-
-
-
-[11]
-Overfull \hbox (9.33365pt too wide) in paragraph at lines 763--766
-[]\T1/cmr/m/n/10 We per-formed our ex-per-i-ments on a TUXEDO Pulse 14 Gen1 ma-
-chine equipped
- []
-
-
-LaTeX Warning: Citation `arnaout2014two' on page 12 undefined on input line 769
+LaTeX Warning: Citation `arnaout2014two' on page 14 undefined on input line 770
 .
 
 
-LaTeX Warning: Citation `brandimarte1993routing' on page 12 undefined on input 
-line 771.
+LaTeX Warning: Citation `brandimarte1993routing' on page 14 undefined on input 
+line 772.
 
 
-LaTeX Warning: Citation `fattahi2007mathematical' on page 12 undefined on input
- line 773.
+LaTeX Warning: Citation `fattahi2007mathematical' on page 14 undefined on input
+ line 774.
 
 
-LaTeX Warning: Citation `kubec16a' on page 12 undefined on input line 782.
+LaTeX Warning: Citation `kubec16a' on page 14 undefined on input line 783.
 
 
-
-[12]
-Overfull \hbox (2.11755pt too wide) in paragraph at lines 869--885
-[]\T1/cmr/m/n/10 While run-ning with a time limit $\OML/cmm/m/it/10 l$ \T1/cmr/
-m/n/10 of $\OT1/cmr/m/n/10 10$ \T1/cmr/m/n/10 min-utes, Ta-ble 7[] re-ports the
- makespans
- []
-
-
-LaTeX Warning: Reference `fig:makespan' on page 13 undefined on input line 886.
-
-
-
-LaTeX Warning: Reference `subfig:l' on page 13 undefined on input line 887.
-
-
-LaTeX Warning: Reference `subfig:h' on page 13 undefined on input line 891.
-
-
-
-[13]
 
 [14]
 
 [15]
+
+LaTeX Warning: Reference `fig:makespan' on page 16 undefined on input line 887.
+
+
+
+LaTeX Warning: Reference `subfig:l' on page 16 undefined on input line 888.
+
+
+LaTeX Warning: Reference `subfig:h' on page 16 undefined on input line 892.
+
+
+
+[16]
+
+[17]
 Package epstopdf Info: Source file: <fig1.eps>
 (epstopdf)                    date: 2024-09-24 09:34:37
 (epstopdf)                    size: 357553 bytes
@@ -683,18 +705,26 @@ Package epstopdf Info: Source file: <fig1.eps>
 (epstopdf)                    size: 36500 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=fig1-eps-converted-t
 o.pdf fig1.eps>
-(epstopdf)             \includegraphics on input line 1022.
+(epstopdf)             \includegraphics on input line 1023.
 Package epstopdf Info: Output file is already uptodate.
-<fig1-eps-converted-to.pdf, id=78, 345.29pt x 142.5325pt>
+<fig1-eps-converted-to.pdf, id=81, 345.29pt x 142.5325pt>
 File: fig1-eps-converted-to.pdf Graphic file (type pdf)
 <use fig1-eps-converted-to.pdf>
-Package pdftex.def Info: fig1-eps-converted-to.pdf  used on input line 1022.
+Package pdftex.def Info: fig1-eps-converted-to.pdf  used on input line 1023.
 (pdftex.def)             Requested size: 347.12354pt x 143.29115pt.
 
 
-[16]
+[18] (bib.tex
 
-[17 <./fig1-eps-converted-to.pdf>] (samplepaper.aux)
+[19 <./fig1-eps-converted-to.pdf>]
+Underfull \hbox (badness 4001) in paragraph at lines 57--60
+[]\T1/ptm/m/n/9 Author, F., Au-thor, S.: Ti-tle of a pro-ceed-ings pa-per. In: 
+Ed-i-tor, F., Ed-i-tor, S.
+ []
+
+)
+
+[20] (samplepaper.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
@@ -705,49 +735,40 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 3896 strings out of 473898
- 61173 string characters out of 5726008
- 1960960 words of memory out of 5000000
- 26741 multiletter control sequences out of 15000+600000
- 571349 words of font info for 61 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 57i,19n,79p,619b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecr
-m0600.pk> <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi
-600\ecrm0700.pk> <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen
-/ec/dpi600\ecti1000.pk> <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/j
-knappen/ec/dpi600\ecti0900.pk> <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/l
-jfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\ramali\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\ramali\AppData\Local\MiK
-TeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm0900.pk> <C:\Users\ramali\AppData\Lo
-cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\Users\ramali\App
-Data\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0900.pk> <C:\Users\ram
-ali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Us
-ers\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk>
- <C:\Users\ramali\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1
-440.pk><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmex10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts
-/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ramali/AppData/Local/Programs/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ramali/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ramali/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/ramali
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Use
-rs/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb
-><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr6.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmr7.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmr9.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/ramali/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ramali/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/ramali/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Use
-rs/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pf
-b>
-Output written on samplepaper.pdf (17 pages, 409445 bytes).
+ 4068 strings out of 473898
+ 64216 string characters out of 5726008
+ 1961960 words of memory out of 5000000
+ 26887 multiletter control sequences out of 15000+600000
+ 594412 words of font info for 73 fonts, out of 8000000 for 9000
+ 1142 hyphenation exceptions out of 8191
+ 57i,19n,79p,854b,461s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmex10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmmi10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ramali/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/ramali/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/ramali/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ra
+mali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/
+Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.
+pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmr7.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr9.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/ramali/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/ramali/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Users/ramali/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/ra
+mali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:
+/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb>
+<C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb
+><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pf
+b><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.
+pfb>
+Output written on samplepaper.pdf (20 pages, 438442 bytes).
 PDF statistics:
- 618 PDF objects out of 1000 (max. 8388607)
+ 191 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -139,7 +139,7 @@ def run_greedy():
         f'\n')
 
 
-    lot_instance_file = 'simulation_state/done_lots_by_dispatching.txt'
+    lot_instance_file = f'dispatching_output/dispatching_{a.dispatcher}_{a.days}s.txt'
     with open(lot_instance_file, 'w') as file:
         print_head = f'Lot Product Step Machine_id start end\n'
         file.write(print_head)

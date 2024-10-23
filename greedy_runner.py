@@ -12,8 +12,8 @@ if not os.path.exists('greedy'):
 if not os.path.exists('simulation_state'):
     os.mkdir('simulation_state')
 for seed in [0]:
-    for day in [21600]:
-        for dataset, dispatcher in [('SMT2020_HVLM', 'fifo')]:
+    for day in [18000]:
+        for dataset, dispatcher in [('SMT2020_HVLM', 'cr')]:
             def s(day_, dataset_, dispatcher_):
                 name_ = f'greedy/greedy_seed{seed}_{day}days_{dataset}_{dispatcher}.txt'
                 with io.open(name_, 'w') as f:
