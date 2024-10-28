@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.7)  23 OCT 2024 15:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.7)  23 OCT 2024 15:33
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -717,7 +717,7 @@ Package pdftex.def Info: fig1-eps-converted-to.pdf  used on input line 1023.
 [18] (bib.tex
 
 [19 <./fig1-eps-converted-to.pdf>]
-Underfull \hbox (badness 4001) in paragraph at lines 57--60
+Underfull \hbox (badness 4001) in paragraph at lines 56--59
 []\T1/ptm/m/n/9 Author, F., Au-thor, S.: Ti-tle of a pro-ceed-ings pa-per. In: 
 Ed-i-tor, F., Ed-i-tor, S.
  []

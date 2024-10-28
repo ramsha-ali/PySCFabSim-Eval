@@ -148,10 +148,10 @@ class Instance:
 
     def get_times(self, lots, machine):
         # for stochastic pro time
-        #proc_t_samp = lots[0].actual_step.processing_time.sample()
+        proc_t_samp = lots[0].actual_step.processing_time.sample()
 
         # for deterministic pro time
-        proc_t_samp = lots[0].actual_step.processing_time.avg()
+        #proc_t_samp = lots[0].actual_step.processing_time.avg()
         lot_time = int(proc_t_samp)
         for lot in lots:
             lot.processing_time = lot_time
