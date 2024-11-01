@@ -4,9 +4,8 @@ import torch
 class Graph():
 
     pheromone_matrix = None
-    def generate_graph(self, j, m, pheromone, mac_availability, mac_attime, current_time, device="cpu"):
-        #print(len(j))
-        #print(len(m))
+    def generate_graph(self, j, m, pheromone, device="cpu"):
+
         job = torch.tensor(j, device=device)
         #print(job)
         #valid_operations_mask = (job[:, :, 0] != -1) & (job[:, :, 1] != -1)  # operations not [-1, -1]: padded
@@ -77,10 +76,11 @@ class Graph():
         #torch.set_printoptions(threshold=10_000)
         #for row in machine_matrix:
             #print(row.cpu().numpy())
-        #print(len(adjacency_matrix))
-        return m, job, adjacency_matrix, machine_matrix, mac_availability, mac_attime, current_time
+
+        return m, job, adjacency_matrix, machine_matrix
 
     def update_pheromone(self, p_matrix, edges, contribution, rho, min_p_level):
+        print(p_matrix)
         p_matrix *= (1-rho)
         start_nodes = edges[:, 0]
         end_nodes = edges[:, 1]

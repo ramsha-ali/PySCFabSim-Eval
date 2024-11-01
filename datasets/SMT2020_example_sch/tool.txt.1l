@@ -1,0 +1,7 @@
+STNFAM	STN	RULE	FWLRANK	WAKERESRANK	BATCHCRITF	BATCHPER	LTIME	LTUNITS	ULTIME	ULTUNITS	STNCAP	STNQTY	STNGRP	STNFAMSTEP_ACTLIST	STNFAMLOC	PRERULERWL	SETUPGRP
+Litho_FE_111	Litho_FE_111	rule_HotLotFIRST	rank_HP;rank_RSETUP;rank_CR				1.0	min	1.0	min		2.0	Litho	Custom_actlist_ASISemiOpersDuringSetupAndAdditionalLoadUnload	Fab	no	
+LithoTrack_FE_115	LithoTrack_FE_115	rule_HotLotFIRST	rank_HP;rank_RSETUP;rank_CR	wake_LeastSetupTime			1.0	min	1.0	min		2.0	Litho	Custom_actlist_ASISemiOpersDuringSetupAndAdditionalLoadUnload	Fab	no	
+TF_Met_FE_45	TF_Met_FE_45	rule_HotLotFIRST	rank_HP;rank_RSETUP;rank_CR				1.0	min	1.0	min		2.0	TF_Met	Custom_actlist_ASISemiOpersDuringSetupAndAdditionalLoadUnload	Fab	no	
+WE_FE_108	WE_FE_108	rule_HotLotFIRST	rank_HP;rank_RSETUP;rank_CR				1.0	min	1.0	min	2.0	2.0	Wet_Etch	Custom_actlist_ASISemiOpersDuringSetupAndAdditionalLoadUnload	Fab	no	
+WE_FE_83	WE_FE_83	rule_HotLotFIRST	rank_HP;rank_RSETUP;rank_CR				1.0	min	1.0	min	2.0	2.0	Wet_Etch	Custom_actlist_ASISemiOpersDuringSetupAndAdditionalLoadUnload	Fab	no	
+WE_FE_84	WE_FE_84	rule_HotLotFIRST	rank_HP;rank_RSETUP;rank_CR				1.0	min	1.0	min	2.0	2.0	Wet_Etch	Custom_actlist_ASISemiOpersDuringSetupAndAdditionalLoadUnload	Fab	no	

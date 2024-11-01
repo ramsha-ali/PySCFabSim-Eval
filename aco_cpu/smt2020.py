@@ -2,11 +2,9 @@ import os
 import re
 import pandas as pd
 import numpy as np
-import torch
 
 
 class SMT2020:
-    current_time = 0
     product_route = {}
     product_route_dynamic = {}
     wip_data = []
@@ -16,19 +14,11 @@ class SMT2020:
     machines = None
     jobs = None
 
-    unavail_macid = []
-
-    machine_attime = None
-    availability_matrix = None
-    availability_time_matrix = None
-
-    def read_files(self, instance, directory, breakdown):
+    def read_files(self, instance, directory):
         route_pattern = re.compile(r"route_.*\.txt")
         route_file = "route.txt"
         tool_file = 'tool.txt.1l'
-        wip_file = 'lot_instance.txt'
-        breakdown_log_file = 'breakdown_log.txt'
-        time_instance = 'at_time.txt'
+        wip_file = 'lot_instance_example.txt'
         for filename in os.listdir(directory):
             file_path = os.path.join(directory, filename)
             if route_pattern.match(filename):
@@ -37,16 +27,10 @@ class SMT2020:
                 self.process_tool_file(file_path)
             if filename == route_file:
                 self.process_route_file_sim(file_path)
-
         for filename in os.listdir(instance):
             file_path = os.path.join(instance, filename)
-            if filename == time_instance:
-                self.get_time(file_path)
             if filename == wip_file:
                 self.wip_instance(file_path)
-            if breakdown == "yes":
-                if filename == breakdown_log_file:
-                    self.process_breakdown_log(file_path)
         pass
 
     def process_route_file(self, file_path):
@@ -80,6 +64,7 @@ class SMT2020:
         )
         for route, routes in transformed.items():
             self.product_route[route] = routes
+
         pass
 
     def process_tool_file(self, file_path):
@@ -101,41 +86,13 @@ class SMT2020:
         self.wip_data = wtuple
         pass
 
-
     def get_time(self, file_path):
         with open(file_path, 'r') as file:
             first_line = file.readline().strip()
             self.current_time = float(first_line.split()[1])
 
-    def process_breakdown_log(self, file_path):
-        df = pd.read_csv(file_path, sep=' ', usecols=['Toolgroup', 'Machineid', 'at', 'duration'])
-        df['Toolgroup'] = df['Toolgroup'].str.lower()
-        df['available_at'] = df['at'] + df['duration']
-        df['not_available'] = df['available_at'] > int(self.current_time)
-
-        unavailable_machines = df[df['not_available']]
-        machine_details = [(row['Toolgroup'], row['Machineid']) for index, row in unavailable_machines.iterrows()]
-        machine_array = np.array(machine_details, dtype=[('Toolgroup', 'U20'), ('Machineid', 'i4')])
-
-        unavail_macid_dict = {}
-        for tool_group, machine_id in machine_array:
-            if tool_group not in unavail_macid_dict:
-                unavail_macid_dict[tool_group] = []
-            unavail_macid_dict[tool_group].append(machine_id)
-        unavail_macid = []
-        for tool_group, machine_ids in unavail_macid_dict.items():
-            entry = (tool_group, *machine_ids)
-            unavail_macid.append(entry)
-        self.unavail_macid = np.array(unavail_macid, dtype=object)
-
-        machine_attime = [(row['Toolgroup'], row['Machineid'], row['available_at']) for index, row in
-                          unavailable_machines.iterrows()]
-        self.machine_attime = sorted(machine_attime, key=lambda x: x[1])
-
-        pass
-
-    def read_data(self, instance, directory, breakdown):
-        self.read_files(instance, directory, breakdown)
+    def read_data(self, instance, directory):
+        self.read_files(instance, directory)
 
     def tool_mapping(self):
         if self.machines is None:
@@ -176,6 +133,21 @@ class SMT2020:
             max_operations = max(len(job) for job in job_info)
             padded_job_info = [job + [(-1, -1, -1, -1, -1)] * (max_operations - len(job)) for job in job_info]
             self.jobs = np.array(padded_job_info, dtype=int)
+        """  
+        # SMT2020_example
+        self.jobs = [[[1, 1, 1, 2, 10],
+                      [1, 1, 2, 3, 2],
+                      [1, 1, 3, 0, 6]],
+
+                     [[1, 2, 1, 1, 8],
+                      [1, 2, 2, 3, 1],
+                      [1, 2, 3, 0, 4]],
+
+                     [[1, 3, 1, 1, 9],
+                      [1, 3, 2, 3, 3],
+                      [1, 3, 3, 0, 13]]]
+        """
+
         pass
 
     # for stochastic processing times
@@ -206,46 +178,18 @@ class SMT2020:
             max_operations = max(len(job) for job in job_info)
             padded_job_info = [job + [(-1, -1, -1, -1, -1)] * (max_operations - len(job)) for job in job_info]
             self.jobs = np.array(padded_job_info, dtype=int)
-        pass
-
-
-    def avail(self, device="cpu"):
-        machine = np.array([list(row)[1:] for row in self.machines], dtype=np.int64)
-        machine_tensor = torch.tensor(machine, device=device, dtype=torch.int64)
-
-        num_machines = (torch.max(machine_tensor[machine_tensor != -1]).item() + 1)
-        num_tools = len(machine)
-        self.availability_matrix = torch.zeros((num_tools, num_machines), device=device)
-        time_dict = {id: time for _, id, time in self.machine_attime}
-        self.availability_time_matrix = torch.zeros((num_tools, num_machines), device=device)
-        unavailable_ids = set()
-        for _, *ids in self.unavail_macid:
-            unavailable_ids.update(ids)
-        unavailable_ids = sorted(unavailable_ids)
-        for tool_index, tool_machines in enumerate(machine_tensor):
-            for machine_index, machine_id in enumerate(tool_machines):
-                if machine_id != -1:
-                    if machine_id not in unavailable_ids:
-                        self.availability_matrix[tool_index, machine_id] = 1
-                    int_id = machine_id.item()
-                    if int_id in time_dict:
-                        time_value = time_dict[int_id]
-                        self.availability_time_matrix[tool_index, machine_id] = time_value
+            print(self.jobs)
 
         pass
 
 
-    def smt_caller(self, i, d, n, state, breakdown, seed):
-        self.read_data(i, d, breakdown)
+    def smt_caller(self, i, d, n, state, seed):
+        self.read_data(i, d)
         self.tool_mapping()
         if state == "deterministic":
             self.get_remaining_operations(n)
         if state == "dynamic":
             np.random.seed(seed)
             self.get_remaining_operations_dynmaic(n)
-        if state ==  "deterministic" and breakdown == "yes":
-            self.avail()
-        if breakdown == 'no':
-            self.current_time = 0
         pass
 

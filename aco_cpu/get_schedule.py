@@ -3,14 +3,18 @@ import logging
 
 def get_schedule(job_matrix, machine_map, sequence, machine_asigned, start_job, end_job, period):
     #print(machine_map)
-    last_step = {4:342, 3:582}
+    #last_step = {1:520, 2:528, 3:582, 4:342, 5:241}
+    last_step = {1: 5, 2: 5, 3: 5, 4: 5, 5: 5}
+
     valid_entries = (job_matrix != -1).all(dim=2) # operations not padded
     valid_jobs = job_matrix[valid_entries]
     #print(sequence)
     #print(machine_asigned)
     lot_product_step = []
     scheduled_lots = {}
-    schedule_file = f'..\schedule_output\schedule_output_{period}s.txt'
+    #schedule_file = f'..\schedule_output\schedule_output_{period}s.txt'
+    #schedule_file = f'..\schedule_output\schedule_output_SMT2020_example_operations_{period}s.txt'
+    schedule_file = f'..\schedule_output\schedule_output_SMT2020_example_makespan.txt'
     i = 0
     idx = 1
     try:

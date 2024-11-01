@@ -58,7 +58,6 @@ def print_statistics(instance, days, dataset, disp, method='greedy', dir='greedy
 
 
 def print_logs(instance):
-
     file_path_lots = 'simulation_state/wip_lots.txt'
     with open(file_path_lots, 'w') as file:
         print_head = f'Lot Product CurrentStep\n'
@@ -111,7 +110,7 @@ def print_logs(instance):
 
 
 def get_process_time(instance):
-    file_path_lots = 'datasets/SMT2020-01-S/route.txt'
+    file_path_lots = 'datasets/SMT2020_example_sch/route.txt'
     with open(file_path_lots, 'w') as file:
         print_head = f'Product Step Tool Processtime\n'
         file.write(print_head)

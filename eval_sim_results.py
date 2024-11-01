@@ -29,11 +29,13 @@ def resource_util(file_path, tool_file):
 #resource_util('greedy/greedy_seed0_3600days_SMT2020_HVLM_fifo.txt', 'datasets/SMT2020_HVLM/tool.txt.1l')
 
 def read_and_visualize_operations_line_graph(file_pattern, algos, output_filename, period):
+    last_step = {'part_1': 520, 'part_2': 528, 'part_3': 582, 'part_4': 342, 'part_5': 241}
     hour = int(period / 3600)
     avg_operations = []
     for algo in algos:
         algo_files = glob.glob(file_pattern.format(algo=algo, period=period))
         total_operations_per_seed = []
+        lots_done_per_seed = []
         for file in algo_files:
             data = pd.read_csv(file, delimiter="\t")
             parsed_rows = []
@@ -45,13 +47,21 @@ def read_and_visualize_operations_line_graph(file_pattern, algos, output_filenam
                     'Step': int(parts[3])
                 })
             df = pd.DataFrame(parsed_rows)
+            last_steps_reached = df[df.apply(lambda row: row['Step'] == last_step[row['Product']], axis=1)]
+            #print(last_steps_reached)
+            #unique_lots_products_count = last_steps_reached.groupby('Product')['Lot'].nunique()
+            lots_done = len(last_steps_reached)
+            lots_done_per_seed.append(lots_done)
             total_operations = len(df)
             total_operations_per_seed.append(total_operations)
+            #print(algo, lots_done)
 
         average_operations = sum(total_operations_per_seed) / len(total_operations_per_seed)
+        average_lots = sum(lots_done_per_seed) / len(lots_done_per_seed)
         avg_operations.append({
             'Algorithm': algo,
-            'Total Operations': int(average_operations)
+            'Total Operations': int(average_operations),
+            'Total_lots': int(average_lots),
         })
     operations_df = pd.DataFrame(avg_operations)
     plt.figure(figsize=(10, 6))
@@ -63,7 +73,7 @@ def read_and_visualize_operations_line_graph(file_pattern, algos, output_filenam
     plt.xlabel('Dispatcher')
     plt.ylabel('Total Operations')
     plt.grid(True)
-    plt.savefig(output_filename)
+    plt.savefig(output_filename, dpi=300)
     #plt.show()
 
     baseline = operations_df.loc[operations_df['Algorithm'] == 'fifo', 'Total Operations'].values[0]
@@ -128,9 +138,9 @@ def read_and_visualize_wip(file_pattern, algos, output_filename, period, wip):
     plt.ylim(0, max_count)  # Set the y-axis to start at 0 and end at max_count
     plt.yticks(range(0, max_count, 1))
     #plt.show()
-    plt.savefig(output_filename)
+    plt.savefig(output_filename, dpi=300)
 
-period = 21600
+period = 3600
 file_pattern = 'dispatching_output/dispatching_seed*_{algo}_{period}s.txt'
 algos = ['fifo', 'cr', 'random', 'gsaco']
 wip = 'simulation_state/lot_instance.txt'

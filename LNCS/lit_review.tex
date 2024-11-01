@@ -1,47 +1,102 @@
-\section{Literature Review}
-This section represents a brief relevant literature on the Flexible Job Shop Scheduling Problem (FJSSP), which was initially used as a general scheduling model for semiconductor production. Alternatively, this moves on with a discussion around the Semiconductor Manufacturing Scheduling Problem (SMSP), and how it can proceed with Ant Colony Optimization (ACO) and the solution.
+We briefly survey the relevant literature on the challenges inherent in SMSP, a sector marked by its complex operational dynamics and the critical need for highly efficient dispatching systems. Semiconductor production processes are characterized by their high variability, sophisticated product mixes, and stringent quality demands, which collectively necessitate innovative approaches to production scheduling and dispatching. 
+Later, we survey the relevant literature on methods for FJSSP, which we use as general
+scheduling model to represent semiconductor production processes and SMSP.
+Then we explore the traditional dispatching methods detailing their advantages and limitations within the context of semiconductor fabrication facilities. These conventional methods form the baseline against which the efficacy of advanced dispatching techniques, particularly those driven by Swarm Intelligence (SI), are evaluated. Furthermore, the review will cover essential performance metrics traditionally used to assess the effectiveness of dispatching rules.
+%This section represents a brief relevant literature on the Flexible Job Shop Scheduling Problem (FJSSP), which was initially used as a general scheduling model for semiconductor production. Alternatively, this moves on with a discussion around the Semiconductor Manufacturing Scheduling Problem (SMSP), and how it can proceed with Ant Colony Optimization (ACO) and the solution.
 \subsection{Semiconductor Manufacturing Scheduling Problem (SMSP)}
-The SMSP is a complex and critical challenge to optimize scheduling tasks during the manufacturing process of a semiconductor. Different methods have been adopted for a long time for varied types of machines \cite{chan2024situation}. The core aspects include job scheduling, batch processing, priority constraints, setup times of the machine, machine availability, and reentrant flow. The key challenges stay with complexity, dynamic job arrivals, and reducing downtime while maximizing throughput \cite{el2023hybrid}. Many researchers and developers have been working on the topic and suggested their methods to solve the problem.
-\vspace{1em}
+Semiconductor manufacturing is characterized by its complex multi-step fabrication process, each involving highly precise and controlled conditions. The fabrication of semiconductor devices often requires hundreds of steps during the photolithography, etching, and chemical deposition phases, among others. This complexity is compounded by the requirement for extremely clean environments to avoid contamination of the microscopically small circuits, making operational excellence a challenging goal \cite{May2006}.
 
-Mixed-integer linear programming (MILP) is a great option to solve large mathematical problems by optimizing the solution. As suggested by \cite{fang2023problems} in their study to identify important research problems with semiconductor manufacturing operations (SMOs), MILP models are extensively used in deterministic SMO scheduling problems. While MILP models are great for optimal solutions for small-scale instances, these models can also be used to provide upper bounds for large-scale instances. The only thing is, there is no optimal solution for such situations, but it is done by relaxing several constraints. 
-\vspace{1em}
+Unlike other manufacturing industries that produce a limited range of products, semiconductor manufacturers typically deal with a high mix of products on the same production line. This high mix coupled with the rapid product evolution typical of the tech industry results in significant fluctuations in production volumes. Manufacturers must, therefore, be highly responsive to changes in demand and technology without compromising on the speed or quality of production .
 
-Another paper \cite{wang2014hybrid} was written for research of an SMSP to solve all the constraints of the semiconductor manufacturing industry such as machine status, setup time, limited waiting time, different process times on varied machines, and more. The researchers suggested a hybrid estimation of a distribution algorithm with multiple subpopulations (HEDA-MS) to solve SMSP and to make the total exceed the limited waiting time to zero.
+The SMSP is a complex and critical challenge to optimize scheduling tasks during the manufacturing process of a semiconductor. Different methods have been adopted for a long time for varied types of machines \cite{chan2024situation}. The core aspects include job scheduling, batch processing, priority constraints, setup times of the machine, machine availability, and reentrant flow. The key challenges stay with complexity, dynamic job arrivals, and reducing downtime while maximizing throughput \cite{el2023}. Many researchers and developers have been working on the topic and suggested their methods to solve the problem.
+
+%Mixed-integer linear programming (MILP) is a great option to solve large mathematical problems by optimizing the solution. As suggested by \cite{fang2023problems} in their study to identify important research problems with semiconductor manufacturing operations (SMOs), MILP models are extensively used in deterministic SMO scheduling problems. While MILP models are great for optimal solutions for small-scale instances, these models can also be used to provide upper bounds for large-scale instances. The only thing is, there is no optimal solution for such situations, but it is done by relaxing several constraints. 
+
+%Another paper \cite{wang2014hybrid} was written for research of an SMSP to solve all the constraints of the semiconductor manufacturing industry such as machine status, setup time, limited waiting time, different process times on varied machines, and more. The researchers suggested a hybrid estimation of a distribution algorithm with multiple subpopulations (HEDA-MS) to solve SMSP and to make the total exceed the limited waiting time to zero.
+
+
 \subsection{Flexible Job Shop Scheduling}
-Considering the manufacturing industry, FJSSP is a common problem, especially for small batch and custom productions. The mathematical models allow us to solve the optimality issue for small-scale instances. As \cite{dauzere2024flexible} explains in their paper, it is important to assign the FJSSP on a machine in a particular sequence. As the optimization criteria need the start time of all the operations, it is important to optimize the completion time also. The most suitable approach to solve this time problem depends on the function and the mathematical properties associated with it. Researchers also explained that many studies are optimizing non-regular criteria that require equal efforts for timing decisions to get the best sequencing decisions in solution approaches. 
-\vspace{1em}
+Considering the manufacturing industry, FJSSP is a common problem, especially for small batch and custom productions. The mathematical models allow us to solve the optimality issue for small-scale instances. As \cite{dauzere2024flexible} explains, it is important to assign the FJSSP on a machine in a particular sequence. As the optimization criteria need the start time of all the operations, it is important to optimize the completion time also. The most suitable approach to solve this time problem depends on the function and the mathematical properties associated with it. Researchers also explained that many studies are optimizing non-regular criteria that require equal efforts for timing decisions to get the best sequencing decisions in solution approaches. 
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.5\textwidth]{FJSSP.png} 
-  \caption{Example of the flexible job-shop scheduling problem \cite{zhang2022novel}}
-  \label{fig:image2}
-\end{figure}
-
-\vspace{1em}
 The study \cite{lei2022multi} explained that the existing methods to solve NP-hard combinatorial optimization problems are either exact or approximate. The exact methods are challenging to solve FJSSP when problems need large-size scheduling. Considering their NP-hardness, it is difficult to allocate reasonable time. \cite{lei2022multi} have also explained that FJSSP instances intractability is in constant need of more approximate methods. So many solutions like machine learning techniques, heuristics, meta-heuristics methods, and more are continuously being developed to tackle real-world problems more effectively. 
 
-\vspace{1em}
-In their recent work, \cite{zhang2020evolving} used generic programming to evolve scheduling heuristics in dynamic FJSS. They explained that Genetic programming hyperheuristics (GPHH) is a great option for heuristics scheduling, and a proper selection of the terminal makes it successful. They concluded that a two-stage GPHH with selected features for DFJSS can help in interpretable scheduling heuristics while creating a much shorter training time.
+%In their recent work, \cite{zhang2020evolving} used generic programming to evolve scheduling heuristics in dynamic FJSS. They explained that Genetic programming hyperheuristics (GPHH) is a great option for heuristics scheduling, and a proper selection of the terminal makes it successful. They concluded that a two-stage GPHH with selected features for DFJSS can help in interpretable scheduling heuristics while creating a much shorter training time.
 \subsection{Ant Colony Optimization}
-ACO follows the foraging methods of ant species to find a favorable path and leaves the trails (pheromone) to let others find the path. ACO algorithms are one of the MPPT methods to search for GMPP. Sometimes it is also used as a hybrid MPPT method \cite{mamur2022future}. 
-\vspace{1em}
+ACO is a % swarm-based
+meta-heuristic algorithm that mimics the foraging behavior of ants \cite{dorigo2019ant}.
+% It is a probabilistic technique for solving combinatorial optimization problems through graphs.
+It was originally devised to solve the traveling salesperson problem \cite{stutzle1999aco}, % where the goal is to find the shortest route that visits all cities exactly once and returns to the starting city. Its application has expanded 
+and meanwhile ACO has been adopted to various optimization problems, including routing \cite{rizzoli2007ant}, scheduling \cite{luo2008ant}, task allocation \cite{rugwiro2019task}, project planning \cite{khelifa2020holonic}, and network optimization \cite{wang2009hopnet}.
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=0.5\textwidth]{ACO.png} 
-  \caption{Ant Colony Optimization Algorithm working for scheduling \cite{rajan2015investigation}}
-  \label{fig:image1}
-\end{figure}
-
-\vspace{1em}
 ACO is a well-suited metaheuristics algorithm to solve SMSP as it is highly appropriate to handle the dynamic and complex nature of semiconductor scheduling with its multi-objective nature \cite{nayar2021ant}. ACO has a history of application to be applied to SMSP for wafer scheduling to balance the load and minimize the makespan. The dynamic nature of the ACO algorithm continuously updates the “pheromone” based on the completed jobs, and guides others to follow the optimal scheduling decisions, ultimately making the system reduce their decision-making time \cite{zhou2022parameter}.
-\vspace{1em}
-In their work, \cite{li2024modified} proposed an Ant Colony Algorithm (ACA) to solve constraints like holding times and time lags. They created this setup in two stages where they located pheromones in the first stage while using genetic algorithms to initialize. \cite{shao2010minimising} used the ACO algorithm to form batches. They batched using a DP algorithm and combined it with the job sequences generated by the ACO algorithm that released time to update pheromone trails. 
-\vspace{1em}
-ACO has been a promising algorithm for FJSSP solving. Researchers didn’t stop there but created extended versions of ACOs to improve time-span minimization. \cite{skackauskas2022dynamic} proposed Dynamic Impact, an extended method for ACO that improved convergence and optimized problems between the resources having non-linear relationships. \cite{skackauskas2022dynamic} concluded a 33.2 percent improved optimization over ACO with the Dynamic Impact algorithm. 
-\vspace{1em}
-\cite{wang2021time} has explained the importance of improved ACO to ensure real-time determination as a time-sensitive network (TSN). This improved ACO (IACO) focuses on convergence speed and schedules the time-triggered flows in TSN.
-%\printbibliography % This will print the bibliography
+
+%In their work, \cite{li2024modified} proposed an Ant Colony Algorithm (ACA) to solve constraints like holding times and time lags. They created this setup in two stages where they located pheromones in the first stage while using genetic algorithms to initialize. \cite{shao2010minimising} used the ACO algorithm to form batches. They batched using a DP algorithm and combined it with the job sequences generated by the ACO algorithm that released time to update pheromone trails. 
+
+%ACO has been a promising algorithm for FJSSP solving. Researchers didn’t stop there but created extended versions of ACOs to improve time-span minimization. \cite{skackauskas2022dynamic} proposed Dynamic Impact, an extended method for ACO that improved convergence and optimized problems between the resources having non-linear relationships. \cite{skackauskas2022dynamic} concluded a 33.2 percent improved optimization over ACO with the Dynamic Impact algorithm. 
+
+%\cite{wang2021time} has explained the importance of improved ACO to ensure real-time determination as a time-sensitive network (TSN). This improved ACO (IACO) focuses on convergence speed and schedules the time-triggered flows in TSN.
+
+The common idea is that artificial ants construct paths through a graph,
+making probabilistic decisions based on problem-specific heuristic information as well as temporary pheromone trails that indicate
+promising search directions.
+Particular strengths of ACO lie in the high potential for parallelization,
+given that ants can be simulated in parallel,
+and a certain robustness against getting stuck in local optima,
+as the probabilistic decision rules of ants promote exploration.
+However, a specific difficulty in the ACO algorithm design concerns the
+tuning of hyperparameters, such as the number of ants to consider,
+the trade-off between heuristic information and pheromone trails, and
+the pheromone evaporation rate. 
+
+Among meta-heuristic FJSSP solving techniques,
+ACO has been shown to be a particularly promising approach \cite{turkyilmaz2020research}.
+The practical difficulty remains to escape local optima and reliably
+converge to high-quality solutions within a short computing time limit.
+This challenge has brought about a variety of extended ACO algorithms as well as
+hybrid approaches that combine ACO with local search methods
+\cite{leung2010integrated,li2010improved,xing2010knowledge,thammano2013hybrid,arnaout2014two,el2017dual}.
+While these methods have been designed and evaluated
+on small to medium-scale FJSSP benchmarks \cite{arnaout2014two},
+our work addresses the large-scale SMSP instances encountered in
+the domain of semiconductor production scheduling \cite{kopp2020smt2020}.
+Beyond FJSSP and SMSP investigated here,
+we note that hybrid optimization algorithms integrating meta-heuristics and
+local search have also been adopted in a variety of other application settings
+\cite{abdel2021hybrid,fontes2023hybrid,li2021hybrid,mohd2023improved,suid2023novel}.
+\subsection{Dispatching}
+
+In semiconductor manufacturing, the efficient management of production flow is crucial for maintaining high throughput and minimizing delays. This section explores dispatching methods that have been traditionally employed to orchestrate the flow of work-in-process (WIP) through the various stages of production. 
+
+FIFO is one of the simplest and most widely used dispatching rules in various manufacturing sectors, including semiconductors. It prioritizes jobs in the order they arrive, regardless of their complexity or processing time. While FIFO is straightforward to implement and ensures a fair processing order, it may not be optimal in environments where job priorities vary significantly, leading to potential inefficiencies in the handling of urgent or time-sensitive processes \cite{kumar1993}.
+
+The Critical Ratio is a more sophisticated dispatching method that prioritizes jobs based on the ratio of the remaining processing time to the time remaining until the job's due date. This method aims to minimize tardiness and is particularly useful in semiconductor manufacturing, where delivery schedules are tight, and delays can be costly. However, its effectiveness is highly dependent on accurate estimates of processing times and can become complex to manage in high-mix production environments \cite{baker1974}. 
+
+Random dispatching assigns priorities to jobs at random, irrespective of their characteristics or deadlines. This method is often used as a benchmark in simulation studies to demonstrate the effectiveness of more sophisticated rules. While it does not optimize any specific performance metric, random dispatching can sometimes yield surprisingly good average performance due to its stochastic nature, though it generally lacks consistency and predictability \cite{blackstone1982}. 
+
+These conventional methods provide a baseline for managing operations but often fall short in environments characterized by high variability and complex product mixes, such as in semiconductor manufacturing. %FIFO and Random methods do not consider the specific needs or urgencies of different jobs, while CR requires detailed and accurate information to be effective, which can be challenging to maintain. Moreover, none of these methods dynamically adapt to changes in the production environment, which is increasingly necessary in modern manufacturing settings. 
+Given the limitations of these conventional methods, there is a significant opportunity for advanced dispatching approaches that can adapt to the dynamic conditions of semiconductor production lines. The integration of real-time data analytics and more sophisticated algorithms, such as those derived from Swarm Intelligence, could address these gaps by providing more flexible and responsive dispatching solutions.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

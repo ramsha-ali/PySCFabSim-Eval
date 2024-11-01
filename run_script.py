@@ -9,7 +9,7 @@ def run_script(script_name):
         print(f"Error running {script_name}:\n{e.stderr}")
 
 
-scripts = ['greedy_runner.py', 'aco_cpu/aco_main.py', 'greedy_runner_gsaco.py']
+scripts = ['greedy_runner.py', 'aco_cpu/aco_main_operations.py', 'greedy_runner_gsaco.py']
 
 for script in scripts:
     run_script(script)
