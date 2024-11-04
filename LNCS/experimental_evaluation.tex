@@ -147,14 +147,14 @@ horizon $n=5$.
 		\multicolumn{1}{l|}{Ops/Lots} &
 		\multicolumn{1}{c|}{Ops/Lots} &
 		\multicolumn{1}{l|}{Ops/Lots} \\ \cline{2-7}
-		SMT2020\_LVHM &
+		LV/HM &
 		\multicolumn{1}{c|}{1422/0} &
 		\multicolumn{1}{c|}{2368/0} &
 		\multicolumn{1}{c|}{3234/0} &
 		\multicolumn{1}{c|}{4015/1} &
 		\multicolumn{1}{c|}{4722/2} &
 		5306/2 \\ 
-		SMT2020\_HVLM &
+		HV/LM &
 		\multicolumn{1}{c|}{1848/0} &
 		\multicolumn{1}{c|}{2960/0} &
 		\multicolumn{1}{c|}{4093/1} &
@@ -194,7 +194,7 @@ horizon $n=5$.
 
 
 \begin{table}[]
-	\caption{Percentage Change in Dispatcher Performance Over Planning Hours (HVLM)}\label{tab:dispatchers-HVLM} 
+	\caption{Percentage Change in Dispatcher Performance Over Planning Hours (HV/LM)}\label{tab:dispatchers-HVLM} 
 	\begin{tabular}{|l|cccccccccccc|}
 		\hline
 		\multirow{3}{*}{Dispatcher} &
@@ -276,7 +276,7 @@ horizon $n=5$.
 
 
 \begin{table}[]
-	\caption{Percentage Change in Dispatcher Performance Over Planning Hours (LVHM)}\label{tab:dispatchers-LVHM}
+	\caption{Percentage Change in Dispatcher Performance Over Planning Hours (LV/HM)}\label{tab:dispatchers-LVHM}
 	\begin{tabular}{|l|cccccccccccc|}
 		\hline
 		\multirow{3}{*}{Dispatcher} &
@@ -375,6 +375,7 @@ for planning horizons from $n=2$ on the HV/LM scenario or $n=3$
 on LV/HM.
 
 The quick convergence of our GSACO-I implementation is also outlined by the makespan improvements plotted in Figure~\ref{fig:makespan}.
+\todo{M: The figure seems somehow missing here.}
 On the LV/HM scenario displayed in Figure~\ref{subfig:l}, 
 GSACO obtains its best schedules within $7$ minutes
 for all planning horizons.
@@ -402,35 +403,35 @@ and thus not listed in Table~\ref{tab:results}.
 	\centering
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/total_operations_3600s.png}
-		\caption{}
-		\label{fig:o1}
+		% \caption{}
+		% \label{fig:o1}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/total_operations_7200s.png}
-		\caption{}
-		\label{fig:o2}
+		% \caption{}
+		% \label{fig:o2}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/total_operations_10800s.png}
-		\caption{}
-		\label{fig:o3}
+		% \caption{}
+		% \label{fig:o3}
 	\end{subfigure}
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/total_operations_14400s.png}
-		\caption{}
-		\label{fig:o4}
+		% \caption{}
+		% \label{fig:o4}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/total_operations_18000s.png}
-		\caption{}
-		\label{fig:o5}
+		% \caption{}
+		% \label{fig:o5}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/total_operations_21600s.png}
-		\caption{}
-		\label{fig:o6}
+		% \caption{}
+		% \label{fig:o6}
 	\end{subfigure}
-	\caption{Total operations completed HVLM}
+	\caption{Completed operations for HV/LM}
 	\label{fig:totalopsHVLM}
 \end{figure}
 
@@ -438,46 +439,47 @@ and thus not listed in Table~\ref{tab:results}.
 	\centering
 	\begin{subfigure}[b]{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/period_3600s.png}
-		\caption{}
-		\label{fig:p1}
+		% \caption{}
+		% \label{fig:p1}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/period_7200s.png}
-		\caption{}
-		\label{fig:p2}
+		% \caption{}
+		% \label{fig:p2}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/period_10800s.png}
-		\caption{}
-		\label{fig:p3}
+		% \caption{}
+		% \label{fig:p3}
 	\end{subfigure}
 	
 	\begin{subfigure}[b]{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/period_14400s.png}
-		\caption{}
-		\label{fig:p4}
+		% \caption{}
+		% \label{fig:p4}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/period_18000s.png}
-		\caption{}
-		\label{fig:p5}
+		% \caption{}
+		% \label{fig:p5}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.32\textwidth}
 		\includegraphics[width=\textwidth]{HVLM/period_21600s.png}
-		\caption{}
-		\label{fig:p6}
+		% \caption{}
+		% \label{fig:p6}
 	\end{subfigure}
-	\caption{WIP flow HVLM}
+	\caption{WIP flow for HV/LM}
 	\label{fig:wip-flows-HVLM}
 \end{figure}
 
 The plots in Figure~\ref{fig:totalopsHVLM} presents the performance of various dispatching rules—FIFO, CR, RANDOM, and GSACO—across different planning horizons ranging from 1 to 6 hours. Each plot illustrates the total number of operations dispatched by each rule within these time frames, offering a clear comparison of their efficiency and effectiveness in handling operational tasks within a semiconductor manufacturing.
+\todo{M: Please unify the range of the $y$-scales in subfigures of each of the Figures~\ref{fig:totalopsHVLM}--\ref{fig:totalopsLVHM}.}
 
-The performance of dispatching rules based on specific operational times and goals are analyzed. While simpler rules like FIFO and CR are predictable and may perform adequately in stable environments, their performance can lag in more dynamic or complex scenarios where adaptive strategies like GSACO provide significant advantages. Random dispatching, surprisingly effective in some cases, suggests that stochastic elements might occasionally align with operational demands, although this method’s reliability is less consistent. GSACO’s consistently superior performance advocates for its use in environments where maximizing operational throughput is critical. This analysis not only aids in strategic decision-making but also highlights the potential for further refining these algorithms to enhance their applicability and effectiveness across various manufacturing contexts.
+The performance of dispatching rules based on specific operational times and goals are analyzed. While simpler rules like FIFO and CR are predictable and may perform adequately in stable environments, their performance can lag in more dynamic or complex scenarios where adaptive strategies like GSACO provide significant advantages. Random dispatching, surprisingly effective in some cases, suggests that stochastic elements might occasionally align with operational demands, although this method's reliability is less consistent. GSACO's consistently superior performance advocates for its use in environments where maximizing operational throughput is critical. This analysis not only aids in strategic decision-making but also highlights the potential for further refining these algorithms to enhance their applicability and effectiveness across various manufacturing contexts.
 
 The plots in Figure~\ref{fig:wip-flows-HVLM} illustrate the Work in Progress (WIP) flow across various dispatching rules—FIFO, CR, RANDOM, and GSACO —over different planning horizons ranging from 1 to 6 hours. Each bar demonstrates the minimum and maximum WIP levels reached during the simulation period under each dispatching rule, with the height of the bar indicating the variability or stability of the WIP flow.
 
@@ -493,35 +495,35 @@ GSACO consistently demonstrates the highest variability. This could be attribute
 	\centering
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/period_3600s.png}
-		\caption{}
-		\label{fig:p1}
+		% \caption{}
+		% \label{fig:pp1}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/period_7200s.png}
-		\caption{}
-		\label{fig:p2}
+		% \caption{}
+		% \label{fig:pp2}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/period_10800s.png}
-		\caption{}
-		\label{fig:p3}
+		% \caption{}
+		% \label{fig:pp3}
 	\end{subfigure}
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/period_14400s.png}
-		\caption{}
-		\label{fig:p4}
+		% \caption{}
+		% \label{fig:pp4}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/period_18000s.png}
-		\caption{}
-		\label{fig:p5}
+		% \caption{}
+		% \label{fig:pp5}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/period_21600s.png}
-		\caption{}
-		\label{fig:p6}
+		% \caption{}
+		% \label{fig:pp6}
 	\end{subfigure}
-    \caption{WIP flow LVHM}
+    \caption{WIP flow for LV/HM}
     \label{fig:wip-flows-LVHM}
 \end{figure}
 
@@ -530,34 +532,34 @@ GSACO consistently demonstrates the highest variability. This could be attribute
 	\centering
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/total_operations_3600s.png}
-		\caption{}
-		\label{fig:o1}
+		% \caption{}
+		% \label{fig:oo1}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/total_operations_7200s.png}
-		\caption{}
-		\label{fig:o2}
+		% \caption{}
+		% \label{fig:oo2}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/total_operations_10800s.png}
-		\caption{}
-		\label{fig:o3}
+		% \caption{}
+		% \label{fig:oo3}
 	\end{subfigure}
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/total_operations_14400s.png}
-		\caption{}
-		\label{fig:o4}
+		% \caption{}
+		% \label{fig:oo4}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/total_operations_18000s.png}
-		\caption{}
-		\label{fig:o5}
+		% \caption{}
+		% \label{fig:oo5}
 	\end{subfigure}\hfill
 	\begin{subfigure}{0.32\textwidth}
 		\includegraphics[width=\textwidth]{LVHM/total_operations_21600s.png}
-		\caption{}
-		\label{fig:o6}
+		% \caption{}
+		% \label{fig:oo6}
 	\end{subfigure}
-	\caption{Total operations completed LVHM}
+	\caption{Total operations completed LV/HM}
 	\label{fig:totalopsLVHM}
 \end{figure}

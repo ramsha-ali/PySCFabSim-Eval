@@ -101,7 +101,7 @@ in forthcoming iterations.
 
 
 \subsection{Input Module}
-This module reads in an SMSP instance from the SMT2020 simulator develop by \cite{Kovács2022}, 
+This module reads in an SMSP instance from the SMT2020 simulator develop by \cite{Kovacs2022}, 
 and SMT2020 dataset \cite{kopp2020smt2020}.
 The instance includes tool groups with their respective machines, jobs currently in progress, and production routes. In terms of dynamic state, the processing times for these routes are stochastic. Conversely, the simulator provides observed averages for processing times and job releases. Additionally, the module takes several inputs for the GSACO optimization process: the objective~$o$, the state of the fab~$s$, planning period~$h$, 
 operation per lot~$n$ and a limit~$l$ on either the number of cycles or the time allocated for optimization.
@@ -449,16 +449,16 @@ The machine assignment process allocates operations
 according to the sequence from the first phase, yielding a
 feasible schedule that assigns the machines and start times for all operations.
 
-The schedule for minimizing makespan is shown Figure~\ref{fig:sch-makespan} and schedule for 15 minutes is shown in Figure~\ref{fig:sch-operations}
+The schedule for minimizing makespan is shown Figure~\ref{fig:sch-makespan}, and a schedule for 15 minutes is shown in Figure~\ref{fig:sch-operations}.
 
-\begin{figure}[ht]
+\begin{figure}[t]
 	\includegraphics[width=\textwidth]{schedule_example_makespan.png}
-	\caption{Feasible schedule for instance in Table~\ref{tab:instance}}
+	\caption{Feasible schedule for the instance in Table~\ref{tab:instance}}
 	\label{fig:sch-makespan}
 \end{figure}
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{schedule_example_operations.png}
-	\caption{Feasible schedule for instance in Table~\ref{tab:instance}}
+	\caption{Feasible 15-minutes schedule for the instance in Table~\ref{tab:instance}}
 	\label{fig:sch-operations}
 \end{figure}
 

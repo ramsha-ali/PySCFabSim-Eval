@@ -1,55 +1,56 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.7)  4 NOV 2024 14:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.8.13)  5 NOV 2024 00:39
 entering extended mode
- \write18 enabled.
+ restricted \write18 enabled.
  %&-line parsing enabled.
-**./samplepaper.tex
-(samplepaper.tex
-LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-07-20>
-(llncs.cls
+**samplepaper.tex
+(./samplepaper.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21> (./llncs.cls
 Document Class: llncs 2024/01/29 v2.24 
  LaTeX document class for Lecture Notes in Computer Science
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2024/02/08 v1.4n Standard LaTeX document class
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
-File: size10.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count194
-\c@section=\count195
-\c@subsection=\count196
-\c@subsubsection=\count197
-\c@paragraph=\count198
-\c@subparagraph=\count199
-\c@figure=\count266
-\c@table=\count267
-\abovecaptionskip=\skip49
-\belowcaptionskip=\skip50
-\bibindent=\dimen141
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
-Package: multicol 2024/05/23 v1.9h multicolumn formatting (FMi)
-\c@tracingmulticols=\count268
-\mult@box=\box52
-\multicol@leftmargin=\dimen142
-\c@unbalance=\count269
-\c@collectmore=\count270
-\doublecol@number=\count271
-\multicoltolerance=\count272
-\multicolpretolerance=\count273
-\full@width=\dimen143
-\page@free=\dimen144
-\premulticols=\dimen145
-\postmulticols=\dimen146
-\multicolsep=\skip51
-\multicolbaselineskip=\skip52
-\partial@page=\box53
-\last@line=\box54
-\mc@boxedresult=\box55
-\maxbalancingoverflow=\dimen147
-\mult@rightbox=\box56
-\mult@grightbox=\box57
-\mult@firstbox=\box58
-\mult@gfirstbox=\box59
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
+\c@tracingmulticols=\count193
+\mult@box=\box50
+\multicol@leftmargin=\dimen139
+\c@unbalance=\count194
+\c@collectmore=\count195
+\doublecol@number=\count196
+\multicoltolerance=\count197
+\multicolpretolerance=\count198
+\full@width=\dimen140
+\page@free=\dimen141
+\premulticols=\dimen142
+\postmulticols=\dimen143
+\multicolsep=\skip49
+\multicolbaselineskip=\skip50
+\partial@page=\box51
+\last@line=\box52
+\maxbalancingoverflow=\dimen144
+\mult@rightbox=\box53
+\mult@grightbox=\box54
+\mult@firstbox=\box55
+\mult@gfirstbox=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
 \@tempa=\box60
 \@tempa=\box61
 \@tempa=\box62
@@ -83,23 +84,20 @@ Package: multicol 2024/05/23 v1.9h multicolumn formatting (FMi)
 \@tempa=\box90
 \@tempa=\box91
 \@tempa=\box92
-\@tempa=\box93
-\@tempa=\box94
-\@tempa=\box95
-\c@minrows=\count274
-\c@columnbadness=\count275
-\c@finalcolumnbadness=\count276
-\last@try=\dimen148
-\multicolovershoot=\dimen149
-\multicolundershoot=\dimen150
-\mult@nat@firstbox=\box96
-\colbreak@box=\box97
-\mc@col@check@num=\count277
+\c@minrows=\count199
+\c@columnbadness=\count266
+\c@finalcolumnbadness=\count267
+\last@try=\dimen145
+\multicolovershoot=\dimen146
+\multicolundershoot=\dimen147
+\mult@nat@firstbox=\box93
+\colbreak@box=\box94
+\mc@col@check@num=\count268
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\aliascnt.sty
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/aliascnt.sty
 Package: aliascnt 2018/09/07 v1.5 Alias counters (HO)
 )
-\c@chapter=\count278
+\c@chapter=\count269
 LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 379.
 LaTeX Font Info:    Redeclaring math symbol \Delta on input line 380.
 LaTeX Font Info:    Redeclaring math symbol \Theta on input line 381.
@@ -112,503 +110,692 @@ LaTeX Font Info:    Redeclaring math symbol \Phi on input line 387.
 LaTeX Font Info:    Redeclaring math symbol \Psi on input line 388.
 LaTeX Font Info:    Redeclaring math symbol \Omega on input line 389.
 LaTeX Info: Redefining \vec on input line 394.
-\tocchpnum=\dimen151
-\tocsecnum=\dimen152
-\tocsectotal=\dimen153
-\tocsubsecnum=\dimen154
-\tocsubsectotal=\dimen155
-\tocsubsubsecnum=\dimen156
-\tocsubsubsectotal=\dimen157
-\tocparanum=\dimen158
-\tocparatotal=\dimen159
-\tocsubparanum=\dimen160
-\@tempcntc=\count279
-\fnindent=\dimen161
-\c@@inst=\count280
-\c@@auth=\count281
-\c@auco=\count282
-\instindent=\dimen162
-\authrun=\box98
-\authorrunning=\toks17
-\tocauthor=\toks18
-\titrun=\box99
-\titlerunning=\toks19
-\toctitle=\toks20
-\c@theorem=\count283
-\c@case=\count284
-\c@conjecture=\count285
-\c@corollary=\count286
-\c@definition=\count287
-\c@example=\count288
-\c@exercise=\count289
-\c@lemma=\count290
-\c@note=\count291
-\c@problem=\count292
-\c@property=\count293
-\c@proposition=\count294
-\c@question=\count295
-\c@solution=\count296
-\c@remark=\count297
-\headlineindent=\dimen163
-) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+\tocchpnum=\dimen148
+\tocsecnum=\dimen149
+\tocsectotal=\dimen150
+\tocsubsecnum=\dimen151
+\tocsubsectotal=\dimen152
+\tocsubsubsecnum=\dimen153
+\tocsubsubsectotal=\dimen154
+\tocparanum=\dimen155
+\tocparatotal=\dimen156
+\tocsubparanum=\dimen157
+\@tempcntc=\count270
+\fnindent=\dimen158
+\c@@inst=\count271
+\c@@auth=\count272
+\c@auco=\count273
+\instindent=\dimen159
+\authrun=\box95
+\authorrunning=\toks16
+\tocauthor=\toks17
+\titrun=\box96
+\titlerunning=\toks18
+\toctitle=\toks19
+\c@theorem=\count274
+\c@case=\count275
+\c@conjecture=\count276
+\c@corollary=\count277
+\c@definition=\count278
+\c@example=\count279
+\c@exercise=\count280
+\c@lemma=\count281
+\c@note=\count282
+\c@problem=\count283
+\c@property=\count284
+\c@proposition=\count285
+\c@question=\count286
+\c@solution=\count287
+\c@remark=\count288
+\headlineindent=\dimen160
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
-Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
-Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
-Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks21
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks20
 )
+\captionmargin=\dimen161
+\captionmargin@=\dimen162
+\captionwidth=\dimen163
 \caption@tempdima=\dimen164
-\captionmargin=\dimen165
-\caption@leftmargin=\dimen166
-\caption@rightmargin=\dimen167
-\caption@width=\dimen168
-\caption@indent=\dimen169
-\caption@parindent=\dimen170
-\caption@hangindent=\dimen171
+\caption@indent=\dimen165
+\caption@parindent=\dimen166
+\caption@hangindent=\dimen167
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
 Package caption Info: \@makecaption = \long macro:#1#2->\small \vskip \abovecap
 tionskip \sbox \@tempboxa {{\bfseries #1.} #2}\ifdim \wd \@tempboxa >\hsize {\b
 fseries #1.} #2\par \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@
-tempboxa \hfil }\fi \vskip \belowcaptionskip  on input line 1175.
+tempboxa \hfil }\fi \vskip \belowcaptionskip  on input line 1139.
 )
 
 Package caption Warning: Unknown document class (or package),
 (caption)                standard defaults will be used.
 See the caption package documentation for explanation.
 
-\c@caption@flags=\count298
-\c@continuedfloat=\count299
+\c@caption@flags=\count289
+\c@continuedfloat=\count290
 )
-Package caption Info: New subtype `subfigure' on input line 238.
-\c@subfigure=\count300
-Package caption Info: New subtype `subtable' on input line 238.
-\c@subtable=\count301
-) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2024/05/23 v2.17q AMS math features
-\@mathmargin=\skip53
+\c@subfigure=\count291
+\c@subtable=\count292
+) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2021/10/15 v2.17l AMS math features
+\@mathmargin=\skip51
+
 For additional information on amsmath, use the `?' option.
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks22
-\ex@=\dimen172
+\@emptytoks=\toks21
+\ex@=\dimen168
 ))
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen173
+\pmbraise@=\dimen169
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
-Package: amsopn 2022/04/08 v2.04 operator names
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2021/08/26 v2.02 operator names
 )
-\inf@bad=\count302
-LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count303
-\leftroot@=\count304
-LaTeX Info: Redefining \overline on input line 398.
-LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count305
-\DOTSCASE@=\count306
-LaTeX Info: Redefining \ldots on input line 495.
-LaTeX Info: Redefining \dots on input line 498.
-LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box100
-\strutbox@=\box101
-LaTeX Info: Redefining \big on input line 721.
-LaTeX Info: Redefining \Big on input line 722.
-LaTeX Info: Redefining \bigg on input line 723.
-LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen174
-LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\inf@bad=\count293
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count294
+\leftroot@=\count295
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count296
+\DOTSCASE@=\count297
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box97
+\strutbox@=\box98
+\big@size=\dimen170
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 
 
 Package amsmath Warning: Unable to redefine math accent \vec.
 
-\macc@depth=\count307
-LaTeX Info: Redefining \bmod on input line 904.
-LaTeX Info: Redefining \pmod on input line 909.
-LaTeX Info: Redefining \smash on input line 939.
-LaTeX Info: Redefining \relbar on input line 969.
-LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count308
-\dotsspace@=\muskip17
-\c@parentequation=\count309
-\dspbrk@lvl=\count310
-\tag@help=\toks23
-\row@=\count311
-\column@=\count312
-\maxfields@=\count313
-\andhelp@=\toks24
-\eqnshift@=\dimen175
-\alignsep@=\dimen176
-\tagshift@=\dimen177
-\tagwidth@=\dimen178
-\totwidth@=\dimen179
-\lineht@=\dimen180
-\@envbody=\toks25
-\multlinegap=\skip54
-\multlinetaggap=\skip55
-\mathdisplay@stack=\toks26
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
-) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/comment\comment.sty
+\macc@depth=\count298
+\c@MaxMatrixCols=\count299
+\dotsspace@=\muskip16
+\c@parentequation=\count300
+\dspbrk@lvl=\count301
+\tag@help=\toks22
+\row@=\count302
+\column@=\count303
+\maxfields@=\count304
+\andhelp@=\toks23
+\eqnshift@=\dimen171
+\alignsep@=\dimen172
+\tagshift@=\dimen173
+\tagwidth@=\dimen174
+\totwidth@=\dimen175
+\lineht@=\dimen176
+\@envbody=\toks24
+\multlinegap=\skip52
+\multlinetaggap=\skip53
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
+) (/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write3
 
 Excluding comment 'comment')
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2024/05/23 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.
-cfg
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 106.
+Package graphics Info: Driver file: pdftex.def on input line 107.
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.de
-f
-File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen181
-\Gin@req@width=\dimen182
-) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
-Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+\Gin@req@height=\dimen177
+\Gin@req@width=\dimen178
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 274.
+Package xcolor Info: Driver file: pdftex.def on input line 227.
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx
-)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
-Package xcolor Info: Model `RGB' extended on input line 1366.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
-)
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
-Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
-Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
-\col@sep=\dimen183
-\ar@mcellbox=\box102
-\extrarowheight=\dimen184
-\NC@list=\toks27
-\extratabsurround=\skip56
-\backup@length=\skip57
-\ar@cellbox=\box103
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen179
+\ar@mcellbox=\box99
+\extrarowheight=\dimen180
+\NC@list=\toks26
+\extratabsurround=\skip54
+\backup@length=\skip55
+\ar@cellbox=\box100
 )
-\everycr=\toks28
-\minrowclearance=\skip58
-\rownum=\count314
+\everycr=\toks27
+\minrowclearance=\skip56
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\helvet.sty
+\rownum=\count305
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/helvet.sty
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\times.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\courier.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/courier.sty
 Package: courier 2020/03/25 PSNFSS-v9.3 (WaS) 
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip59
-\multirow@cntb=\count315
-\multirow@dima=\skip60
-\bigstrutjot=\dimen185
+\multirow@colwidth=\skip57
+\multirow@cntb=\count306
+\multirow@dima=\skip58
+\bigstrutjot=\dimen181
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2
-e.sty
+(/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count316
- (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
-Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
-)
-\algocf@hangindent=\skip61
+\c@AlgoLine=\count307
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.st
-y
-Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count317
-) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip59
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count308
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/relsize\relsize.sty
+(/usr/share/texlive/texmf-dist/tex/latex/relsize/relsize.sty
 Package: relsize 2013/03/29 ver 4.1
 )
-\skiptotal=\skip62
-\skiplinenumber=\skip63
-\skiprule=\skip64
-\skiphlne=\skip65
-\skiptext=\skip66
-\skiplength=\skip67
-\algomargin=\skip68
-\skipalgocfslide=\skip69
-\algowidth=\dimen186
-\inoutsize=\dimen187
-\inoutindent=\dimen188
-\interspacetitleruled=\dimen189
-\interspacealgoruled=\dimen190
-\interspacetitleboxruled=\dimen191
-\algocf@ruledwidth=\skip70
-\algocf@inoutbox=\box104
-\algocf@inputbox=\box105
-\AlCapSkip=\skip71
-\AlCapHSkip=\skip72
-\algoskipindent=\skip73
-\algocf@nlbox=\box106
-\algocf@hangingbox=\box107
-\algocf@untilbox=\box108
-\algocf@skipuntil=\skip74
-\algocf@capbox=\box109
-\algocf@lcaptionbox=\skip75
-\algoheightruledefault=\skip76
-\algoheightrule=\skip77
-\algotitleheightruledefault=\skip78
-\algotitleheightrule=\skip79
-\c@algocfline=\count318
-\c@algocfproc=\count319
-\c@algocf=\count320
-\algocf@algoframe=\box110
-\algocf@algobox=\box111
+\skiptotal=\skip60
+\skiplinenumber=\skip61
+\skiprule=\skip62
+\skiphlne=\skip63
+\skiptext=\skip64
+\skiplength=\skip65
+\algomargin=\skip66
+\skipalgocfslide=\skip67
+\algowidth=\dimen182
+\inoutsize=\dimen183
+\inoutindent=\dimen184
+\interspacetitleruled=\dimen185
+\interspacealgoruled=\dimen186
+\interspacetitleboxruled=\dimen187
+\algocf@ruledwidth=\skip68
+\algocf@inoutbox=\box101
+\algocf@inputbox=\box102
+\AlCapSkip=\skip69
+\AlCapHSkip=\skip70
+\algoskipindent=\skip71
+\algocf@nlbox=\box103
+\algocf@hangingbox=\box104
+\algocf@untilbox=\box105
+\algocf@skipuntil=\skip72
+\algocf@capbox=\box106
+\algocf@lcaptionbox=\skip73
+\algoheightruledefault=\skip74
+\algoheightrule=\skip75
+\algotitleheightruledefault=\skip76
+\algotitleheightrule=\skip77
+\c@algocfline=\count309
+\c@algocfproc=\count310
+\c@algocf=\count311
+\algocf@algoframe=\box107
+\algocf@algobox=\box108
 )
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 36
+(/usr/share/texlive/texmf-dist/tex/latex/todonotes/todonotes.sty
+Package: todonotes 2021/06/04 v1.1.5 Todonotes source and documentation.
+Package: todonotes 2021/06/04
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks28
+\XKV@tempa@toks=\toks29
+)
+\XKV@depth=\count312
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks30
+\pgfutil@tempdima=\dimen188
+\pgfutil@tempdimb=\dimen189
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
+ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box109
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks31
+\pgfkeys@temptoks=\toks32
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
+ex
+\pgfkeys@tmptoks=\toks33
+))
+\pgf@x=\dimen190
+\pgf@y=\dimen191
+\pgf@xa=\dimen192
+\pgf@ya=\dimen193
+\pgf@xb=\dimen194
+\pgf@yb=\dimen195
+\pgf@xc=\dimen196
+\pgf@yc=\dimen197
+\pgf@xd=\dimen198
+\pgf@yd=\dimen199
+\w@pgf@writea=\write4
+\r@pgf@reada=\read2
+\c@pgf@counta=\count313
+\c@pgf@countb=\count314
+\c@pgf@countc=\count315
+\c@pgf@countd=\count316
+\t@pgf@toka=\toks34
+\t@pgf@tokb=\toks35
+\t@pgf@tokc=\toks36
+\pgf@sys@id@count=\count317
+ (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
+f
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
+tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count318
+\pgfsyssoftpath@bigbuffer@items=\count319
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
+tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen256
+\pgfmath@count=\count320
+\pgfmath@box=\box110
+\pgfmath@toks=\toks37
+\pgfmath@stack@operand=\toks38
+\pgfmath@stack@operation=\toks39
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
+ric.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
+e.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
+.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
+.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
+tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
+thmetics.code.tex)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count321
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
+x
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen257
+\pgf@picmaxx=\dimen258
+\pgf@picminy=\dimen259
+\pgf@picmaxy=\dimen260
+\pgf@pathminx=\dimen261
+\pgf@pathmaxx=\dimen262
+\pgf@pathminy=\dimen263
+\pgf@pathmaxy=\dimen264
+\pgf@xx=\dimen265
+\pgf@xy=\dimen266
+\pgf@yx=\dimen267
+\pgf@yy=\dimen268
+\pgf@zx=\dimen269
+\pgf@zy=\dimen270
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
+code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen271
+\pgf@path@lasty=\dimen272
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
+.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen273
+\pgf@shorten@start@additional=\dimen274
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
+x
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box111
+\pgf@hbox=\box112
+\pgf@layerbox@main=\box113
+\pgf@picture@serial@count=\count322
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
+ode.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen275
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
+s.code.tex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen276
+\pgf@pt@y=\dimen277
+\pgf@pt@temp=\dimen278
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
+ex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
+.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
+x
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen279
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen280
+\pgf@sys@shading@range@num=\count323
+\pgf@shadingcount=\count324
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
+tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box114
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
+x
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
+ode.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
+tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box115
+) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
+.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen281
+\pgf@nodesepend=\dimen282
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
+.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
+(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen283
+\pgffor@skip=\dimen284
+\pgffor@stack=\toks40
+\pgffor@toks=\toks41
+))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
+.code.tex
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count325
+\pgfplotmarksize=\dimen285
+)
+\tikz@lastx=\dimen286
+\tikz@lasty=\dimen287
+\tikz@lastxsaved=\dimen288
+\tikz@lastysaved=\dimen289
+\tikz@lastmovetox=\dimen290
+\tikz@lastmovetoy=\dimen291
+\tikzleveldistance=\dimen292
+\tikzsiblingdistance=\dimen293
+\tikz@figbox=\box116
+\tikz@figbox@bg=\box117
+\tikz@tempbox=\box118
+\tikz@tempbox@bg=\box119
+\tikztreelevel=\count326
+\tikznumberofchildren=\count327
+\tikznumberofcurrentchild=\count328
+\tikz@fig@count=\count329
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count330
+\pgfmatrixcurrentcolumn=\count331
+\pgf@matrix@numberofcolumns=\count332
+)
+\tikz@expandcount=\count333
+
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count334
+\calc@Bcount=\count335
+\calc@Adimen=\dimen294
+\calc@Bdimen=\dimen295
+\calc@Askip=\skip78
+\calc@Bskip=\skip79
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count336
+\calc@Cskip=\skip80
+)
+\c@@todonotes@numberoftodonotes=\count337
+)
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 43
 .
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
-ftex.def
-File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count321
-\l__pdf_internal_box=\box112
-) (samplepaper.aux
-
-LaTeX Warning: Label `fig:p1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:p1' multiply defined.
-
-
-LaTeX Warning: Label `fig:p2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:p2' multiply defined.
-
-
-LaTeX Warning: Label `fig:p3' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:p3' multiply defined.
-
-
-LaTeX Warning: Label `fig:p4' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:p4' multiply defined.
-
-
-LaTeX Warning: Label `fig:p5' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:p5' multiply defined.
-
-
-LaTeX Warning: Label `fig:p6' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:p6' multiply defined.
-
-
-LaTeX Warning: Label `fig:o1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:o1' multiply defined.
-
-
-LaTeX Warning: Label `fig:o2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:o2' multiply defined.
-
-
-LaTeX Warning: Label `fig:o3' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:o3' multiply defined.
-
-
-LaTeX Warning: Label `fig:o4' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:o4' multiply defined.
-
-
-LaTeX Warning: Label `fig:o5' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:o5' multiply defined.
-
-
-LaTeX Warning: Label `fig:o6' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:o6' multiply defined.
-
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count338
+\l__pdf_internal_box=\box120
 )
+(./samplepaper.aux)
 \openout1 = `samplepaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.m
-kii
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count322
-\scratchdimen=\dimen192
-\scratchbox=\box113
-\nofMPsegments=\count323
-\nofMParguments=\count324
-\everyMPshowfont=\toks29
-\MPscratchCnt=\count325
-\MPscratchDim=\dimen193
-\MPnumerator=\count326
-\makeMPintoPDFobject=\count327
-\everyMPtoPDFconversion=\toks30
-)
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-
-base.sty
+\scratchcounter=\count339
+\scratchdimen=\dimen296
+\scratchbox=\box121
+\nofMPsegments=\count340
+\nofMParguments=\count341
+\everyMPshowfont=\toks42
+\MPscratchCnt=\count342
+\MPscratchDim=\dimen297
+\MPnumerator=\count343
+\makeMPintoPDFobject=\count344
+\everyMPtoPDFconversion=\toks43
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.
-cfg
-File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
 ))
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 62
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 69
 .
- (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-Title too long for running head. Please supply
-a shorter form with \titlerunning prior to \maketitle
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 6
-9.
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-(introduction.tex
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 7
+6.
 
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) (./introduction.tex
 [1
 
-{C:/Users/ramali/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ram
-ali/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \vbox (badness 2158) has occurred while \output is active []
 
-
-
-[2]) (lit_review.tex
-
-[3]
-
-[4]
-
-[5]) (problem_formulation.tex
-
-[6]) (gsaco_algo.tex
-<aco-flowchart.png, id=36, 817.3737pt x 321.6015pt>
+ [2])
+(./lit_review.tex [3] [4] [5]) (./problem_formulation.tex [6])
+(./gsaco_algo.tex
+<aco-flowchart.png, id=40, 817.3737pt x 321.6015pt>
 File: aco-flowchart.png Graphic file (type png)
 <use aco-flowchart.png>
 Package pdftex.def Info: aco-flowchart.png  used on input line 30.
 (pdftex.def)             Requested size: 347.12354pt x 136.57822pt.
+ [7] [8 <./aco-flowchart.png>] [9] [10]
+Underfull \vbox (badness 4531) has occurred while \output is active []
 
-
-[7]
-
-[8 <./aco-flowchart.png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[9]
-
-[10]
-<schedule_example_makespan.png, id=56, 867.24pt x 289.08pt>
+ [11]
+[12]
+<schedule_example_makespan.png, id=68, 867.24pt x 289.08pt>
 File: schedule_example_makespan.png Graphic file (type png)
 <use schedule_example_makespan.png>
 Package pdftex.def Info: schedule_example_makespan.png  used on input line 455.
 
 (pdftex.def)             Requested size: 347.12354pt x 115.70934pt.
-<schedule_example_operations.png, id=57, 867.24pt x 289.08pt>
+<schedule_example_operations.png, id=69, 867.24pt x 289.08pt>
 File: schedule_example_operations.png Graphic file (type png)
 <use schedule_example_operations.png>
 Package pdftex.def Info: schedule_example_operations.png  used on input line 46
 0.
 (pdftex.def)             Requested size: 347.12354pt x 115.70934pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[11 <./schedule_example_makespan.png>]) (simulation.tex
-<sim_framework.png, id=62, 356.2911pt x 327.3831pt>
+ [13]
+[14]) (./simulation.tex [15 <./schedule_example_makespan.png> <./schedule_examp
+le_operations.png>]
+<sim_framework.png, id=85, 356.2911pt x 327.3831pt>
 File: sim_framework.png Graphic file (type png)
 <use sim_framework.png>
 Package pdftex.def Info: sim_framework.png  used on input line 8.
 (pdftex.def)             Requested size: 347.12354pt x 318.96494pt.
-
-
-[12 <./schedule_example_operations.png>]) (experimental_evaluation.tex
+ [16 <./sim_framework.png>]) (./experimental_evaluation.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
  [][]\T1/ptm/m/n/9 The source code is pub-licly avail-able in our GitHub repos-
 i-tory:
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-
-[13 <./sim_framework.png>]
-
-[14]
+[17] [18]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `htbp') on input line 131.
@@ -616,6 +803,12 @@ LaTeX Warning: No positions in optional float specifier.
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `htbp') on input line 196.
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 197--197
+[]\T1/ptm/m/n/10 Table 10: |Per-cent-age Change in Dis-patcher Per-for-mance Ov
+er Plan-ning Hours
+ []
 
 
 Overfull \hbox (144.29604pt too wide) in paragraph at lines 198--275
@@ -627,252 +820,226 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `htbp') on input line 278.
 
 
+Underfull \hbox (badness 1515) in paragraph at lines 279--279
+[]\T1/ptm/m/n/10 Table 11: |Per-cent-age Change in Dis-patcher Per-for-mance Ov
+er Plan-ning Hours
+ []
+
+
 Overfull \hbox (144.29604pt too wide) in paragraph at lines 280--357
 [][] 
  []
 
 
-LaTeX Warning: Reference `fig:makespan' on page 15 undefined on input line 377.
+LaTeX Warning: Reference `fig:makespan' on page 19 undefined on input line 377.
 
 
 
-LaTeX Warning: Reference `subfig:l' on page 15 undefined on input line 378.
+LaTeX Warning: Reference `subfig:l' on page 19 undefined on input line 379.
 
 
-LaTeX Warning: Reference `subfig:h' on page 15 undefined on input line 382.
+LaTeX Warning: Reference `subfig:h' on page 19 undefined on input line 383.
 
-<HVLM/total_operations_3600s.png, id=75, 722.7pt x 433.62pt>
+[19]
+<HVLM/total_operations_3600s.png, id=100, 722.7pt x 433.62pt>
 File: HVLM/total_operations_3600s.png Graphic file (type png)
 <use HVLM/total_operations_3600s.png>
 Package pdftex.def Info: HVLM/total_operations_3600s.png  used on input line 40
-4.
+5.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/total_operations_7200s.png, id=76, 722.7pt x 433.62pt>
+<HVLM/total_operations_7200s.png, id=101, 722.7pt x 433.62pt>
 File: HVLM/total_operations_7200s.png Graphic file (type png)
 <use HVLM/total_operations_7200s.png>
-Package pdftex.def Info: HVLM/total_operations_7200s.png  used on input line 40
-9.
+Package pdftex.def Info: HVLM/total_operations_7200s.png  used on input line 41
+0.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/total_operations_10800s.png, id=77, 722.7pt x 433.62pt>
+<HVLM/total_operations_10800s.png, id=102, 722.7pt x 433.62pt>
 File: HVLM/total_operations_10800s.png Graphic file (type png)
 <use HVLM/total_operations_10800s.png>
 Package pdftex.def Info: HVLM/total_operations_10800s.png  used on input line 4
-14.
+15.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/total_operations_14400s.png, id=78, 722.7pt x 433.62pt>
+<HVLM/total_operations_14400s.png, id=103, 722.7pt x 433.62pt>
 File: HVLM/total_operations_14400s.png Graphic file (type png)
 <use HVLM/total_operations_14400s.png>
 Package pdftex.def Info: HVLM/total_operations_14400s.png  used on input line 4
-19.
+20.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/total_operations_18000s.png, id=79, 722.7pt x 433.62pt>
+<HVLM/total_operations_18000s.png, id=104, 722.7pt x 433.62pt>
 File: HVLM/total_operations_18000s.png Graphic file (type png)
 <use HVLM/total_operations_18000s.png>
 Package pdftex.def Info: HVLM/total_operations_18000s.png  used on input line 4
-24.
+25.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/total_operations_21600s.png, id=80, 722.7pt x 433.62pt>
+<HVLM/total_operations_21600s.png, id=105, 722.7pt x 433.62pt>
 File: HVLM/total_operations_21600s.png Graphic file (type png)
 <use HVLM/total_operations_21600s.png>
 Package pdftex.def Info: HVLM/total_operations_21600s.png  used on input line 4
-29.
+30.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/period_3600s.png, id=81, 722.7pt x 433.62pt>
+<HVLM/period_3600s.png, id=106, 722.7pt x 433.62pt>
 File: HVLM/period_3600s.png Graphic file (type png)
 <use HVLM/period_3600s.png>
-Package pdftex.def Info: HVLM/period_3600s.png  used on input line 440.
+Package pdftex.def Info: HVLM/period_3600s.png  used on input line 441.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/period_7200s.png, id=82, 722.7pt x 433.62pt>
+<HVLM/period_7200s.png, id=107, 722.7pt x 433.62pt>
 File: HVLM/period_7200s.png Graphic file (type png)
 <use HVLM/period_7200s.png>
-Package pdftex.def Info: HVLM/period_7200s.png  used on input line 446.
+Package pdftex.def Info: HVLM/period_7200s.png  used on input line 447.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/period_10800s.png, id=83, 722.7pt x 433.62pt>
+<HVLM/period_10800s.png, id=108, 722.7pt x 433.62pt>
 File: HVLM/period_10800s.png Graphic file (type png)
 <use HVLM/period_10800s.png>
-Package pdftex.def Info: HVLM/period_10800s.png  used on input line 452.
+Package pdftex.def Info: HVLM/period_10800s.png  used on input line 453.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/period_14400s.png, id=84, 722.7pt x 433.62pt>
+<HVLM/period_14400s.png, id=109, 722.7pt x 433.62pt>
 File: HVLM/period_14400s.png Graphic file (type png)
 <use HVLM/period_14400s.png>
-Package pdftex.def Info: HVLM/period_14400s.png  used on input line 458.
+Package pdftex.def Info: HVLM/period_14400s.png  used on input line 459.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/period_18000s.png, id=85, 722.7pt x 433.62pt>
+<HVLM/period_18000s.png, id=110, 722.7pt x 433.62pt>
 File: HVLM/period_18000s.png Graphic file (type png)
 <use HVLM/period_18000s.png>
-Package pdftex.def Info: HVLM/period_18000s.png  used on input line 464.
+Package pdftex.def Info: HVLM/period_18000s.png  used on input line 465.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<HVLM/period_21600s.png, id=86, 722.7pt x 433.62pt>
+<HVLM/period_21600s.png, id=111, 722.7pt x 433.62pt>
 File: HVLM/period_21600s.png Graphic file (type png)
 <use HVLM/period_21600s.png>
-Package pdftex.def Info: HVLM/period_21600s.png  used on input line 470.
+Package pdftex.def Info: HVLM/period_21600s.png  used on input line 471.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
 
-Underfull \vbox (badness 2158) has occurred while \output is active []
+Underfull \vbox (badness 1158) has occurred while \output is active []
 
+ [20]
+Underfull \vbox (badness 1303) has occurred while \output is active []
 
-
-[15]
-<LVHM/period_3600s.png, id=90, 722.7pt x 433.62pt>
+ [21 <./HVLM/total_operations_3600s.png> <./HVLM/total_operations_7200s.png> <.
+/HVLM/total_operations_10800s.png> <./HVLM/total_operations_14400s.png> <./HVLM
+/total_operations_18000s.png> <./HVLM/total_operations_21600s.png> <./HVLM/peri
+od_3600s.png> <./HVLM/period_7200s.png> <./HVLM/period_10800s.png> <./HVLM/peri
+od_14400s.png> <./HVLM/period_18000s.png> <./HVLM/period_21600s.png>]
+<LVHM/period_3600s.png, id=130, 722.7pt x 433.62pt>
 File: LVHM/period_3600s.png Graphic file (type png)
 <use LVHM/period_3600s.png>
-Package pdftex.def Info: LVHM/period_3600s.png  used on input line 495.
+Package pdftex.def Info: LVHM/period_3600s.png  used on input line 497.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<LVHM/period_7200s.png, id=91, 722.7pt x 433.62pt>
+<LVHM/period_7200s.png, id=131, 722.7pt x 433.62pt>
 File: LVHM/period_7200s.png Graphic file (type png)
 <use LVHM/period_7200s.png>
-Package pdftex.def Info: LVHM/period_7200s.png  used on input line 500.
+Package pdftex.def Info: LVHM/period_7200s.png  used on input line 502.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<LVHM/period_10800s.png, id=92, 722.7pt x 433.62pt>
+<LVHM/period_10800s.png, id=132, 722.7pt x 433.62pt>
 File: LVHM/period_10800s.png Graphic file (type png)
 <use LVHM/period_10800s.png>
-Package pdftex.def Info: LVHM/period_10800s.png  used on input line 505.
+Package pdftex.def Info: LVHM/period_10800s.png  used on input line 507.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<LVHM/period_14400s.png, id=93, 722.7pt x 433.62pt>
+<LVHM/period_14400s.png, id=133, 722.7pt x 433.62pt>
 File: LVHM/period_14400s.png Graphic file (type png)
 <use LVHM/period_14400s.png>
-Package pdftex.def Info: LVHM/period_14400s.png  used on input line 510.
+Package pdftex.def Info: LVHM/period_14400s.png  used on input line 512.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<LVHM/period_18000s.png, id=94, 722.7pt x 433.62pt>
+<LVHM/period_18000s.png, id=134, 722.7pt x 433.62pt>
 File: LVHM/period_18000s.png Graphic file (type png)
 <use LVHM/period_18000s.png>
-Package pdftex.def Info: LVHM/period_18000s.png  used on input line 515.
+Package pdftex.def Info: LVHM/period_18000s.png  used on input line 517.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<LVHM/period_21600s.png, id=95, 722.7pt x 433.62pt>
+<LVHM/period_21600s.png, id=135, 722.7pt x 433.62pt>
 File: LVHM/period_21600s.png Graphic file (type png)
 <use LVHM/period_21600s.png>
-Package pdftex.def Info: LVHM/period_21600s.png  used on input line 520.
+Package pdftex.def Info: LVHM/period_21600s.png  used on input line 522.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-
-Underfull \vbox (badness 2229) has occurred while \output is active []
-
-
-
-[16 <./HVLM/total_operations_3600s.png> <./HVLM/total_operations_7200s.png> <./
-HVLM/total_operations_10800s.png> <./HVLM/total_operations_14400s.png> <./HVLM/
-total_operations_18000s.png> <./HVLM/total_operations_21600s.png>]
-<LVHM/total_operations_3600s.png, id=105, 722.7pt x 433.62pt>
+<LVHM/total_operations_3600s.png, id=136, 722.7pt x 433.62pt>
 File: LVHM/total_operations_3600s.png Graphic file (type png)
 <use LVHM/total_operations_3600s.png>
 Package pdftex.def Info: LVHM/total_operations_3600s.png  used on input line 53
-2.
+4.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<LVHM/total_operations_7200s.png, id=106, 722.7pt x 433.62pt>
+<LVHM/total_operations_7200s.png, id=137, 722.7pt x 433.62pt>
 File: LVHM/total_operations_7200s.png Graphic file (type png)
 <use LVHM/total_operations_7200s.png>
 Package pdftex.def Info: LVHM/total_operations_7200s.png  used on input line 53
-7.
+9.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<LVHM/total_operations_10800s.png, id=107, 722.7pt x 433.62pt>
+<LVHM/total_operations_10800s.png, id=138, 722.7pt x 433.62pt>
 File: LVHM/total_operations_10800s.png Graphic file (type png)
 <use LVHM/total_operations_10800s.png>
 Package pdftex.def Info: LVHM/total_operations_10800s.png  used on input line 5
-42.
+44.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<LVHM/total_operations_14400s.png, id=108, 722.7pt x 433.62pt>
+<LVHM/total_operations_14400s.png, id=139, 722.7pt x 433.62pt>
 File: LVHM/total_operations_14400s.png Graphic file (type png)
 <use LVHM/total_operations_14400s.png>
 Package pdftex.def Info: LVHM/total_operations_14400s.png  used on input line 5
-47.
+49.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<LVHM/total_operations_18000s.png, id=109, 722.7pt x 433.62pt>
+<LVHM/total_operations_18000s.png, id=140, 722.7pt x 433.62pt>
 File: LVHM/total_operations_18000s.png Graphic file (type png)
 <use LVHM/total_operations_18000s.png>
 Package pdftex.def Info: LVHM/total_operations_18000s.png  used on input line 5
-52.
+54.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<LVHM/total_operations_21600s.png, id=110, 722.7pt x 433.62pt>
+<LVHM/total_operations_21600s.png, id=141, 722.7pt x 433.62pt>
 File: LVHM/total_operations_21600s.png Graphic file (type png)
 <use LVHM/total_operations_21600s.png>
 Package pdftex.def Info: LVHM/total_operations_21600s.png  used on input line 5
-57.
+59.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
 )
+Underfull \vbox (badness 1721) has occurred while \output is active []
 
-[17 <./HVLM/period_3600s.png> <./HVLM/period_7200s.png> <./HVLM/period_10800s.p
-ng> <./HVLM/period_14400s.png> <./HVLM/period_18000s.png> <./HVLM/period_21600s
-.png>] (bib.tex
-
-[18 <./LVHM/period_3600s.png> <./LVHM/period_7200s.png> <./LVHM/period_10800s.p
-ng> <./LVHM/period_14400s.png> <./LVHM/period_18000s.png> <./LVHM/period_21600s
-.png>]
-
-[19 <./LVHM/total_operations_3600s.png> <./LVHM/total_operations_7200s.png> <./
-LVHM/total_operations_10800s.png> <./LVHM/total_operations_14400s.png> <./LVHM/
-total_operations_18000s.png> <./LVHM/total_operations_21600s.png>]
-
-[20]
+ [22 <./LVHM/period_3600s.png> <./LVHM/period_7200s.png> <./LVHM/period_10800s.
+png> <./LVHM/period_14400s.png> <./LVHM/period_18000s.png> <./LVHM/period_21600
+s.png> <./LVHM/total_operations_3600s.png> <./LVHM/total_operations_7200s.png> 
+<./LVHM/total_operations_10800s.png> <./LVHM/total_operations_14400s.png> <./LV
+HM/total_operations_18000s.png> <./LVHM/total_operations_21600s.png>] (./bib.te
+x [23]
+[24] [25]
 Underfull \hbox (badness 4001) in paragraph at lines 159--162
 []\T1/ptm/m/n/9 Author, F., Au-thor, S.: Ti-tle of a pro-ceed-ings pa-per. In: 
 Ed-i-tor, F., Ed-i-tor, S.
  []
 
-)
-
-[21]
-
-[22]
-
-[23]
-
-[24]
-
-[25]
-
-[26]
-
-[27] (samplepaper.aux)
- ***********
-LaTeX2e <2024-06-01> patch level 2
-L3 programming layer <2024-07-20>
- ***********
-
+) [26] (./samplepaper.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 6539 strings out of 473898
- 110277 string characters out of 5726008
- 1999960 words of memory out of 5000000
- 29314 multiletter control sequences out of 15000+600000
- 594114 words of font info for 76 fonts, out of 8000000 for 9000
+ 16984 strings out of 478287
+ 338978 string characters out of 5849289
+ 645285 words of memory out of 5000000
+ 34839 multiletter control sequences out of 15000+600000
+ 505304 words of font info for 68 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
- 69i,22n,79p,1542b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmex10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cmextra/cmex7.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cmextra/cmex9.pfb><C:/Users/ramali/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/ramali/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/ramali/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/r
-amali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C
-:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmm
-i9.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmr5.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmr6.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/ramali/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/ramali/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/ramali/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/ra
-mali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:
-/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
-7.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmsy9.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmti10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmti7.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/ramali/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/ramali/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/ramali/AppData/Local/P
-rograms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/ramali/AppData/Local/
-Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on samplepaper.pdf (27 pages, 3477419 bytes).
+ 99i,22n,94p,1540b,923s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/urw/times/utmri8a.pfb>
+Output written on samplepaper.pdf (26 pages, 3452176 bytes).
 PDF statistics:
- 272 PDF objects out of 1000 (max. 8388607)
+ 275 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 153 words of extra memory for PDF output out of 10000 (max. 10000000)
 

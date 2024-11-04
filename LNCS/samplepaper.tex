@@ -21,6 +21,8 @@
 \SetKw{KwFrom}{from}
 \SetCommentSty{textit}
 
+\usepackage{todonotes}
+
 \usepackage{graphicx}
 % Used for displaying a sample figure. If possible, figure files should
 % be included in EPS format.
@@ -33,12 +35,17 @@
 %
 \sloppy
 \hyphenation{make-span}
+
+\renewcommand{\topfraction}{1}
+\renewcommand{\bottomfraction}{1}
+\renewcommand{\textfraction}{-0.1}
+
 \begin{document}
 %
-\title{Swarm Intelligence-Driven Dispatching Rules for Large-Scale Semiconductor Production: Integrating Simulation and Optimization to Enhance Operational Efficiency
+\title{Swarm Intelligence-Driven Dispatching Rules for Large-Scale Semiconductor Production:\\Integrating Simulation and Optimization to\\Enhance Operational Efficiency
 }
 %
-%\titlerunning{Abbreviated paper title}
+\titlerunning{Swarm Intelligence-Driven Dispatching Rules for Semiconductor Production}
 % If the paper title is too long for the running head, you can set
 % an abbreviated paper title here
 %
@@ -75,7 +82,7 @@ This study not only elucidates the potential of swarm intelligence in refining p
 \label{sec:introduction}
 \input{introduction.tex}
 
-\section{literature Review}
+\section{Literature Review}
 \label{sec:lit_rev}
 \input{lit_review.tex}
 
