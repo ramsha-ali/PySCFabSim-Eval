@@ -35,7 +35,8 @@ class FileInstance(Instance):
         parts = {p['PART']: p['ROUTEFILE'] for p in files['part.txt']}
 
         # for gsaco dispatch
-        file_path = f'schedule_output/schedule_output_{run_to}s.txt'
+        #file_path = f'schedule_output_HVLM/schedule_output_{run_to}s.txt'
+        file_path = f'schedule_output_LVHM/schedule_output_{run_to}s.txt'
         schedule = []
         with open(file_path, 'r') as f:
             next(f)

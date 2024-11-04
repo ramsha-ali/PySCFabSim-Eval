@@ -2,8 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
-#file_path = '../schedule_output/schedule_output_SMT2020_example_operations_900s.txt'
-file_path = '../schedule_output/schedule_output_SMT2020_example_makespan.txt'
+#file_path = '../schedule_output_HVLM/schedule_output_SMT2020_example_operations_900s.txt'
+file_path = '../schedule_output_example/schedule_output_SMT2020_example_makespan.txt'
 
 
 df = pd.read_csv(file_path, delimiter="\t")

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.7)  1 NOV 2024 15:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.8.7)  4 NOV 2024 14:39
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -153,34 +153,72 @@ LaTeX Info: Redefining \vec on input line 394.
 ) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/caption\subcaption.sty
+Package: subcaption 2023/07/28 v1.6b Sub-captions (AR)
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+
+(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks21
+)
+\caption@tempdima=\dimen164
+\captionmargin=\dimen165
+\caption@leftmargin=\dimen166
+\caption@rightmargin=\dimen167
+\caption@width=\dimen168
+\caption@indent=\dimen169
+\caption@parindent=\dimen170
+\caption@hangindent=\dimen171
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\small \vskip \abovecap
+tionskip \sbox \@tempboxa {{\bfseries #1.} #2}\ifdim \wd \@tempboxa >\hsize {\b
+fseries #1.} #2\par \else \global \@minipagefalse \hb@xt@ \hsize {\hfil \box \@
+tempboxa \hfil }\fi \vskip \belowcaptionskip  on input line 1175.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count298
+\c@continuedfloat=\count299
+)
+Package caption Info: New subtype `subfigure' on input line 238.
+\c@subfigure=\count300
+Package caption Info: New subtype `subtable' on input line 238.
+\c@subtable=\count301
+) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2024/05/23 v2.17q AMS math features
 \@mathmargin=\skip53
-
 For additional information on amsmath, use the `?' option.
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2021/08/26 v2.01 AMS text
 
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks21
-\ex@=\dimen164
+\@emptytoks=\toks22
+\ex@=\dimen172
 ))
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen165
+\pmbraise@=\dimen173
 )
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count298
+\inf@bad=\count302
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count299
-\leftroot@=\count300
+\uproot@=\count303
+\leftroot@=\count304
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count301
-\DOTSCASE@=\count302
+\classnum@=\count305
+\DOTSCASE@=\count306
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -190,48 +228,47 @@ LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen166
+\big@size=\dimen174
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
 
 
 Package amsmath Warning: Unable to redefine math accent \vec.
 
-\macc@depth=\count303
+\macc@depth=\count307
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count304
+\c@MaxMatrixCols=\count308
 \dotsspace@=\muskip17
-\c@parentequation=\count305
-\dspbrk@lvl=\count306
-\tag@help=\toks22
-\row@=\count307
-\column@=\count308
-\maxfields@=\count309
-\andhelp@=\toks23
-\eqnshift@=\dimen167
-\alignsep@=\dimen168
-\tagshift@=\dimen169
-\tagwidth@=\dimen170
-\totwidth@=\dimen171
-\lineht@=\dimen172
-\@envbody=\toks24
+\c@parentequation=\count309
+\dspbrk@lvl=\count310
+\tag@help=\toks23
+\row@=\count311
+\column@=\count312
+\maxfields@=\count313
+\andhelp@=\toks24
+\eqnshift@=\dimen175
+\alignsep@=\dimen176
+\tagshift@=\dimen177
+\tagwidth@=\dimen178
+\totwidth@=\dimen179
+\lineht@=\dimen180
+\@envbody=\toks25
 \multlinegap=\skip54
 \multlinetaggap=\skip55
-\mathdisplay@stack=\toks25
+\mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2953.
 LaTeX Info: Redefining \] on input line 2954.
-)
+) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/comment\comment.sty
+\CommentStream=\write3
+
+Excluding comment 'comment')
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
-\KV@toks@=\toks26
-)
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2024/05/23 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
@@ -248,8 +285,8 @@ Package graphics Info: Driver file: pdftex.def on input line 106.
 f
 File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen173
-\Gin@req@width=\dimen174
+\Gin@req@height=\dimen181
+\Gin@req@width=\dimen182
 ) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
 
@@ -275,9 +312,9 @@ Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
 
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
 Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
-\col@sep=\dimen175
+\col@sep=\dimen183
 \ar@mcellbox=\box102
-\extrarowheight=\dimen176
+\extrarowheight=\dimen184
 \NC@list=\toks27
 \extratabsurround=\skip56
 \backup@length=\skip57
@@ -285,7 +322,7 @@ Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
 )
 \everycr=\toks28
 \minrowclearance=\skip58
-\rownum=\count310
+\rownum=\count314
 )
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\helvet.sty
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
@@ -299,14 +336,14 @@ Package: courier 2020/03/25 PSNFSS-v9.3 (WaS)
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/multirow\multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip59
-\multirow@cntb=\count311
+\multirow@cntb=\count315
 \multirow@dima=\skip60
-\bigstrutjot=\dimen177
+\bigstrutjot=\dimen185
 )
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/algorithm2e\algorithm2
 e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count312
+\c@AlgoLine=\count316
  (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
 Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 )
@@ -315,7 +352,7 @@ Package: ifthen 2024/03/16 v1.1e Standard LaTeX ifthen package (DPC)
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.st
 y
 Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
-\c@checkoddpage=\count313
+\c@checkoddpage=\count317
 ) (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
@@ -330,12 +367,12 @@ Package: relsize 2013/03/29 ver 4.1
 \skiplength=\skip67
 \algomargin=\skip68
 \skipalgocfslide=\skip69
-\algowidth=\dimen178
-\inoutsize=\dimen179
-\inoutindent=\dimen180
-\interspacetitleruled=\dimen181
-\interspacealgoruled=\dimen182
-\interspacetitleboxruled=\dimen183
+\algowidth=\dimen186
+\inoutsize=\dimen187
+\inoutindent=\dimen188
+\interspacetitleruled=\dimen189
+\interspacealgoruled=\dimen190
+\interspacetitleboxruled=\dimen191
 \algocf@ruledwidth=\skip70
 \algocf@inoutbox=\box104
 \algocf@inputbox=\box105
@@ -352,13 +389,13 @@ Package: relsize 2013/03/29 ver 4.1
 \algoheightrule=\skip77
 \algotitleheightruledefault=\skip78
 \algotitleheightrule=\skip79
-\c@algocfline=\count314
-\c@algocfproc=\count315
-\c@algocf=\count316
+\c@algocfline=\count318
+\c@algocfproc=\count319
+\c@algocf=\count320
 \algocf@algoframe=\box110
 \algocf@algobox=\box111
 )
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 34
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 36
 .
 
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1ptm.fd
@@ -367,39 +404,114 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pd
 ftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count317
+\l__color_backend_stack_int=\count321
 \l__pdf_internal_box=\box112
-) (samplepaper.aux)
+) (samplepaper.aux
+
+LaTeX Warning: Label `fig:p1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:p1' multiply defined.
+
+
+LaTeX Warning: Label `fig:p2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:p2' multiply defined.
+
+
+LaTeX Warning: Label `fig:p3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:p3' multiply defined.
+
+
+LaTeX Warning: Label `fig:p4' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:p4' multiply defined.
+
+
+LaTeX Warning: Label `fig:p5' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:p5' multiply defined.
+
+
+LaTeX Warning: Label `fig:p6' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:p6' multiply defined.
+
+
+LaTeX Warning: Label `fig:o1' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:o1' multiply defined.
+
+
+LaTeX Warning: Label `fig:o2' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:o2' multiply defined.
+
+
+LaTeX Warning: Label `fig:o3' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:o3' multiply defined.
+
+
+LaTeX Warning: Label `fig:o4' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:o4' multiply defined.
+
+
+LaTeX Warning: Label `fig:o5' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:o5' multiply defined.
+
+
+LaTeX Warning: Label `fig:o6' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:o6' multiply defined.
+
+)
 \openout1 = `samplepaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.m
 kii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count318
-\scratchdimen=\dimen184
+\scratchcounter=\count322
+\scratchdimen=\dimen192
 \scratchbox=\box113
-\nofMPsegments=\count319
-\nofMParguments=\count320
+\nofMPsegments=\count323
+\nofMParguments=\count324
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count321
-\MPscratchDim=\dimen185
-\MPnumerator=\count322
-\makeMPintoPDFobject=\count323
+\MPscratchCnt=\count325
+\MPscratchDim=\dimen193
+\MPnumerator=\count326
+\makeMPintoPDFobject=\count327
 \everyMPtoPDFconversion=\toks30
 )
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-
@@ -412,7 +524,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 60
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 62
 .
  (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -420,70 +532,71 @@ File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 Title too long for running head. Please supply
 a shorter form with \titlerunning prior to \maketitle
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 6
-7.
+9.
 (C:\Users\ramali\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
+(introduction.tex
 
 [1
 
 {C:/Users/ramali/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ram
 ali/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
+Underfull \vbox (badness 2158) has occurred while \output is active []
 
-[2] (lit_review.tex
+
+
+[2]) (lit_review.tex
 
 [3]
 
 [4]
 
-[5])
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[5]) (problem_formulation.tex
 
-
-
-[6]
-
-[7]
-<schedule_example_makespan.png, id=41, 867.24pt x 289.08pt>
-File: schedule_example_makespan.png Graphic file (type png)
-<use schedule_example_makespan.png>
-Package pdftex.def Info: schedule_example_makespan.png  used on input line 224.
-
-(pdftex.def)             Requested size: 347.12354pt x 115.70934pt.
-<schedule_example_operations.png, id=43, 867.24pt x 289.08pt>
-File: schedule_example_operations.png Graphic file (type png)
-<use schedule_example_operations.png>
-Package pdftex.def Info: schedule_example_operations.png  used on input line 22
-9.
-(pdftex.def)             Requested size: 347.12354pt x 115.70934pt.
-
-
-[8 <./schedule_example_makespan.png>]
-<aco-flowchart.png, id=48, 817.3737pt x 321.6015pt>
+[6]) (gsaco_algo.tex
+<aco-flowchart.png, id=36, 817.3737pt x 321.6015pt>
 File: aco-flowchart.png Graphic file (type png)
 <use aco-flowchart.png>
-Package pdftex.def Info: aco-flowchart.png  used on input line 275.
+Package pdftex.def Info: aco-flowchart.png  used on input line 30.
 (pdftex.def)             Requested size: 347.12354pt x 136.57822pt.
 
 
-[9 <./schedule_example_operations.png> <./aco-flowchart.png>]
+[7]
+
+[8 <./aco-flowchart.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 
+[9]
+
 [10]
+<schedule_example_makespan.png, id=56, 867.24pt x 289.08pt>
+File: schedule_example_makespan.png Graphic file (type png)
+<use schedule_example_makespan.png>
+Package pdftex.def Info: schedule_example_makespan.png  used on input line 455.
 
-[11]
+(pdftex.def)             Requested size: 347.12354pt x 115.70934pt.
+<schedule_example_operations.png, id=57, 867.24pt x 289.08pt>
+File: schedule_example_operations.png Graphic file (type png)
+<use schedule_example_operations.png>
+Package pdftex.def Info: schedule_example_operations.png  used on input line 46
+0.
+(pdftex.def)             Requested size: 347.12354pt x 115.70934pt.
 
-[12]
-<sim_framework.png, id=66, 356.2911pt x 327.3831pt>
+
+[11 <./schedule_example_makespan.png>]) (simulation.tex
+<sim_framework.png, id=62, 356.2911pt x 327.3831pt>
 File: sim_framework.png Graphic file (type png)
 <use sim_framework.png>
-Package pdftex.def Info: sim_framework.png  used on input line 700.
+Package pdftex.def Info: sim_framework.png  used on input line 8.
 (pdftex.def)             Requested size: 347.12354pt x 318.96494pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 712--712
+
+[12 <./schedule_example_operations.png>]) (experimental_evaluation.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--4
  [][]\T1/ptm/m/n/9 The source code is pub-licly avail-able in our GitHub repos-
 i-tory:
  []
@@ -495,125 +608,206 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [13 <./sim_framework.png>]
 
-LaTeX Warning: Citation `pediga23a' on page 14 undefined on input line 754.
-
-
-LaTeX Warning: Citation `kubec16a' on page 14 undefined on input line 758.
-
-
-LaTeX Warning: Reference `tab:benchmarkresults' on page 14 undefined on input l
-ine 767.
-
-
-LaTeX Warning: Citation `brandimarte1993routing' on page 14 undefined on input 
-line 770.
-
-
-LaTeX Warning: Citation `fattahi2007mathematical' on page 14 undefined on input
- line 772.
-
-
-LaTeX Warning: Citation `kubec16a' on page 14 undefined on input line 781.
-
-
-
 [14]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `htbp') on input line 819.
+               Default added (so using `htbp') on input line 131.
 
 
-LaTeX Warning: Reference `fig:makespan' on page 15 undefined on input line 930.
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `htbp') on input line 196.
+
+
+Overfull \hbox (144.29604pt too wide) in paragraph at lines 198--275
+[][] 
+ []
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `htbp') on input line 278.
+
+
+Overfull \hbox (144.29604pt too wide) in paragraph at lines 280--357
+[][] 
+ []
+
+
+LaTeX Warning: Reference `fig:makespan' on page 15 undefined on input line 377.
 
 
 
-LaTeX Warning: Reference `subfig:l' on page 15 undefined on input line 931.
+LaTeX Warning: Reference `subfig:l' on page 15 undefined on input line 378.
 
 
-LaTeX Warning: Reference `subfig:h' on page 15 undefined on input line 935.
+LaTeX Warning: Reference `subfig:h' on page 15 undefined on input line 382.
 
-<period_3600s.png, id=75, 722.7pt x 433.62pt>
-File: period_3600s.png Graphic file (type png)
-<use period_3600s.png>
-Package pdftex.def Info: period_3600s.png  used on input line 958.
+<HVLM/total_operations_3600s.png, id=75, 722.7pt x 433.62pt>
+File: HVLM/total_operations_3600s.png Graphic file (type png)
+<use HVLM/total_operations_3600s.png>
+Package pdftex.def Info: HVLM/total_operations_3600s.png  used on input line 40
+4.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<period_7200s.png, id=76, 722.7pt x 433.62pt>
-File: period_7200s.png Graphic file (type png)
-<use period_7200s.png>
-Package pdftex.def Info: period_7200s.png  used on input line 963.
+<HVLM/total_operations_7200s.png, id=76, 722.7pt x 433.62pt>
+File: HVLM/total_operations_7200s.png Graphic file (type png)
+<use HVLM/total_operations_7200s.png>
+Package pdftex.def Info: HVLM/total_operations_7200s.png  used on input line 40
+9.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<period_10800s.png, id=77, 722.7pt x 433.62pt>
-File: period_10800s.png Graphic file (type png)
-<use period_10800s.png>
-Package pdftex.def Info: period_10800s.png  used on input line 968.
+<HVLM/total_operations_10800s.png, id=77, 722.7pt x 433.62pt>
+File: HVLM/total_operations_10800s.png Graphic file (type png)
+<use HVLM/total_operations_10800s.png>
+Package pdftex.def Info: HVLM/total_operations_10800s.png  used on input line 4
+14.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<period_14400s.png, id=78, 722.7pt x 433.62pt>
-File: period_14400s.png Graphic file (type png)
-<use period_14400s.png>
-Package pdftex.def Info: period_14400s.png  used on input line 977.
+<HVLM/total_operations_14400s.png, id=78, 722.7pt x 433.62pt>
+File: HVLM/total_operations_14400s.png Graphic file (type png)
+<use HVLM/total_operations_14400s.png>
+Package pdftex.def Info: HVLM/total_operations_14400s.png  used on input line 4
+19.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<period_18000s.png, id=79, 722.7pt x 433.62pt>
-File: period_18000s.png Graphic file (type png)
-<use period_18000s.png>
-Package pdftex.def Info: period_18000s.png  used on input line 982.
+<HVLM/total_operations_18000s.png, id=79, 722.7pt x 433.62pt>
+File: HVLM/total_operations_18000s.png Graphic file (type png)
+<use HVLM/total_operations_18000s.png>
+Package pdftex.def Info: HVLM/total_operations_18000s.png  used on input line 4
+24.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<period_21600s.png, id=80, 722.7pt x 433.62pt>
-File: period_21600s.png Graphic file (type png)
-<use period_21600s.png>
-Package pdftex.def Info: period_21600s.png  used on input line 987.
+<HVLM/total_operations_21600s.png, id=80, 722.7pt x 433.62pt>
+File: HVLM/total_operations_21600s.png Graphic file (type png)
+<use HVLM/total_operations_21600s.png>
+Package pdftex.def Info: HVLM/total_operations_21600s.png  used on input line 4
+29.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<total_operations_3600s.png, id=81, 722.7pt x 433.62pt>
-File: total_operations_3600s.png Graphic file (type png)
-<use total_operations_3600s.png>
-Package pdftex.def Info: total_operations_3600s.png  used on input line 997.
+<HVLM/period_3600s.png, id=81, 722.7pt x 433.62pt>
+File: HVLM/period_3600s.png Graphic file (type png)
+<use HVLM/period_3600s.png>
+Package pdftex.def Info: HVLM/period_3600s.png  used on input line 440.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<total_operations_7200s.png, id=82, 722.7pt x 433.62pt>
-File: total_operations_7200s.png Graphic file (type png)
-<use total_operations_7200s.png>
-Package pdftex.def Info: total_operations_7200s.png  used on input line 1002.
+<HVLM/period_7200s.png, id=82, 722.7pt x 433.62pt>
+File: HVLM/period_7200s.png Graphic file (type png)
+<use HVLM/period_7200s.png>
+Package pdftex.def Info: HVLM/period_7200s.png  used on input line 446.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<total_operations_10800s.png, id=83, 722.7pt x 433.62pt>
-File: total_operations_10800s.png Graphic file (type png)
-<use total_operations_10800s.png>
-Package pdftex.def Info: total_operations_10800s.png  used on input line 1007.
+<HVLM/period_10800s.png, id=83, 722.7pt x 433.62pt>
+File: HVLM/period_10800s.png Graphic file (type png)
+<use HVLM/period_10800s.png>
+Package pdftex.def Info: HVLM/period_10800s.png  used on input line 452.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<total_operations_14400s.png, id=84, 722.7pt x 433.62pt>
-File: total_operations_14400s.png Graphic file (type png)
-<use total_operations_14400s.png>
-Package pdftex.def Info: total_operations_14400s.png  used on input line 1016.
+<HVLM/period_14400s.png, id=84, 722.7pt x 433.62pt>
+File: HVLM/period_14400s.png Graphic file (type png)
+<use HVLM/period_14400s.png>
+Package pdftex.def Info: HVLM/period_14400s.png  used on input line 458.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<total_operations_18000s.png, id=85, 722.7pt x 433.62pt>
-File: total_operations_18000s.png Graphic file (type png)
-<use total_operations_18000s.png>
-Package pdftex.def Info: total_operations_18000s.png  used on input line 1021.
+<HVLM/period_18000s.png, id=85, 722.7pt x 433.62pt>
+File: HVLM/period_18000s.png Graphic file (type png)
+<use HVLM/period_18000s.png>
+Package pdftex.def Info: HVLM/period_18000s.png  used on input line 464.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
-<total_operations_21600s.png, id=86, 722.7pt x 433.62pt>
-File: total_operations_21600s.png Graphic file (type png)
-<use total_operations_21600s.png>
-Package pdftex.def Info: total_operations_21600s.png  used on input line 1026.
+<HVLM/period_21600s.png, id=86, 722.7pt x 433.62pt>
+File: HVLM/period_21600s.png Graphic file (type png)
+<use HVLM/period_21600s.png>
+Package pdftex.def Info: HVLM/period_21600s.png  used on input line 470.
 (pdftex.def)             Requested size: 111.08206pt x 66.648pt.
 
+Underfull \vbox (badness 2158) has occurred while \output is active []
 
-[15 <./period_3600s.png> <./period_7200s.png> <./period_10800s.png>]
 
-[16 <./period_14400s.png> <./period_18000s.png> <./period_21600s.png> <./total_
-operations_3600s.png> <./total_operations_7200s.png> <./total_operations_10800s
+
+[15]
+<LVHM/period_3600s.png, id=90, 722.7pt x 433.62pt>
+File: LVHM/period_3600s.png Graphic file (type png)
+<use LVHM/period_3600s.png>
+Package pdftex.def Info: LVHM/period_3600s.png  used on input line 495.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+<LVHM/period_7200s.png, id=91, 722.7pt x 433.62pt>
+File: LVHM/period_7200s.png Graphic file (type png)
+<use LVHM/period_7200s.png>
+Package pdftex.def Info: LVHM/period_7200s.png  used on input line 500.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+<LVHM/period_10800s.png, id=92, 722.7pt x 433.62pt>
+File: LVHM/period_10800s.png Graphic file (type png)
+<use LVHM/period_10800s.png>
+Package pdftex.def Info: LVHM/period_10800s.png  used on input line 505.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+<LVHM/period_14400s.png, id=93, 722.7pt x 433.62pt>
+File: LVHM/period_14400s.png Graphic file (type png)
+<use LVHM/period_14400s.png>
+Package pdftex.def Info: LVHM/period_14400s.png  used on input line 510.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+<LVHM/period_18000s.png, id=94, 722.7pt x 433.62pt>
+File: LVHM/period_18000s.png Graphic file (type png)
+<use LVHM/period_18000s.png>
+Package pdftex.def Info: LVHM/period_18000s.png  used on input line 515.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+<LVHM/period_21600s.png, id=95, 722.7pt x 433.62pt>
+File: LVHM/period_21600s.png Graphic file (type png)
+<use LVHM/period_21600s.png>
+Package pdftex.def Info: LVHM/period_21600s.png  used on input line 520.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+
+Underfull \vbox (badness 2229) has occurred while \output is active []
+
+
+
+[16 <./HVLM/total_operations_3600s.png> <./HVLM/total_operations_7200s.png> <./
+HVLM/total_operations_10800s.png> <./HVLM/total_operations_14400s.png> <./HVLM/
+total_operations_18000s.png> <./HVLM/total_operations_21600s.png>]
+<LVHM/total_operations_3600s.png, id=105, 722.7pt x 433.62pt>
+File: LVHM/total_operations_3600s.png Graphic file (type png)
+<use LVHM/total_operations_3600s.png>
+Package pdftex.def Info: LVHM/total_operations_3600s.png  used on input line 53
+2.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+<LVHM/total_operations_7200s.png, id=106, 722.7pt x 433.62pt>
+File: LVHM/total_operations_7200s.png Graphic file (type png)
+<use LVHM/total_operations_7200s.png>
+Package pdftex.def Info: LVHM/total_operations_7200s.png  used on input line 53
+7.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+<LVHM/total_operations_10800s.png, id=107, 722.7pt x 433.62pt>
+File: LVHM/total_operations_10800s.png Graphic file (type png)
+<use LVHM/total_operations_10800s.png>
+Package pdftex.def Info: LVHM/total_operations_10800s.png  used on input line 5
+42.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+<LVHM/total_operations_14400s.png, id=108, 722.7pt x 433.62pt>
+File: LVHM/total_operations_14400s.png Graphic file (type png)
+<use LVHM/total_operations_14400s.png>
+Package pdftex.def Info: LVHM/total_operations_14400s.png  used on input line 5
+47.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+<LVHM/total_operations_18000s.png, id=109, 722.7pt x 433.62pt>
+File: LVHM/total_operations_18000s.png Graphic file (type png)
+<use LVHM/total_operations_18000s.png>
+Package pdftex.def Info: LVHM/total_operations_18000s.png  used on input line 5
+52.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+<LVHM/total_operations_21600s.png, id=110, 722.7pt x 433.62pt>
+File: LVHM/total_operations_21600s.png Graphic file (type png)
+<use LVHM/total_operations_21600s.png>
+Package pdftex.def Info: LVHM/total_operations_21600s.png  used on input line 5
+57.
+(pdftex.def)             Requested size: 111.08206pt x 66.648pt.
+)
+
+[17 <./HVLM/period_3600s.png> <./HVLM/period_7200s.png> <./HVLM/period_10800s.p
+ng> <./HVLM/period_14400s.png> <./HVLM/period_18000s.png> <./HVLM/period_21600s
+.png>] (bib.tex
+
+[18 <./LVHM/period_3600s.png> <./LVHM/period_7200s.png> <./LVHM/period_10800s.p
+ng> <./LVHM/period_14400s.png> <./LVHM/period_18000s.png> <./LVHM/period_21600s
 .png>]
 
-[17 <./total_operations_14400s.png> <./total_operations_18000s.png> <./total_op
-erations_21600s.png>] (bib.tex
+[19 <./LVHM/total_operations_3600s.png> <./LVHM/total_operations_7200s.png> <./
+LVHM/total_operations_10800s.png> <./LVHM/total_operations_14400s.png> <./LVHM/
+total_operations_18000s.png> <./LVHM/total_operations_21600s.png>]
 
-[18]
-
-[19]
-Underfull \hbox (badness 4001) in paragraph at lines 148--151
+[20]
+Underfull \hbox (badness 4001) in paragraph at lines 159--162
 []\T1/ptm/m/n/9 Author, F., Au-thor, S.: Ti-tle of a pro-ceed-ings pa-per. In: 
 Ed-i-tor, F., Ed-i-tor, S.
  []
 
 )
-
-[20]
 
 [21]
 
@@ -623,7 +817,11 @@ Ed-i-tor, F., Ed-i-tor, S.
 
 [24]
 
-[25] (samplepaper.aux)
+[25]
+
+[26]
+
+[27] (samplepaper.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-07-20>
@@ -632,15 +830,18 @@ L3 programming layer <2024-07-20>
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 4895 strings out of 473898
- 76555 string characters out of 5726008
- 1984960 words of memory out of 5000000
- 27697 multiletter control sequences out of 15000+600000
+ 6539 strings out of 473898
+ 110277 string characters out of 5726008
+ 1999960 words of memory out of 5000000
+ 29314 multiletter control sequences out of 15000+600000
  594114 words of font info for 76 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
- 57i,22n,79p,1087b,471s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,22n,79p,1542b,503s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmex10.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cmextra/cmex7.pfb><C:/Users/ramali/AppData/Local/Programs/MiKTeX/fonts/
@@ -669,9 +870,9 @@ ams/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/ramali/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/ramali/AppData/Local/P
 rograms/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/ramali/AppData/Local/
 Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on samplepaper.pdf (25 pages, 2233703 bytes).
+Output written on samplepaper.pdf (27 pages, 3477419 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
+ 272 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

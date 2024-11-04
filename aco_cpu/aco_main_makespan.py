@@ -83,13 +83,15 @@ def main_makespan():
                 global_best_machines = current_best_machines
                 global_best_start_time = current_best_start_time
                 global_best_end_time = current_best_end_time
-                print(f"New best makespan found: {global_best_makespan}")
+                print(f"New best makespan found: {int(global_best_makespan/60)}")
             else:
-                print(f"No improvement, best makespan remains: {global_best_makespan}")
+                print(f"No improvement, best makespan remains: {int(global_best_makespan/60)}")
 
             colony.graph.update_pheromone(colony.graph.pheromone_matrix, global_best_edges, parameters["contribution"],
                                           parameters["rho"], parameters["min_pheromone"])
 
+            #rounded_tensor = torch.round(colony.graph.pheromone_matrix * 100) / 100
+            #print(rounded_tensor)
             print(f'cycle {n_cycles} completed in {time.time() - start_time}')
             n_cycles+=1
 

@@ -27,7 +27,7 @@ def resource_utilization(schedule_file, tool_file):
     plt.title('Utilization Percentage by Station Group for a 1-Hour Period')
     plt.tight_layout()
     plt.show()
-#resource_utilization('schedule_output/schedule_output_3600s.txt', '../datasets/SMT2020_HVLM/tool.txt.1l')
+#resource_utilization('schedule_output_HVLM/schedule_output_3600s.txt', '../datasets/SMT2020_HVLM/tool.txt.1l')
 
 def read_schedule_and_visualize(schedule_file):
     df_schedule_lots = pd.read_csv(schedule_file, delimiter='\t', usecols=['lot', 'product', 'step', 'start_time'])
@@ -53,4 +53,4 @@ def read_schedule_and_visualize(schedule_file):
     plt.grid(True)
     plt.show()
 
-read_schedule_and_visualize('schedule_output/schedule_output_3600s.txt')
+read_schedule_and_visualize('schedule_output_HVLM_HVLM/schedule_output_3600s.txt')

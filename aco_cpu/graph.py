@@ -80,7 +80,6 @@ class Graph():
         return m, job, adjacency_matrix, machine_matrix
 
     def update_pheromone(self, p_matrix, edges, contribution, rho, min_p_level):
-        print(p_matrix)
         p_matrix *= (1-rho)
         start_nodes = edges[:, 0]
         end_nodes = edges[:, 1]

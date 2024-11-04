@@ -110,7 +110,7 @@ def print_logs(instance):
 
 
 def get_process_time(instance):
-    file_path_lots = 'datasets/SMT2020_example_sch/route.txt'
+    file_path_lots = 'datasets/SMT2020_LVHMS/route.txt'
     with open(file_path_lots, 'w') as file:
         print_head = f'Product Step Tool Processtime\n'
         file.write(print_head)

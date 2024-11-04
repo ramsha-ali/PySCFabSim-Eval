@@ -94,7 +94,7 @@ def run_greedy():
         lot_tuple = (lot.idx, lot.part_name, lot.actual_step)
         lot_instance.append(lot_tuple)
 
-    lot_instance_file = 'simulation_state/lot_instance_example.txt'
+    lot_instance_file = 'simulation_state/lot_instance_LVHM.txt'
     with open(lot_instance_file, 'w') as file:
         print_head = f'Lot Product CurrentStep\n'
         file.write(print_head)
@@ -139,7 +139,7 @@ def run_greedy():
         f'\n')
 
 
-    lot_instance_file = f'dispatching_output/dispatching_seed{a.seed}_{a.dispatcher}_{a.days}s.txt'
+    lot_instance_file = f'dispatching_output_LVHM/dispatching_seed{a.seed}_{a.dispatcher}_{a.days}s.txt'
     with open(lot_instance_file, 'w') as file:
         print_head = f'Lot Product Step Machine_id start end\n'
         file.write(print_head)

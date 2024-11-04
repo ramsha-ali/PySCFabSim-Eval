@@ -29,7 +29,7 @@ def resource_util(file_path, tool_file):
 #resource_util('greedy/greedy_seed0_3600days_SMT2020_HVLM_fifo.txt', 'datasets/SMT2020_HVLM/tool.txt.1l')
 
 def read_and_visualize_operations_line_graph(file_pattern, algos, output_filename, period):
-    last_step = {'part_1': 520, 'part_2': 528, 'part_3': 582, 'part_4': 342, 'part_5': 241}
+    last_step = {'part_1': 520, 'part_2': 528, 'part_3': 582, 'part_4': 342, 'part_5': 241, 'part_6':292, 'part_7':352, 'part_8':374, 'part_9':383, 'part_10':389}
     hour = int(period / 3600)
     avg_operations = []
     for algo in algos:
@@ -140,12 +140,12 @@ def read_and_visualize_wip(file_pattern, algos, output_filename, period, wip):
     #plt.show()
     plt.savefig(output_filename, dpi=300)
 
-period = 3600
-file_pattern = 'dispatching_output/dispatching_seed*_{algo}_{period}s.txt'
+period = 21600
+file_pattern = 'dispatching_output_LVHM/dispatching_seed*_{algo}_{period}s.txt'
 algos = ['fifo', 'cr', 'random', 'gsaco']
-wip = 'simulation_state/lot_instance.txt'
-output_filename_wip = f'plots/period_{period}s.png'
-output_filename = f'plots/total_operations_{period}s.png'
+wip = 'simulation_state/lot_instance_LVHM.txt'
+output_filename_wip = f'plots_LVHM/period_{period}s.png'
+output_filename = f'plots_LVHM/total_operations_{period}s.png'
 
 read_and_visualize_wip(file_pattern, algos, output_filename_wip, period, wip)
 read_and_visualize_operations_line_graph(file_pattern, algos, output_filename, period)
