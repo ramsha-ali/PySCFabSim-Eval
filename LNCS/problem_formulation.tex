@@ -1,0 +1,86 @@
+\begin{table*}[t]
+	\caption{Basic notations (adapted from \cite{Ali2024})}\label{notations} \centering
+	\begin{tabular}{|l|l|}
+		\hline
+		Symbol & Description \\ \hline
+		$J$ & Total number of \emph{jobs}        \\
+		$T$ & Total number of \emph{tool groups} \\
+		$M$ & Total number of \emph{machines}    \\
+		$N$ & Total number of \emph{operations} \\
+		$t_{m}$ & Tool group $t$ of machine $m$ \\
+		$O_{i,j,t}$ & Operation $i$ of job $j$ on tool group $t$  \\
+		$d_{i,j,t}$ & \emph{Duration} of operation $O_{i,j,t}$ on tool group $t$ \\
+		$O_{i,j,t,m}$ & Operation $i$ of job $j$ on machine $m$ of tool group $t$  \\
+		$s_{i,j,t,m}$ & \emph{Start time} of operation $O_{i,j,t}$ on machine $m$ of tool group $t$  \\
+		\hline
+	\end{tabular}
+\end{table*}
+
+We formulate SMSP in terms of the general FJSSP model,
+using the basic notations listed in Table~\ref{notations} (see \cite{Ali2024}). 
+In detail, our setting for scheduling the production of a semiconductor fab is characterized as follows:
+
+\begin{itemize}
+	\item The fab consists of $M$ machines, which are partitioned into $T$
+	tool groups, where $t_m\in\{1,\dots,T\}$ denotes the tool group
+	to which a machine $m\in\{1,\dots,M\}$ belongs.
+	\item There are $J$ jobs, where each $j\in\{1,\dots,J\}$ represents a
+	sequence of operations $O_{1,j,t_1},\dots,O_{n_j,j,t_n}$, to be performed on a production lot.
+	Note that $t_i\in\{1,\dots,T\}$ specifies the tool group 
+	responsible for processing an operation $O_{i,j,t_i}$, % for $i\in\{1,\dots,n_j\}$
+	but not a specific machine of $t_i$,
+	which reflects flexibility in assigning operations to machines.
+	The total number of operations is denoted by
+	$N = \sum_{j\in\{1,\dots,J\}}n_j$.
+	\item For each operation $O_{i,j,t}$,
+	the duration $d_{i,j,t}$ is required for processing $O_{i,j,t}$
+	on some machine of the tool group~$t$.
+\end{itemize}
+
+Our SMSP model incorporates key features drawn from the semiconductor production 
+scenarios outlined in the SMT2020 dataset \cite{kopp2020smt2020}. 
+In these scenarios, each job corresponds to a specific product, 
+with operation sequences—referred to as production routes—remaining 
+consistent across the same product type. Given that these production routes 
+can span several months and encompass hundreds of operations within a physical fab, 
+it's common for different lots of the same product to be at various stages 
+of their production routes during (re-)scheduling. 
+Therefore, our model does not differentiate production routes by product; 
+instead, we focus on the operation sequences of a specific length $n_j$ related to each job~$j$. 
+This approach facilitates the management of operations for lots at different stages within the same production route.
+
+Moreover, the machines belonging to a tool group are assumed to be uniform,
+i.e., an operation requiring the tool group can be processed by any of its
+machines.
+This simplifying assumption ignores specific machine setups, which may be
+needed for some operations and take additional equipping time,
+as well as unavailabilities due to maintenance procedures or breakdowns.
+However, the greedy machine assignment performed by our GSACO algorithm
+in Section~\ref{sec:gsaco} can take such conditions into account for
+allocating an operation to the earliest available machine.
+In addition, some transportation time is required to move
+a lot from one machine to another between operations,
+which is not explicitly given but taken as part of the operation duration
+in the SMT2020 scenarios.
+
+A schedule allocates each operation $O_{i,j,t}$ to some machine
+$m\in\{1,\dots,M\}$ such that $t_m=t$, and we denote the machine
+assignment by $O_{i,j,t,m}$.
+Each machine performs its assigned operations in sequence without
+preemption, i.e.,
+$s_{i,j,t,m} + d_{i,j,t} \leq s_{i',j',t,m}$ or
+$s_{i',j',t,m} + d_{i',j',t} \leq s_{i,j,t,m}$
+must hold for the start times
+$s_{i,j,t,m}$ and $s_{i',j',t,m}$ of operations
+$O_{i,j,t,m}\neq O_{i',j',t,m}$
+allocated to the same machine~$m$.
+The precedence between operations of a job $j\in\{1,\dots,J\}$ needs to be
+respected as well, necessitating that
+$s_{i,j,t,m} + d_{i,j,t} \leq s_{i+1,j,t',m'}$ when $i<n_j$.
+Assuming that $0\leq s_{1,j,t,m}$ for each job $j\in\{1,\dots,J\}$,
+the makespan to complete all jobs is given by
+$\max\{s_{n_j,j,t,m} + d_{n_j,j,t} \mid j\in\{1,\dots,J\}\}$.
+We take makespan minimization as the primary optimization objective for scheduling, as it reflects efficient machine utilization and maximization of fab throughput. Additionally, we aim to optimize the number of operations completed within a specified period, enhancing overall productivity and operational efficiency. This approach ensures not only the effective use of available machinery but also strives to maximize the output within time constraints, thereby optimizing operational flow and throughput within the manufacturing process.
+
+An example schedule (generated by GSACO-I) for instance in Table~\ref{tab:instance} 
+is displayed in Figure~\ref{fig:sch-makespan} and Figure~\ref{fig:sch-operations}.

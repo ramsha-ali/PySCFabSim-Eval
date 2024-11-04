@@ -1,0 +1,18 @@
+To simulate a semiconductor fab, we adapted the simulator developed by \cite{Kovács2022}, enhancing its capacity to handle the complexities and scalability challenges inherent in semiconductor manufacturing scheduling.
+
+This simulator, tailored for the SMT2020 testbed, incorporates a comprehensive framework for the development and validation of innovative scheduling methods without the risk of overfitting. It operates using a dispatcher that dynamically allocates lots to machines based on predefined decision points, facilitating iterative simulation cycles that continue until designated performance benchmarks are achieved.
+
+The dispatcher utilizes basic local rules such as FIFO, CR, and Random selection to manage lot assignments efficiently. These rules serve as foundational strategies, ensuring basic operational efficiency. Additionally, we have integrated enhanced dispatching algorithms derived from the GSACO-I algorithm, which leverage more sophisticated decision-making processes to optimize scheduling tasks further. These enhancements not only improve the precision of the simulation but also significantly extend its applicability and effectiveness in complex manufacturing scenarios.
+
+\begin{figure}[t]
+	\includegraphics[width=\textwidth]{sim\_framework.png}
+	\caption{Simulator-Scheduler framework}
+	\label{fig:ss}
+\end{figure}
+
+The framework depicted in Figure~\ref{fig:ss} outlines a sophisticated approach for scheduling operations within a production setting, incorporating both simulation and optimization models to enhance efficiency. At the core, the Input Data Module manages crucial scheduling data, including the SMT2020 dataset that lists lots to be scheduled with their remaining operations, alongside data concerning production objectives and available resources. This information feeds into the initialization processes for both the simulation and optimization modules.
+
+The Simulation Model kicks off with an initialization of instances based on the dataset, where it sets up the environment for running simulations with different dispatching rules—both local and enhanced. Moreover, it generates the average processing time of operations for the scheduling purpose.
+The dispatch rules are tested under different processing times to observe their effectiveness in managing operations and lot completions, as well as the flow of work-in-process.
+
+On the optimization side, the GSACO-I algorithm—takes the stage to refine scheduling further. This component iteratively searches for the best or optimal scheduling solutions, assessing each iteration against a criterion to determine if a preferable solution has been achieved. Upon finding the best solution, it finalizes the operations schedule, which details the best sequence and allocation of operations, ready to be implemented to maximize production efficiency.
