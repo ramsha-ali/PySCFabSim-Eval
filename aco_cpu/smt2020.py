@@ -130,6 +130,7 @@ class SMT2020:
                                 op_info = (lot, product, step, tool_number, pro_time)
                                 info.append(op_info)
                 job_info.append(info)
+
             max_operations = max(len(job) for job in job_info)
             padded_job_info = [job + [(-1, -1, -1, -1, -1)] * (max_operations - len(job)) for job in job_info]
             self.jobs = np.array(padded_job_info, dtype=int)

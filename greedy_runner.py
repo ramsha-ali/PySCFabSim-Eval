@@ -12,9 +12,9 @@ if not os.path.exists('greedy'):
     os.mkdir('greedy')
 if not os.path.exists('simulation_state'):
     os.mkdir('simulation_state')
-for seed in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
-    for day in [3600, 7200, 10800, 14400, 18000, 21600]:
-        for dataset, dispatcher in [('SMT2020_LVHM', 'fifo'), ('SMT2020_LVHM', 'cr'), ('SMT2020_LVHM', 'random'), ('SMT2020_LVHM', 'gsaco')]:
+for seed in [0]:
+    for day in [3600]:
+        for dataset, dispatcher in [('SMT2020_example_sim', 'fifo')]:
             def s(day_, dataset_, dispatcher_):
                 name_ = f'greedy/greedy_seed{seed}_{day}days_{dataset}_{dispatcher}.txt'
                 with io.open(name_, 'w') as f:

@@ -1,15 +1,13 @@
-We implemented our GSACO-I algorithm in Python using PyTorch, as it handles tensor operations efficiently and provides a multiprocessing library for
-parallelization, thus significantly speeding up the ants' execution of the GS procedure in each GSACO iteration.%
+We implemented GSACO-O algorithm in Python using PyTorch, as it handles tensor operations efficiently and provides a multiprocessing library for
+parallelization, thus significantly speeding up the ants' execution of the GS procedure in each GSACO-O iteration.%
 \footnote{The source code is publicly available in our GitHub repository:
 	\url{https://github.com/prosysscience/GSACO}}
 The first challenge consists of determining suitable values for the input
 parameters listed in Table~\ref{tab:parameters}, i.e.,
 all parameters but the internally calculated pheromone level $\tau_e$ on edges~$e$.
-We commit to the values given in Table~\ref{tab:p_value},
-where a time limit~$l$ of $5$ minutes and $n$
-up to $5$ operations per job for makespan and $15$ operations per job for operation throughput are plausible for SMSP instances
-based on the SMT2020 dataset, whose stochastic events necessitate frequent
-re-scheduling in practice. For operations, we introduced a planning period~$h$ to schedule. 
+We adhere to the parameters specified in Table~\ref{tab:p_value}, setting a time constraint~$l$ of $10$ minutes for objective makespan and $5$ minutes for objective operations. 
+Setting different time limits for these two aspects allows the algorithm to tailor its computational efforts to the specific demands of each task. While makespan optimization seeks the best possible sequence over all operations (requiring extensive computation), optimizing operational efficiency focuses on making quicker adjustments that enhance day-to-day operations without the need for extensive computation. 
+For the SMSP instances derived from the SMT2020 dataset, we consider up to $5$ operations per job for minimizing makespan and up to $15$ operations per job for optimizing operational throughput. These parameters are practical, given the stochastic nature of the problem which often necessitates frequent rescheduling. Additionally, we define a short planning horizon~$h$ to accommodate near-term scheduling requirements.
 For the initial pheromone level~$\tau_y$,
 we start from value~$1$, and take $0.00001$ as the minimum $\tau_z$
 to avoid going down to $0$, considering that the GS procedure can only
@@ -27,9 +25,9 @@ perform this task efficiently for new instance sets.%
 		\hline
 		Parameter & Value \\ \hline
 		$o$ & $makespan$/$operations$        \\
-		$s$ & $deterministic$/$dynamic$        \\
-		$l$ & $5$        \\
+		$l$ & $10/5$        \\
 		$n$ & $1$--$5$/$15$ \\
+		$h$ & $1$--$6$ \\
 		$k$ & $10$ \\
 		$\tau_{y}$ & $1$ \\
 		$\tau_{z}$ & $0.00001$ \\
@@ -40,60 +38,6 @@ perform this task efficiently for new instance sets.%
 		\hline
 	\end{tabular}
 \end{table}
-
-
-To compare GSACO-I with the state of the art in FJSSP solving,
-we also run the CP solver OR-Tools (version 9.5) \cite{pediga23a},
-while heuristic and meta-heuristic methods from the literature could not
-be reproduced due to the inaccessibility of source code or tuned hyperparameters.
-Note that CP approaches have been shown to be particularly effective among
-exact optimization techniques for FJSSP \cite{kubec16a},
-where the free and open-source solver OR-Tools excels
-as serial winner of the Mi\-ni\-Zinc Challenge.\footnote{\url{https://www.minizinc.org/challenge}}
-
-We performed our experiments on a TUXEDO Pulse 14 Gen1 machine
-equipped with an 8-core AMD Ryzen 7 4800H processor at 2.9GHz and onboard
-Radeon graphics card.
-
-\begin{table}[t]
-	\caption{FJSSP results obtained with CP and GSACO}\label{tab:benchmarkresults} \centering
-	\begin{tabular}{|lr|r|r|r|}
-		\hline
-		Instance & $J$  & $M$ & CP  & GSACO \\ \hline
-		MK1      & $10$ & $6$ & $40$  & $44$     \\ 
-		MK2      & $10$ & $6$ & $27$  & $40$     \\ 
-		MK3      & $15$ & $8$ & $204$ & $239$    \\ 
-		MK4      & $15$ & $8$ & $60$  & $83$     \\ 
-		SFJSSP1   & $2$ & $2$ & $66$  & $66$     \\ 
-		SFJSSP2   & $2$ & $2$ & $107$ & $107$    \\ 
-		SFJSSP3   & $3$ & $2$ & $221$ & $221$    \\ 
-		SFJSSP4   & $3$ & $2$ & $355$ & $355$    \\ 
-		MFJSSP1   & $5$ & $6$ & $468$ & $498$    \\ 
-		MFJSSP2   & $5$ & $7$ & $446$ & $470$    \\ 
-		MFJSSP3   & $6$ & $7$ & $466$ & $523$    \\ 
-		MFJSSP4   & $7$ & $7$ & $554$ & $664$    \\ 
-		\hline
-	\end{tabular}
-\end{table}
-
-Table~\ref{tab:benchmarkresults} illustrates the strengths of CP models on a benchmark set of
-small to medium-scale FJSSP instances \cite{arnaout2014two},
-where the instances MK1--MK4 are due to 
-\cite{brandimarte1993routing} and the remaining eight instances
-have been introduced in
-\cite{fattahi2007mathematical}.
-In view of the small numbers $J$ and $M$ of jobs or machines, respectively,
-in these classical FJSSP instances,
-OR-Tools solves all of them to optimality within a few seconds,
-so that the CP column shows the minimal makespan for each instance.
-Since GSACO is an approximation method, its best schedules are not
-necessarily optimal, as it can be observed on instances other than
-SFJSSP1--SFJSSP4.
-This reconfirms that exact models,
-particularly those based on CP \cite{kubec16a},
-are the first choice for FJSSP instances
-of moderate size and complexity.%
-%
 
 To evaluate large-scale SMSP instances,
 we consider two semiconductor production scenarios of the SMT2020 dataset:
@@ -107,10 +51,10 @@ $300$ or $600$ steps, respectively.
 Originally, the LV/HM and HV/LM scenarios have been designed to represent fab load at the
 start of simulation runs, so that the jobs are at different steps of their
 production routes.
-We here instead focus on scheduling for planning horizons~$n$ from~$1$ to~$5$,
-standing for the up to $5$ next operations to be performed per job.
+We focus on scheduling for operations~$n$ from~$1$ up to~$5$,
+to be performed per job.
 Hence, the operations $O$ to schedule gradually increase from the
-number $J$ of jobs, in case of the planning horizon $n=1$,
+number $J$ of jobs, in case of the operations $n=1$,
 % , given in Table~\ref{tab:Dataset},
 to more than $10000$ operations % obtained
 for the longest % planning 
@@ -128,54 +72,17 @@ horizon $n=5$.
 \end{table}
 %
 
-\begin{table}[]
-	\caption{SMSP results obtained with GSACO}	\label{tab:results-operations} \centering
-	\begin{tabular}{|l|cccccc|}
-		\hline
-		\multicolumn{1}{|c|}{\multirow{2}{*}{Instance}} &
-		\multicolumn{6}{c|}{Planning period in hours} \\ \cline{2-7} 
-		\multicolumn{1}{|c|}{} &
-		\multicolumn{1}{c|}{1} &
-		\multicolumn{1}{c|}{2} &
-		\multicolumn{1}{c|}{3} &
-		\multicolumn{1}{c|}{4} &
-		\multicolumn{1}{c|}{5} &
-		6 \\ \hline &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{c|}{Ops/Lots} &
-		\multicolumn{1}{l|}{Ops/Lots} \\ \cline{2-7}
-		LV/HM &
-		\multicolumn{1}{c|}{1422/0} &
-		\multicolumn{1}{c|}{2368/0} &
-		\multicolumn{1}{c|}{3234/0} &
-		\multicolumn{1}{c|}{4015/1} &
-		\multicolumn{1}{c|}{4722/2} &
-		5306/2 \\ 
-		HV/LM &
-		\multicolumn{1}{c|}{1848/0} &
-		\multicolumn{1}{c|}{2960/0} &
-		\multicolumn{1}{c|}{4093/1} &
-		\multicolumn{1}{c|}{4970/3} &
-		\multicolumn{1}{c|}{5975/5} &
-		6716/7 \\ \hline
-	\end{tabular}%
-\end{table}
-
-
 \begin{table*}[t]
-	\caption{SMSP results obtained with CP and GSACO}\label{tab:results} \centering
-	\begin{tabular}{|r|l|r|r|r|r|r|r|r|r|r|r|}
+	\caption{SMSP results obtained with CP and GSACO \cite{Ali2024}}\label{tab:results} \centering
+	\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|l|}
 		\hline
 		&
 		&
-		\multicolumn{2}{c}{$1$ min} &
-		\multicolumn{2}{c}{$3$ min} &
-		\multicolumn{2}{c}{$5$ min} &
-		\multicolumn{2}{c}{$7$ min} &
-		\multicolumn{2}{c}{$9$ min} \\ \cline{3-12} 
+		\multicolumn{2}{c|}{$1$ min} &
+		\multicolumn{2}{c|}{$3$ min} &
+		\multicolumn{2}{c|}{$5$ min} &
+		\multicolumn{2}{c|}{$7$ min} &
+		\multicolumn{2}{c|}{$9$ min} \\ \cline{3-12} 
 		$n$ & Scenario & CP & GSACO & CP & GSACO & CP & GSACO & CP & GSACO & CP & GSACO \\ \hline
 		\multirow{2}{*}{$1$} & LV/HM & - & $3735$ & $18572$ & $3725$ & $3746$ & $3725$ & $3723$ & $3725$ & $3723$ & $3725$  \\
 		& HV/LM & - & $1405$ & - & $1405$ & $2242$ & $1405$ & $1609$ & $1405$ & $1600$ & $1405$ \\
@@ -191,172 +98,6 @@ horizon $n=5$.
 	\end{tabular}
 \end{table*}
 
-
-
-\begin{table}[]
-	\caption{Percentage Change in Dispatcher Performance Over Planning Hours (HV/LM)}\label{tab:dispatchers-HVLM} 
-	\begin{tabular}{|l|cccccccccccc|}
-		\hline
-		\multirow{3}{*}{Dispatcher} &
-		\multicolumn{12}{c|}{Planning period in hours} \\ \cline{2-13} 
-		&
-		\multicolumn{2}{c|}{1} &
-		\multicolumn{2}{c|}{2} &
-		\multicolumn{2}{c|}{3} &
-		\multicolumn{2}{c|}{4} &
-		\multicolumn{2}{c|}{5} &
-		\multicolumn{2}{c|}{6} \\ \cline{2-13} 
-		&
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} \\ \hline 
-		FIFO &
-		\multicolumn{1}{c|}{1821/0} &
-		\multicolumn{1}{c|}{-} &
-		\multicolumn{1}{c|}{2831/0} &
-		\multicolumn{1}{c|}{-} &
-		\multicolumn{1}{c|}{4020/1} &
-		\multicolumn{1}{c|}{-} &
-		\multicolumn{1}{c|}{4914/4} &
-		\multicolumn{1}{c|}{-} &
-		\multicolumn{1}{c|}{5960/6} &
-		\multicolumn{1}{c|}{-} &
-		\multicolumn{1}{c|}{6841/8} &
-		- \\
-		CR &
-		\multicolumn{1}{c|}{1798/0} &
-		\multicolumn{1}{c|}{-1.26\%} &
-		\multicolumn{1}{c|}{2811/0} &
-		\multicolumn{1}{c|}{-0.71\%} &
-		\multicolumn{1}{c|}{4021/1} &
-		\multicolumn{1}{c|}{0.02\%} &
-		\multicolumn{1}{c|}{4934/3} &
-		\multicolumn{1}{c|}{0.40\%} &
-		\multicolumn{1}{c|}{6003/5} &
-		\multicolumn{1}{c|}{0.72\%} &
-		\multicolumn{1}{c|}{6946/}8 &
-		1.53\% \\
-		RANDOM &
-		\multicolumn{1}{c|}{1810/0} &
-		\multicolumn{1}{c|}{-0.60\%} &
-		\multicolumn{1}{c|}{2852/0} &
-		\multicolumn{1}{c|}{0.74\%} &
-		\multicolumn{1}{c|}{4065/1} &
-		\multicolumn{1}{c|}{1.12\%} &
-		\multicolumn{1}{c|}{4975/3} &
-		\multicolumn{1}{c|}{1.24\%} &
-		\multicolumn{1}{c|}{6026/5} &
-		\multicolumn{1}{c|}{1.10\%} &
-		\multicolumn{1}{c|}{6973/9} &
-		1.92\% \\
-		GSACO &
-		\multicolumn{1}{c|}{1831/0} &
-		\multicolumn{1}{c|}{0.54\%} &
-		\multicolumn{1}{c|}{2957/0} &
-		\multicolumn{1}{c|}{4.45\%} &
-		\multicolumn{1}{c|}{4162/1} &
-		\multicolumn{1}{c|}{3.53\%} &
-		\multicolumn{1}{c|}{5118/3} &
-		\multicolumn{1}{c|}{4.15\%} &
-		\multicolumn{1}{c|}{6263/5} &
-		\multicolumn{1}{c|}{5.08\%} &
-		\multicolumn{1}{c|}{7162/7} &
-		4.69\% \\ \hline
-	\end{tabular}%
-\end{table}
-
-
-\begin{table}[]
-	\caption{Percentage Change in Dispatcher Performance Over Planning Hours (LV/HM)}\label{tab:dispatchers-LVHM}
-	\begin{tabular}{|l|cccccccccccc|}
-		\hline
-		\multirow{3}{*}{Dispatcher} &
-		\multicolumn{12}{c|}{Planning period in hours} \\ \cline{2-13} 
-		&
-		\multicolumn{2}{c|}{1} &
-		\multicolumn{2}{c|}{2} &
-		\multicolumn{2}{c|}{3} &
-		\multicolumn{2}{c|}{4} &
-		\multicolumn{2}{c|}{5} &
-		\multicolumn{2}{c|}{6} \\ \cline{2-13} 
-		&
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} &
-		\multicolumn{1}{l|}{Ops/Lots} &
-		\multicolumn{1}{l|}{\% change} \\ \hline
-		FIFO &
-		\multicolumn{1}{c|}{1419/0} &
-		\multicolumn{1}{c|}{-} &
-		\multicolumn{1}{c|}{2249/0} &
-		\multicolumn{1}{c|}{-} &
-		\multicolumn{1}{c|}{3284/0} &
-		\multicolumn{1}{c|}{-} &
-		\multicolumn{1}{c|}{4018/1} &
-		\multicolumn{1}{c|}{-} &
-		\multicolumn{1}{c|}{4901/1} &
-		\multicolumn{1}{c|}{-} &
-		\multicolumn{1}{c|}{5665/4} &
-		- \\
-		CR &
-		\multicolumn{1}{c|}{1416/0} &
-		\multicolumn{1}{c|}{-0.21\%} &
-		\multicolumn{1}{c|}{2328/0} &
-		\multicolumn{1}{c|}{-3.51\%} &
-		\multicolumn{1}{c|}{3372/0} &
-		\multicolumn{1}{c|}{2.67\%} &
-		\multicolumn{1}{c|}{4083/1} &
-		\multicolumn{1}{c|}{1.61\%} &
-		\multicolumn{1}{c|}{5023/1} &
-		\multicolumn{1}{c|}{2.48\%} &
-		\multicolumn{1}{c|}{5799/3} &
-		2.36\% \\
-		RANDOM &
-		\multicolumn{1}{c|}{1403/0} &
-		\multicolumn{1}{c|}{-1.12\%} &
-		\multicolumn{1}{c|}{2275/0} &
-		\multicolumn{1}{c|}{1.15\%} &
-		\multicolumn{1}{c|}{3314/0} &
-		\multicolumn{1}{c|}{0.91\%} &
-		\multicolumn{1}{c|}{4039/1} &
-		\multicolumn{1}{c|}{0.52\%} &
-		\multicolumn{1}{c|}{4972/1} &
-		\multicolumn{1}{c|}{1.44\%} &
-		\multicolumn{1}{c|}{5767/1} &
-		1.80\% \\
-		GSACO &
-		\multicolumn{1}{c|}{1442/0} &
-		\multicolumn{1}{c|}{1.62\%} &
-		\multicolumn{1}{c|}{2409/0} &
-		\multicolumn{1}{c|}{7.11\%} &
-		\multicolumn{1}{c|}{3427/0} &
-		\multicolumn{1}{c|}{4.35\%} &
-		\multicolumn{1}{c|}{4272/1} &
-		\multicolumn{1}{c|}{6.32\%} &
-		\multicolumn{1}{c|}{5174/2} &
-		\multicolumn{1}{c|}{5.57\%} &
-		\multicolumn{1}{c|}{6014/2} &
-		6.16\% \\ \hline
-	\end{tabular}%
-\end{table}
-
-%
 While running with a time limit $l$ of $10$ minutes,
 Table~\ref{tab:results} reports the makespans of current best schedules
 found by the CP solver OR-Tools and our GSACO implementation
@@ -364,7 +105,7 @@ at $1$, $3$, $5$, $7$, and $9$ minutes of computing time.
 Considering that the SMSP instances are large,
 OR-Tools now takes $3$ minutes to come up with the first solution(s)
 for the shortest planning horizon $n=1$ on the LV/HM scenario.
-Within the same fraction of computing time, GSACO already converges to a
+Within the same fraction of computing time, GSACO-O already converges to a
 makespan of $3725$ and then proceeds with iterations that do not
 yield further improvements.
 That the best schedule found by GSACO is not optimal is witnessed by a
@@ -373,9 +114,27 @@ However, for the other SMSP instances, OR-Tools is unable to improve over
 GSACO within $9$ minutes, and it cannot even provide feasible schedules
 for planning horizons from $n=2$ on the HV/LM scenario or $n=3$ 
 on LV/HM.
+We performed our experiments on a TUXEDO Pulse 14 Gen1 machine
+equipped with an 8-core AMD Ryzen 7 4800H processor at 2.9GHz and onboard
+Radeon graphics card.
 
-The quick convergence of our GSACO-I implementation is also outlined by the makespan improvements plotted in Figure~\ref{fig:makespan}.
-\todo{M: The figure seems somehow missing here.}
+\begin{figure*}[t]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\textwidth]{LVHM.png}
+		\caption{LV/HM scenario}
+		\label{subfig:l}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\textwidth]{HVLM.png}
+		\caption{HV/LM scenario}
+		\label{subfig:h}
+	\end{subfigure}
+	\caption{Makespan improvements of schedules for SMSP instances obtained with CP and GSACO \cite{Ali2024}\label{fig:makespan}}
+\end{figure*}
+
+The quick convergence of our GSACO implementation is also outlined by the makespan improvements plotted in Figure~\ref{fig:makespan}.
 On the LV/HM scenario displayed in Figure~\ref{subfig:l}, 
 GSACO obtains its best schedules within $7$ minutes
 for all planning horizons.
@@ -398,6 +157,197 @@ This phenomenon occurs for the planning horizons $n=1$ and $n=2$
 on the LV/HM or HV/LM scenario, respectively, where the latter
 schedule of makespan $17664$ is found after more than $9$ minutes
 and thus not listed in Table~\ref{tab:results}.
+
+
+\begin{table}[t]
+	\caption{Percentage Change in Dispatcher Performance Over Planning Hours LV/HM}
+	\label{tab:dispatchers-LVHM}
+	\begin{tabular}{|c|lcllllll|ll|}
+		\hline
+		\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Planning \\ horizon\end{tabular}} &
+		\multicolumn{8}{c|}{Dispatcher} &
+		\multicolumn{2}{c|}{Scheduler} \\ \cline{2-11} 
+		&
+		\multicolumn{2}{c|}{FIFO} &
+		\multicolumn{2}{c|}{CR} &
+		\multicolumn{2}{c|}{RANDOM} &
+		\multicolumn{2}{c|}{GSACO-O} &
+		\multicolumn{2}{c|}{GSACO-O} \\ \cline{2-11} 
+		&
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{Change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{Change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{Change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		Change &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		Change \\ \hline
+		1 &
+		\multicolumn{1}{l|}{1419/0} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{1416/0} &
+		\multicolumn{1}{l|}{-0.21\%} &
+		\multicolumn{1}{l|}{1403/0} &
+		\multicolumn{1}{l|}{-1.12\%} &
+		\multicolumn{1}{l|}{1442//0} &
+		1.62\% &
+		\multicolumn{1}{l|}{1422} &
+		0.21\% \\
+		2 &
+		\multicolumn{1}{l|}{2249/0} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{2328/0} &
+		\multicolumn{1}{l|}{3.51\%} &
+		\multicolumn{1}{l|}{2275/0} &
+		\multicolumn{1}{l|}{1.15\%} &
+		\multicolumn{1}{l|}{2409/0} &
+		7.11\% &
+		\multicolumn{1}{l|}{2368} &
+		5.29\% \\
+		3 &
+		\multicolumn{1}{l|}{2384/0} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{3372/0} &
+		\multicolumn{1}{l|}{2.67\%} &
+		\multicolumn{1}{l|}{3314/0} &
+		\multicolumn{1}{l|}{0.91\%} &
+		\multicolumn{1}{l|}{3427/0} &
+		4.35\% &
+		\multicolumn{1}{l|}{3234} &
+		-1.52\% \\
+		4 &
+		\multicolumn{1}{l|}{4018/1} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{4083/1} &
+		\multicolumn{1}{l|}{1.61\%} &
+		\multicolumn{1}{l|}{4039/1} &
+		\multicolumn{1}{l|}{0.52\%} &
+		\multicolumn{1}{l|}{4272/1} &
+		6.32\% &
+		\multicolumn{1}{l|}{4015} &
+		-0.07\% \\
+		5 &
+		\multicolumn{1}{l|}{4901/1} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{5023/1} &
+		\multicolumn{1}{l|}{2.48\%} &
+		\multicolumn{1}{l|}{4972/1} &
+		\multicolumn{1}{l|}{1.44\%} &
+		\multicolumn{1}{l|}{5174/2} &
+		5.57\% &
+		\multicolumn{1}{l|}{4722} &
+		-3.65\% \\
+		6 &
+		\multicolumn{1}{l|}{5665/4} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{5799/3} &
+		\multicolumn{1}{l|}{2.36\%} &
+		\multicolumn{1}{l|}{5767/1} &
+		\multicolumn{1}{l|}{1.80\%} &
+		\multicolumn{1}{l|}{6014/2} &
+		6.16\% &
+		\multicolumn{1}{l|}{5306} &
+		-6.33\% \\ \hline
+	\end{tabular}%
+\end{table}
+
+\begin{table}[t]
+	\caption{Percentage Change in Dispatcher Performance Over Planning Hours HV/LM}
+	\label{tab:dispatchers-HVLM}
+	\begin{tabular}{|c|lcllllll|ll|}
+		\hline
+		\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Planning \\ horizon\end{tabular}} &
+		\multicolumn{8}{c|}{Disaptcher} &
+		\multicolumn{2}{c|}{Scheduler} \\ \cline{2-11} 
+		&
+		\multicolumn{2}{c|}{FIFO} &
+		\multicolumn{2}{c|}{CR} &
+		\multicolumn{2}{c|}{RANDOM} &
+		\multicolumn{2}{c|}{GSACO-O} &
+		\multicolumn{2}{c|}{GSACO-O} \\ \cline{2-11} 
+		&
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{Change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{Change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{Change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		Change &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		Change \\ \hline
+		1 &
+		\multicolumn{1}{l|}{1821/0} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{1798/0} &
+		\multicolumn{1}{l|}{-1.26\%} &
+		\multicolumn{1}{l|}{1810/0} &
+		\multicolumn{1}{l|}{-0.60\%} &
+		\multicolumn{1}{l|}{1831/0} &
+		0.54\% &
+		\multicolumn{1}{l|}{1848/0} &
+		1.48\% \\
+		2 &
+		\multicolumn{1}{l|}{2831/0} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{2811/0} &
+		\multicolumn{1}{l|}{-0.71\%} &
+		\multicolumn{1}{l|}{2852/0} &
+		\multicolumn{1}{l|}{0.74\%} &
+		\multicolumn{1}{l|}{2957/0} &
+		4.45\% &
+		\multicolumn{1}{l|}{2960/0} &
+		4.55\% \\
+		3 &
+		\multicolumn{1}{l|}{4020/1} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{4021/1} &
+		\multicolumn{1}{l|}{0.02\%} &
+		\multicolumn{1}{l|}{4065/1} &
+		\multicolumn{1}{l|}{1.12\%} &
+		\multicolumn{1}{l|}{4162/1} &
+		3.53\% &
+		\multicolumn{1}{l|}{4093/1} &
+		1.81\% \\
+		4 &
+		\multicolumn{1}{l|}{4914/4} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{4934/3} &
+		\multicolumn{1}{l|}{0.40\%} &
+		\multicolumn{1}{l|}{4975/3} &
+		\multicolumn{1}{l|}{1.24\%} &
+		\multicolumn{1}{l|}{5118/3} &
+		4.15\% &
+		\multicolumn{1}{l|}{4970/3} &
+		1.07\% \\
+		5 &
+		\multicolumn{1}{l|}{5960/6} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{6003/5} &
+		\multicolumn{1}{l|}{0.72\%} &
+		\multicolumn{1}{l|}{6026/5} &
+		\multicolumn{1}{l|}{1.10\%} &
+		\multicolumn{1}{l|}{6263/5} &
+		5.08\% &
+		\multicolumn{1}{l|}{5975/5} &
+		0.25\% \\
+		6 &
+		\multicolumn{1}{l|}{6841/8} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{l|}{6946/8} &
+		\multicolumn{1}{l|}{1.53\%} &
+		\multicolumn{1}{l|}{6973/9} &
+		\multicolumn{1}{l|}{1.92\%} &
+		\multicolumn{1}{l|}{7162/7} &
+		4.69\% &
+		\multicolumn{1}{l|}{6716/7} &
+		-1.82\% \\ \hline
+	\end{tabular}%
+\end{table}
+
+explain here
 
 \begin{figure}[t]
 	\centering

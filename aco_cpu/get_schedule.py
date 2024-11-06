@@ -14,8 +14,8 @@ def get_schedule(job_matrix, machine_map, sequence, machine_asigned, start_job, 
     scheduled_lots = {}
     #schedule_file = f'..\schedule_output_HVLM\schedule_output_{period}s.txt'
     #schedule_file = f'..\schedule_output_LVHM\schedule_output_{period}s.txt'
-    #schedule_file = f'..\schedule_output_example\schedule_output_SMT2020_example_operations_{period}s.txt'
-    schedule_file = f'..\schedule_output_example\schedule_output_SMT2020_example_makespan.txt'
+    schedule_file = f'..\schedule_output_example\schedule_output_SMT2020_example_operations_{period}s.txt'
+    #schedule_file = f'..\schedule_output_example\schedule_output_SMT2020_example_makespan.txt'
 
     i = 0
     idx = 1

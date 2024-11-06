@@ -1,18 +1,22 @@
-The structure of our enhanced GSACO-I algorithm, along with its input and internal parameters, 
-is summarized in Table~\ref{tab:parameters} and 
-illustrated in Figure~\ref{fig:aco-flowchart}. 
+The framework of GSACO-O algorithm is illustrated in Figure~\ref{fig:aco-flowchart} and the input and internal parameters, 
+is summarized in Table~\ref{tab:parameters}. 
 The four main submodules, highlighted in bold, are discussed in detail in the following subsections.
 
+\begin{figure}[t]
+	\includegraphics[width=\textwidth]{aco-flowchart.png}
+	\caption{GSACO-O framework}
+	\label{fig:aco-flowchart}
+\end{figure}
+
 \begin{table}[t]
-	\caption{GSACO parameters}\label{tab:parameters} \centering
+	\caption{GSACO-O parameters}\label{tab:parameters} \centering
 	\begin{tabular}{|l|l|}
 		\hline
 		Parameter & Description \\ \hline
 		$o$ & Objective \\
-		$s$ & State \\
 		$l$ & Cycles/time limit        \\
 		$n$ & Operations per lot \\
-		$h$ & Planning period \\
+		$h$ & Planning horizon \\
 		$k$ & Number of ants \\
 		$\tau_{y}$ & Initial pheromone level \\
 		$\tau_{z}$ & Minimum pheromone level \\
@@ -25,15 +29,6 @@ The four main submodules, highlighted in bold, are discussed in detail in the fo
 		\hline
 	\end{tabular}
 \end{table}
-
-\begin{figure}[t]
-	\includegraphics[width=\textwidth]{aco-flowchart.png}
-	\caption{GSACO-I framework}
-	\label{fig:aco-flowchart}
-\end{figure}
-
-Moreover, Algorithm~\ref{gsaco} provides a pseudo-code representation of
-GSACO-I for minimizing makespan and optimizing operations.
 
 For a configurable cycle number or time limit~$l$,
 each of the $k$ ants applies greedy search
@@ -60,14 +55,17 @@ current best schedule
 to get re-selected % by the GS procedure
 in forthcoming iterations.
 
+Algorithm~\ref{gsaco} provides a pseudo-code representation of
+GSACO-O for minimizing makespan and optimizing operations within the planning horizon.
+
 \begin{algorithm}[ht]
-	\caption{Greedy Search based ACO (GSACO) for Scheduling}
+	\caption{Greedy Search based ACO (GSACO-O) for Scheduling}
 	\label{gsaco}
-	\KwIn{instance, $l$, $o$, $s$, $n$, $h$, $\text{objective}$}
+	\KwIn{dataset, instance, $l$}
 	\KwOut{best schedule found by ants}
-	\KwParam{$k$, $\tau_{y}$, $\tau_{z}$, $\rho$, $c$}
+	\KwParam{$o$, $n$, $h$, $k$, $\tau_{y}$, $\tau_{z}$, $\rho$, $c$}
 	Initialize adjacency, pheromone, and machine matrix\; 
-	\eIf{\text{objective} == \text{Makespan}}{
+	\eIf{\text{o} == \text{Makespan}}{
 		$\mathit{makespan}\leftarrow \infty$\;
 	}{
 		$\mathit{operations}\leftarrow 0$\;
@@ -76,7 +74,7 @@ in forthcoming iterations.
 		\ForEach{ant \KwFrom $1$ \KwTo $k$}{
 			Run GS procedure to find a schedule\;
 		}
-		\eIf{\text{objective} == \text{Makespan}}{
+		\eIf{\text{o} == \text{Makespan}}{
 			$\mathit{new}\leftarrow$ shortest makespan of ants' schedules\;
 			\If{$\mathit{new}<\mathit{makespan}$}{
 				$\mathit{makespan}\leftarrow \mathit{new}$\;
@@ -101,22 +99,20 @@ in forthcoming iterations.
 
 
 \subsection{Input Module}
-This module reads in an SMSP instance from the SMT2020 simulator develop by \cite{Kovacs2022}, 
-and SMT2020 dataset \cite{kopp2020smt2020}.
-The instance includes tool groups with their respective machines, jobs currently in progress, and production routes. In terms of dynamic state, the processing times for these routes are stochastic. Conversely, the simulator provides observed averages for processing times and job releases. Additionally, the module takes several inputs for the GSACO optimization process: the objective~$o$, the state of the fab~$s$, planning period~$h$, 
+This module reads in an SMSP instance obtained from SMT2020 dataset \cite{kopp2020smt2020}. Additionally, it also configures the instance from the simulator develop by \cite{Kovacs2022} for the average processing times of the operations. 
+The instance includes tool groups with their respective machines, jobs currently in progress, and production routes. In terms of dynamic state, the processing times for these routes are stochastic. Conversely, the simulator provides observed averages for processing times and job releases. Additionally, the module takes several inputs for the GSACO-O optimization process such as the objective~$o$, planning period~$h$, 
 operation per lot~$n$ and a limit~$l$ on either the number of cycles or the time allocated for optimization.
-
 
 \subsection{Initialization Module}
 \label{subsec:initialization}
 In view of long production routes with hundreds of operations
-in the SMT2020 dataset, we introduce a configurable planning horizon~$n$
+in the SMT2020 dataset, we introduce a configurable operations per lot~$n$
 as upper bound on the length $n_j$ of the operation sequence for a job~$j$.
-The planning horizon thus constitutes a scaling factor for the size and
+The operations per lot thus constitutes a scaling factor for the size and
 the resulting complexity of SMSP instances.
-% This horizon is crucial in planning and decision-making, especially within large-scale production systems. 
+% This horizon is crucial in planning and decision-making, especially within large-scale production systems.
 In practice, unpredictable stochastic events make long-term schedules obsolete and necessitate frequent re-scheduling,
-where limiting the planning horizon upfront provides a means to
+where limiting $n$ upfront provides a means to
 control the search and enable short response times.
 
 To express SMSP as a search problem on graphs,
@@ -158,74 +154,66 @@ the search for a high-quality solution can be accomplished by
 determining an acyclic subgraph $(V,E)$ of~$G$ that represents a schedule
 of short makespan.
 
-For example, Table~\ref{tab:operations} shows operations
-belonging to five jobs, as they can
-be obtained with the parameter $n=5$ for the planning period.
+For example, Table~\ref{tab:instance} shows a small instance that follows the explanation of the proposed GSACO-O algorithm.
+In Table~\ref{tab:operations}, the operations belonging to two jobs can
+be obtained with the parameter $n=5$. The average duration of the operations for given tool group is given in seconds to avoid float calculation. Later the duration is converted to the minutes for visualization purpose.  
+The lots that belong to the products are shown in Table~\ref{tab:lots}. The lots are at different stages of the production identified by the step number.
+
+
+\begin{table}[ht]
+	\caption{Example instance}\label{tab:instance} 
+	\begin{subtable}{0.5\textwidth}
+		\caption{Operations}\label{tab:operations} 
+		\centering
+		\begin{tabular}{|l|l|l|l|}
+			\hline
+			No. & Operation & Tool group name & Avg duration (sec) \\ \hline
+			$1$ & $O_{1,1,2}$ & TF\_Met\_FE\_45 & $588$ \\
+			$2$ & $O_{2,1,3}$ & WE\_FE\_108 & $59$ \\
+			$3$ & $O_{3,1,4}$ & WE\_FE\_83 & $62$ \\
+			$4$ & $O_{4,1,5}$ & WE\_FE\_84 & $54$ \\
+			$5$ & $O_{5,1,1}$ & LithoTrack\_FE\_115 & $130$ \\
+			$6$ & $O_{1,2,2}$ & TF\_Met\_FE\_45 & $588$ \\
+			$7$ & $O_{2,2,3}$ & WE\_FE\_108 & $59$ \\
+			$8$ & $O_{3,2,4}$ & WE\_FE\_83 & $62$ \\
+			$9$ & $O_{4,2,5}$ & WE\_FE\_84 & $54$ \\
+			$10$ & $O_{5,2,0}$ & Litho\_FE\_111 & $130$ \\
+			\hline
+		\end{tabular}
+	\end{subtable}%
+	\begin{subtable}{0.5\textwidth}
+		\caption{Lots}\label{tab:lots}
+		\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+			Lot & Product & Step \\ \hline
+			$1$ & $1$ & $1$ \\
+			$2$ & $2$ & $2$ \\
+			$3$ & $1$ & $1$ \\
+			$4$ & $2$ & $3$ \\
+			$5$ & $1$ & $1$ \\
+			$6$ & $2$ & $2$ \\
+			$7$ & $1$ & $1$ \\
+			$8$ & $2$ & $3$ \\
+			$9$ & $1$ & $1$ \\
+			$10$ & $2$ & $2$ \\
+			\hline
+		\end{tabular}
+	\end{subtable}
+\end{table}
+
 Conjunctive edges connect the dummy start node~$0$ to
 the operations which come first in their jobs and all operations to their successors.
 In addition, mutual disjunctive edges link operations
 to be processed on the same tool group.
-The resulting $(N+1)\times(N+1)$ adjacency matrix, where $N$ is the
+Since the products are at different stages and the remaining operations to schedule are obtained from the step given in Table~\ref{tab:lots} up to the maximum step in Table~\ref{tab:operations} for corresponding lot and product. 
+The resulting $(N+1)\times(N+1)$ adjacency matrix, where $N=43$ is the
 total number of operations, $0$ entries indicate the absence, and
 $1$ entries the existence of edges, is given in Figure~\ref{fig:a}.
 
-\begin{table}[ht]
-	\caption{Example operations}\label{tab:operations} \centering
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		No. & Operation & Tool group name & Avg process time (sec)\\ \hline
-		$1$ & $O_{1,1,2}$ & TF\_Met\_FE\_45 & $588$ \\
-		$2$ & $O_{2,1,3}$ & WE\_FE\_108 & $59$ \\
-		$3$ & $O_{3,1,4}$ & WE\_FE\_83 & $62$ \\
-		$4$ & $O_{4,1,5}$ & WE\_FE\_84 & $54$ \\
-		$5$ & $O_{5,1,1}$ & LithoTrack\_FE\_115 & $130$ \\
-		$6$ & $O_{1,2,2}$ & TF\_Met\_FE\_45    & $588$ \\
-		$7$ & $O_{2,2,3}$ & WE\_FE\_108 & $59$ \\
-		$8$ & $O_{3,2,4}$ & WE\_FE\_83         & $62$ \\
-		$9$ & $O_{4,2,5}$ & WE\_FE\_83    & $54$ \\
-		$10$ & $O_{5,2,1}$ & LithoTrack\_FE\_115 & $130$ \\
-		$11$ & $O_{1,3,2}$ & TF\_Met\_FE\_45         & $588$ \\
-		$12$ & $O_{2,3,3}$ & WE\_FE\_108    & $59$ \\
-		$13$ & $O_{3,3,4}$ & WE\_FE\_83 & $62$ \\
-		$14$ & $O_{4,3,5}$ & WE\_FE\_84         & $54$ \\
-		$15$ & $O_{5,3,1}$ & LithoTrack\_FE\_115    & $130$ \\
-		$16$ & $O_{1,4,2}$ & TF\_Met\_FE\_45 & $588$ \\
-		$17$ & $O_{2,4,3}$ & WE\_FE\_108         & $59$ \\
-		$18$ & $O_{3,4,4}$ & WE\_FE\_83    & $62$ \\
-		$19$ & $O_{4,4,5}$ & WE\_FE\_84 & $54$ \\
-		$20$ & $O_{5,4,1}$ & LithoTrack\_FE\_115         & $130$ \\
-		$21$ & $O_{1,5,2}$ & TF\_Met\_FE\_45   & $588$ \\
-		$22$ & $O_{2,5,3}$ & WE\_FE\_108 & $59$ \\
-		$23$ & $O_{3,5,4}$ & WE\_FE\_83         & $62$ \\
-		$24$ & $O_{4,5,5}$ & WE\_FE\_84    & $54$ \\
-		$25$ & $O_{5,5,0}$ & LithoTrack\_FE\_115 & $115$ \\
-		\hline
-	\end{tabular}
-\end{table}
-
-\begin{table}[ht]
-	\caption{Example instance}\label{tab:instance} \centering
-	\begin{tabular}{|l|l|l|}
-		\hline
-		Lot & Product & Step \\ \hline
-		$1$ & $1$ & $1$ \\
-		$2$ & $2$ & $2$  \\
-		$3$ & $3$ & $1$ \\
-		$4$ & $4$ & $3$ \\
-		$5$ & $5$ & $1$ \\
-		$1$ & $1$ & $2$     \\
-		$2$ & $2$ & $1$  \\
-		$3$ & $3$ & $3$        \\
-		$4$ & $4$ & $1$     \\
-		$5$ & $5$ & $2$  \\
-		\hline
-	\end{tabular}
-\end{table}
-%
-
 \begin{figure}[h]
 	\centering
-	\begin{minipage}{.45\columnwidth}
+	\begin{subfigure}{.45\columnwidth}
 		\centering
 		$\begin{array}{c@{}c}
 			& \begin{array}{cccccccccc} 0 & 1 & 2 & \dots & 41 & 42 & 43 \end{array} \\
@@ -240,10 +228,10 @@ $1$ entries the existence of edges, is given in Figure~\ref{fig:a}.
 				0 & 0 & 1 & \dots & 0 & 0 & 0 \\
 			\end{array}\right]
 		\end{array}$
-		\caption{Adjacency matrix for instance in Table~\ref{tab:instance}}
+		\caption{Adjacency matrix}
 		\label{fig:a}
-	\end{minipage}\hfill
-	\begin{minipage}{.45\columnwidth}
+	\end{subfigure}\hfill
+	\begin{subfigure}{.45\columnwidth}
 		\centering
 		$\begin{array}{c@{}c}
 			& \begin{array}{cccccccccccc} 1 & 2 & 3 & \dots & 10 & 11 & 12 \end{array} \\
@@ -258,9 +246,10 @@ $1$ entries the existence of edges, is given in Figure~\ref{fig:a}.
 				0 & 0 & 1 & \dots & 0 & 0 & 0 \\
 			\end{array}\right]
 		\end{array}$
-		\caption{Machine matrix for instance in Table~\ref{tab:instance}}
+		\caption{Machine matrix}
 		\label{fig:b}
-	\end{minipage}
+	\end{subfigure}
+	\caption{Matrices for instance in Table~\ref{tab:instance}} \centering
 \end{figure}
 
 As initial pheromone level on edges $e\in E_c\cup E_d$,
@@ -293,17 +282,18 @@ we obtain the machine matrix shown in Figure~\ref{fig:b}.
 
 The general goal of greedy search methods consists of using heuristic decisions
 to find high-quality, but not necessarily optimal solutions in short time.
-Within GSACO-I, each ant applies greedy search to efficiently construct some
+Within GSACO-O, each ant applies greedy search to efficiently construct some
 feasible schedule for a given SMSP instance.
-The respective GS procedure, outlined by the pseudo-code in Algorithm~\ref{gs-m} and Algorithm~\ref{gs-o},
+The GS procedure based on the given objective $o$, outlined by the pseudo-code in Algorithm~\ref{gs},
 includes two phases: 
 operation sequencing and machine assignment.
 %
 
 \begin{algorithm}[t]
-	\caption{Greedy Search (GS) Makespan}
-	\label{gs-m}
-	\KwOut{schedule and selected edges of an an\rlap{t}}
+	\caption{Greedy Search (GS)}
+	\label{gs}
+	\KwIn{horizon $h$}
+	\KwOut{schedule, selected edges of an ant, and operations finished in horizon $h$}
 	$\mathit{sequence}\leftarrow[]$\;
 	$\mathit{selected}\leftarrow\emptyset$\;
 	$\mathit{next}\leftarrow\{(0,O_{1,j,t}) \mid j\in\{1,\dots,J\}\}$\;
@@ -317,16 +307,17 @@ operation sequencing and machine assignment.
 		$\mathit{sequence}.\mathrm{enqueue}(O_{i,j,t})$\;
 		$\mathit{selected}\leftarrow\mathit{selected}\cup\{e\}$\;
 		$\mathit{next}\leftarrow\{(O_1,O_2)\in\mathit{next} \mid O_2\neq O_{i,j,t}\}$\;
-		$\begin{array}{@{}r@{}l@{}}
+		$\begin{array}[b]{@{}r@{}l@{}}
 			E \leftarrow {} &		
 			\{(O_{i,j,t},O_{{i+1},j,t'}) \mid i<n_j\}
 			%	  \cup {}
 			\\ {} \cup {} &
-			\{(O_{i,j,t},O_{i',j',t}) \mid (O_1,O_{i',j',t})\in\mathit{next}\}\text{\;}
-		\end{array}$
+			\{(O_{i,j,t},O_{i',j',t}) \mid (O_1,O_{i',j',t})\in\mathit{next}\}%\text{\;}
+		\end{array}$\;
 		$\mathit{next}\leftarrow\mathit{next}\cup E$\;
 }}
 \lForEach{$m\in\{1,\dots,M\}$}{$a_m\leftarrow 0$}
+$\mathit{finished}\leftarrow0$\;
 \While{$\mathit{sequence}\neq[]$}{
 	$O_{i,j,t}\leftarrow\mathit{sequence}.\mathrm{dequeue}()$\;
 	$a \leftarrow \infty$\;
@@ -338,77 +329,21 @@ operation sequencing and machine assignment.
 		}
 	}
 	%	\If{$0<b$}{
-		$\begin{array}{@{}r@{}l@{}}
+		$\begin{array}[b]{@{}r@{}l@{}}
 			s_{i,j,t,b}\leftarrow 
 			\max(&\{a\}
 			\\ {} \cup {} &
-			\{s_{i-1,j,t',m}+d_{i-1,j,t'}\mid{}i>1\})\text{\;}
+			\{s_{i-1,j,t',m}+d_{i-1,j,t'}\mid{}i>1\})%\text{\;}
 		\end{array}
-		$
+		$\;
 		$a_b \leftarrow s_{i,j,t,b}+d_{i,j,t}$\;
+		\lIf{$a_b \leq h$}{$\mathit{finished} \leftarrow \mathit{finished} + 1$}
 		%	}
 }
-\Return $\langle\{s_{i,j,t,m} \mid (O',O_{i,j,t})\in\mathit{selected}\},{}$\rlap{$\mathit{selected}\rangle$\;}
+\Return $\langle\{s_{i,j,t,m} \mid (O',O_{i,j,t})\in\mathit{selected}\},\mathit{selected}, \mathit{finished}\rangle$\;
 \end{algorithm}
 
-
-\begin{algorithm}[t]
-\caption{Greedy Search (GS) Operations}
-\label{gs-o}
-\KwOut{schedule and selected edges of an an\rlap{t}}
-$\mathit{sequence}\leftarrow[]$\;
-$\mathit{selected}\leftarrow\emptyset$\;
-$\mathit{period}\leftarrow{h}$\;
-$\mathit{next}\leftarrow\{(0,O_{1,j,t}) \mid j\in\{1,\dots,J\}\}$\;
-%	\lForEach{$m\in\{1,\dots,M\}$}{$f_m\leftarrow 0$}
-\While{$\mathit{next}\neq\emptyset$}{
-	%	$\mathit{\tau}=\sum_{e\in\mathit{next}}\tau_e$\;
-	\lForEach{$e\in\mathit{next}$}{%}
-	$p_e\leftarrow \frac{\tau_e}{\sum_{e'\in\mathit{next}}\tau_{e'}}$}
-Randomly select an edge $e$ based on $p_e$\;
-$\mathit{end time}\leftarrow{e}$\;
-\For{selected edge $e=(O',O_{i,j,t})$}{
-	$\mathit{e}\leftarrow{start time + process time}$\;
-	\If{$\mathit{e}<{period}$}{countinue}
-	$\mathit{sequence}.\mathrm{enqueue}(O_{i,j,t})$\;
-	$\mathit{selected}\leftarrow\mathit{selected}\cup\{e\}$\;
-	$\mathit{next}\leftarrow\{(O_1,O_2)\in\mathit{next} \mid O_2\neq O_{i,j,t}\}$\;
-	$\begin{array}{@{}r@{}l@{}}
-		E \leftarrow {} &		
-		\{(O_{i,j,t},O_{{i+1},j,t'}) \mid i<n_j\}
-		%	  \cup {}
-		\\ {} \cup {} &
-		\{(O_{i,j,t},O_{i',j',t}) \mid (O_1,O_{i',j',t})\in\mathit{next}\}\text{\;}
-	\end{array}$
-	$\mathit{next}\leftarrow\mathit{next}\cup E$\;
-}}
-\lForEach{$m\in\{1,\dots,M\}$}{$a_m\leftarrow 0$}
-\While{$\mathit{sequence}\neq[]$}{
-$O_{i,j,t}\leftarrow\mathit{sequence}.\mathrm{dequeue}()$\;
-$a \leftarrow \infty$\;
-%	$b \leftarrow 0$\;
-\ForEach{$m$ \KwFrom $1$ to \KwTo $M$}{
-	\If{$t_m = t$ and $a_m < a$}{
-		$a\leftarrow a_m$\;
-		$b\leftarrow m$\;
-	}
-}
-%	\If{$0<b$}{
-	$\begin{array}{@{}r@{}l@{}}
-		s_{i,j,t,b}\leftarrow 
-		\max(&\{a\}
-		\\ {} \cup {} &
-		\{s_{i-1,j,t',m}+d_{i-1,j,t'}\mid{}i>1\})\text{\;}
-	\end{array}
-	$
-	$a_b \leftarrow s_{i,j,t,b}+d_{i,j,t}$\;
-	%	}
-}
-\Return $\langle\{s_{i,j,t,m} \mid (O',O_{i,j,t})\in\mathit{selected}\},{}$\rlap{$\mathit{selected}\rangle$\;}
-\end{algorithm}
-
-\subsubsection{GS Makespan}
-To minimize makespan, the first phase constructs an ordered list of all operations within an SMSP instance, planned to schedule. This is achieved through a probabilistic decision-making rule derived from the pheromone matrix, which selects edges $(O',O_{i,j,t})$ and sequentially adds their target operations 
+The first phase constructs an ordered list of operations within an SMSP instance, planned to schedule. This is achieved through a probabilistic decision-making rule derived from the pheromone matrix, which selects edges $(O',O_{i,j,t})$ and sequentially adds their target operations 
 $O_{i,j,t}$ to the list. To ensure the feasibility of the resulting schedule, the prerequisite operation 
 $O_{i-1,j,t'}$ for the same job~$j$ must already belong to the sequence in case $i>1$. 
 This requirement is met by maintaining a set  $\mathit{next}$
@@ -416,58 +351,33 @@ of selectable conjunctive and disjunctive edges $(O',O_{i,j,t})$
 such that $O'$ is the dummy start node~$0$ or already in sequence,
 while $O_{i,j,t}$ is the first yet unsequenced operation of its job~$j$. 
 
-The selection of an edge leading to an unsequenced operation continues until every operation and its corresponding targeting edge has been processed. It is important to note that the chosen disjunctive edges connect operations based on their tool groups, meaning they do not dictate the machine assignments, which are determined in the subsequent phase.
-
-With a complete sequence of operations available, the second phase involves the allocation of each operation to the earliest available machine. This machine assignment step follows the order established in the first phase to create a feasible schedule that assigns machines and start times to all operations.
-
-
-\subsubsection{GS Operations}
-For optimizing operations, the first phase constructs a sequence comprising of all operations
-of an SMSP instance that can fit in planning period.
-Similarly, a probabilistic decision rule based on the pheromone
-matrix selects edges $(O',O_{i,j,t})$
-and adds their target operations $O_{i,j,t}$
-to the sequence one by one. The operations can only be added to the sequence if the ending time is within the period $h$.
-To ensure the feasibility of a resulting schedule,
-the predecessor operation $O_{i-1,j,t'}$ of the same job~$j$
-must already belong to the sequence in case $i>1$.
-This is accomplished by maintaining a set $\mathit{next}$
-of selectable conjunctive and disjunctive edges $(O',O_{i,j,t})$
-such that $O'$ is the dummy start node~$0$ or already in sequence,
-while $O_{i,j,t}$ is the first yet unsequenced operation of its job~$j$.
-
-The process of selecting some edge to a yet unsequenced operation
-is repeated until each operation along with an edge targeting it
-has been processed.
-Note that selected disjunctive edges link operations based on tool groups,
-i.e., they do not reflect a machine assignment to be made in the second phase.
-
-With a sequence of operations at hand,
-the second phase allocates operations one by one to an earliest
-available machine.
-The machine assignment process allocates operations
-according to the sequence from the first phase, yielding a
-feasible schedule that assigns the machines and start times for all operations.
-
-The schedule for minimizing makespan is shown Figure~\ref{fig:sch-makespan}, and a schedule for 15 minutes is shown in Figure~\ref{fig:sch-operations}.
+For example, starting with an empty sequence of operations, as outlined in Table~\ref{tab:instance}, the search begins at a start node $0$ which symbolizes the initial state where no operations have been processed yet. The first step involves identifying all initially selectable edges, which correspond to the first operation in each lot.
 
 \begin{figure}[t]
 	\includegraphics[width=\textwidth]{schedule_example_makespan.png}
 	\caption{Feasible schedule for the instance in Table~\ref{tab:instance}}
 	\label{fig:sch-makespan}
 \end{figure}
+
+
+To minimize the makespan, the algorithm selects a random edges and the selection process continues iteratively, with each step involving the evaluation of available operations that can be added to the existing sequence.
+As operations gets selected, their corresponding edges are directed, indicating a fixed order. This directionality prevents the reselection of these operations. The procedure is completed once all operations are integrated into the sequence.
+It is important to note that the chosen disjunctive edges connect operations based on their tool groups, meaning they do not dictate the machine assignments, which are determined in the subsequent phase. With a complete sequence of operations available, the second phase involves the allocation of each operation to the earliest available machine. This machine assignment step follows the order established in the first phase to create a feasible schedule that assigns machines and start and end times to all operations. The schedule is shown in Figure~\ref{fig:sch-makespan}.
+
 \begin{figure}[ht]
 	\includegraphics[width=\textwidth]{schedule_example_operations.png}
-	\caption{Feasible 15-minutes schedule for the instance in Table~\ref{tab:instance}}
+	\caption{Feasible schedule for the instance in Table~\ref{tab:instance}}
 	\label{fig:sch-operations}
 \end{figure}
 
+To optimize operations within the planning horizon $h$, the algorithm initiates by selecting a random edge from the list of candidate operations. The start time for the first operations is set to zero. Based on the duration of each operation and taking into account the earliest available machine, the algorithm calculates the operation's end time. If this end time falls within the planning horizon $h$, indicating that the operation can be accommodated within the schedule, it is then added to the sequence. The algorithm continues this process iteratively, adding one operation at a time. In each iteration, it reassesses the remaining operations to determine which can fit into the updated schedule without exceeding the planning horizon. This iterative process persists until no more operations can be added within the designated periods, thereby optimizing the use of available time and resources within the planning horizon.
+The schedule for 15 minutes is shown in Figure~\ref{fig:sch-operations}.
 
 \subsection{Evaluation Module}
 While each ant independently constructs a feasible schedule by means of the
 GS procedure, the evaluation module collects the results obtained
-by the ants in a GSACO iteration.
-Among them, a schedule of shortest makespan is determined as outcome of the
+by the ants in a GSACO-O iteration.
+Among them, a schedule of shortest makespan or schedule of maximum operations is determined as outcome of the
 iteration and stored as new best solution in case it improves over the schedules found in previous iterations (if any).
 After evaporating pheromones~$\tau_e$ by $\rho\cdot\tau_e$,
 where $\tau_z$ remains as minimum pheromone level if the obtained value

@@ -16,13 +16,13 @@ algorithm for (re-)scheduling semiconductor production operations.
 Our algorithm harnesses Ant Colony Optimization (ACO) \cite{Dorigo2019} for exploration, while
 Greedy Search (GS) \cite{Papadimitriou} enables responses in short time. 
 In this way, GSACO overcomes limitations of a state-of-the-art Constraint Programming approach \cite{Perron2023}
-on large-scale SMSP instances. Our approach synergistically combines probabilistic operation sequencing with a greedy machine assignment strategy, targeting up to five operations per lot with the primary objective of minimizing makespan. Building on this foundational work, the current paper extends these initial concepts by proposing an enhanced algorithm, GSACO-I, specifically designed to optimize operational throughput in addition to minimizing makespan. This development marks a significant advancement in our methodology, aiming to refine the dispatching rules further though simulation.
+on large-scale SMSP instances. Our approach synergistically combines probabilistic operation sequencing with a greedy machine assignment strategy, targeting up to five operations per lot with the primary objective of minimizing makespan. Building on this foundational work, this paper extends these initial concepts by proposing an enhanced approach, GSACO-O, specifically designed to optimize operational throughput in addition to minimizing makespan. This development marks a significant advancement in our methodology, aiming to refine the dispatching rules further though simulation.
 
 The paper is organized as follows. 
 Section~\ref{sec:lit_rev} provides literature review.
 In Section~\ref{sec:problem_f}, we formulate SMSP in terms of the well-known flexible job shop scheduling problem (FJSSP). 
 % and Section \ref{sec:aco} describes the overview of the ACO approach. 
-Our GSACO-I algorithm is presented in Section~\ref{sec:gsaco}.
+Our GSACO-O algorithm is presented in Section~\ref{sec:gsaco}.
 In Section~\ref{sec:sim} we present the customized simulation adopted from \cite{Kovacs2022}.
 Section~\ref{sec:results} provides and discusses experimental results.
 Finally, Section~\ref{sec:conclusion} concludes the paper.

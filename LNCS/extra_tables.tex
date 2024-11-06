@@ -25,3 +25,144 @@
 		\hline
 	\end{tabular}
 \end{table}
+
+\begin{table}[t]
+	\caption{FJSSP results obtained with CP and GSACO}\label{tab:benchmarkresults} \centering
+	\begin{tabular}{|lr|r|r|r|}
+		\hline
+		Instance & $J$  & $M$ & CP  & GSACO \\ \hline
+		MK1      & $10$ & $6$ & $40$  & $44$     \\ 
+		MK2      & $10$ & $6$ & $27$  & $40$     \\ 
+		MK3      & $15$ & $8$ & $204$ & $239$    \\ 
+		MK4      & $15$ & $8$ & $60$  & $83$     \\ 
+		SFJSSP1   & $2$ & $2$ & $66$  & $66$     \\ 
+		SFJSSP2   & $2$ & $2$ & $107$ & $107$    \\ 
+		SFJSSP3   & $3$ & $2$ & $221$ & $221$    \\ 
+		SFJSSP4   & $3$ & $2$ & $355$ & $355$    \\ 
+		MFJSSP1   & $5$ & $6$ & $468$ & $498$    \\ 
+		MFJSSP2   & $5$ & $7$ & $446$ & $470$    \\ 
+		MFJSSP3   & $6$ & $7$ & $466$ & $523$    \\ 
+		MFJSSP4   & $7$ & $7$ & $554$ & $664$    \\ 
+		\hline
+	\end{tabular}
+\end{table}
+
+
+
+\begin{table}[t]
+	\caption{SMSP results obtained with GSACO-O}	\label{tab:results-operations} \centering
+	\begin{tabular}{|l|cccccc|}
+		\hline
+		\multicolumn{1}{|c|}{\multirow{2}{*}{Instance}} &
+		\multicolumn{6}{c|}{Planning period in hours} \\ \cline{2-7} 
+		\multicolumn{1}{|c|}{} &
+		\multicolumn{1}{c|}{1} &
+		\multicolumn{1}{c|}{2} &
+		\multicolumn{1}{c|}{3} &
+		\multicolumn{1}{c|}{4} &
+		\multicolumn{1}{c|}{5} &
+		6 \\ \hline &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{c|}{Ops/Lots} &
+		\multicolumn{1}{l|}{Ops/Lots} \\ \cline{2-7}
+		LV/HM &
+		\multicolumn{1}{c|}{1422/0} &
+		\multicolumn{1}{c|}{2368/0} &
+		\multicolumn{1}{c|}{3234/0} &
+		\multicolumn{1}{c|}{4015/1} &
+		\multicolumn{1}{c|}{4722/2} &
+		5306/2 \\ 
+		HV/LM &
+		\multicolumn{1}{c|}{1848/0} &
+		\multicolumn{1}{c|}{2960/0} &
+		\multicolumn{1}{c|}{4093/1} &
+		\multicolumn{1}{c|}{4970/3} &
+		\multicolumn{1}{c|}{5975/5} &
+		6716/7 \\ \hline
+	\end{tabular}%
+\end{table}
+
+
+\begin{table}[t]
+	\caption{Percentage Change in Dispatcher Performance Over Planning Hours (HV/LM)}\label{tab:dispatchers-HVLM} 
+	\begin{tabular}{|l|cccccccccccc|}
+		\hline
+		\multirow{3}{*}{Dispatcher} &
+		\multicolumn{12}{c|}{Planning period in hours} \\ \cline{2-13} 
+		&
+		\multicolumn{2}{c|}{1} &
+		\multicolumn{2}{c|}{2} &
+		\multicolumn{2}{c|}{3} &
+		\multicolumn{2}{c|}{4} &
+		\multicolumn{2}{c|}{5} &
+		\multicolumn{2}{c|}{6} \\ \cline{2-13} 
+		&
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{\% change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{\% change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{\% change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{\% change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{\% change} &
+		\multicolumn{1}{l|}{Ops/Lots} &
+		\multicolumn{1}{l|}{\% change} \\ \hline 
+		FIFO &
+		\multicolumn{1}{c|}{1821/0} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{c|}{2831/0} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{c|}{4020/1} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{c|}{4914/4} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{c|}{5960/6} &
+		\multicolumn{1}{c|}{-} &
+		\multicolumn{1}{c|}{6841/8} &
+		- \\
+		CR &
+		\multicolumn{1}{c|}{1798/0} &
+		\multicolumn{1}{c|}{-1.26\%} &
+		\multicolumn{1}{c|}{2811/0} &
+		\multicolumn{1}{c|}{-0.71\%} &
+		\multicolumn{1}{c|}{4021/1} &
+		\multicolumn{1}{c|}{0.02\%} &
+		\multicolumn{1}{c|}{4934/3} &
+		\multicolumn{1}{c|}{0.40\%} &
+		\multicolumn{1}{c|}{6003/5} &
+		\multicolumn{1}{c|}{0.72\%} &
+		\multicolumn{1}{c|}{6946/8} &
+		1.53\% \\
+		RANDOM &
+		\multicolumn{1}{c|}{1810/0} &
+		\multicolumn{1}{c|}{-0.60\%} &
+		\multicolumn{1}{c|}{2852/0} &
+		\multicolumn{1}{c|}{0.74\%} &
+		\multicolumn{1}{c|}{4065/1} &
+		\multicolumn{1}{c|}{1.12\%} &
+		\multicolumn{1}{c|}{4975/3} &
+		\multicolumn{1}{c|}{1.24\%} &
+		\multicolumn{1}{c|}{6026/5} &
+		\multicolumn{1}{c|}{1.10\%} &
+		\multicolumn{1}{c|}{6973/9} &
+		1.92\% \\
+		GSACO &
+		\multicolumn{1}{c|}{1831/0} &
+		\multicolumn{1}{c|}{0.54\%} &
+		\multicolumn{1}{c|}{2957/0} &
+		\multicolumn{1}{c|}{4.45\%} &
+		\multicolumn{1}{c|}{4162/1} &
+		\multicolumn{1}{c|}{3.53\%} &
+		\multicolumn{1}{c|}{5118/3} &
+		\multicolumn{1}{c|}{4.15\%} &
+		\multicolumn{1}{c|}{6263/5} &
+		\multicolumn{1}{c|}{5.08\%} &
+		\multicolumn{1}{c|}{7162/7} &
+		4.69\% \\ \hline
+	\end{tabular}%
+\end{table}

@@ -1,8 +1,10 @@
-To simulate a semiconductor fab, we adapted the simulator developed by \cite{Kovacs2022}, enhancing its capacity to handle the complexities and scalability challenges inherent in semiconductor manufacturing scheduling.
+To simulate a semiconductor fab, we adapted the simulator PySCFabSim developed by \cite{Kovacs2022} designed for optimizing the scheduling of semiconductor fabrication plants. The simulator is intended for both academic research and practical application, facilitating the development, testing, and deployment of new scheduling algorithms. It supports various approaches including reinforcement learning, priority-based rules, and evolutionary algorithms.
 
-This simulator, tailored for the SMT2020 testbed, incorporates a comprehensive framework for the development and validation of innovative scheduling methods without the risk of overfitting. It operates using a dispatcher that dynamically allocates lots to machines based on predefined decision points, facilitating iterative simulation cycles that continue until designated performance benchmarks are achieved.
+Commercial simulators used for optimizing semiconductor fabs often face deployment challenges in research settings due to licensing and proprietary limitations. These constraints hinder reproducibility and adaptation to new research needs. To address these issues, the authors have developed a customizable, open-source simulation tool that supports extensive experimentation and algorithm development.
 
-The dispatcher utilizes basic local rules such as FIFO, CR, and Random selection to manage lot assignments efficiently. These rules serve as foundational strategies, ensuring basic operational efficiency. Additionally, we have integrated enhanced dispatching algorithms derived from the GSACO-I algorithm, which leverage more sophisticated decision-making processes to optimize scheduling tasks further. These enhancements not only improve the precision of the simulation but also significantly extend its applicability and effectiveness in complex manufacturing scenarios.
+It operates using a dispatcher that dynamically allocates lots to machines at each decision point, which could involve choosing a batch of lots waiting for machine availability. This functionality is crucial in simulating real-world manufacturing scenarios where dispatch decisions significantly impact operational efficiency.
+
+An interface is provided within the simulator to facilitate the connection between the dispatching logic and the simulator's operational flow. This interface allows the simulator to integrate various dispatching methods, including those based on traditional rules or any enhanced rules.
 
 \begin{figure}[t]
 	\includegraphics[width=\textwidth]{sim\_framework.png}
@@ -10,9 +12,19 @@ The dispatcher utilizes basic local rules such as FIFO, CR, and Random selection
 	\label{fig:ss}
 \end{figure}
 
+The paper discusses the incorporation of priority-based dispatching rules, which are commonly used in industrial contexts. These rules prioritize lot dispatch based on various criteria such as:
+
+\begin{enumerate}
+	\item FIFO: Lots are processed in the order they arrive or based on their waiting time.
+	\item Critical Ratio: This method involves calculating a ratio of the remaining time to the due date divided by the expected processing time, prioritizing lots based on how critical their timing is relative to scheduled deadlines.
+	\item Random: Lots are processed in a random draw. 
+\end{enumerate}
+
+Additionally, we have integrated enhanced dispatching algorithms derived from the GSACO-O algorithm, which leverage more sophisticated decision-making processes to optimize scheduling tasks further. These enhancements not only improve the precision of the simulation but also significantly extend its applicability and effectiveness in complex manufacturing scenarios.
+
 The framework depicted in Figure~\ref{fig:ss} outlines a sophisticated approach for scheduling operations within a production setting, incorporating both simulation and optimization models to enhance efficiency. At the core, the Input Data Module manages crucial scheduling data, including the SMT2020 dataset that lists lots to be scheduled with their remaining operations, alongside data concerning production objectives and available resources. This information feeds into the initialization processes for both the simulation and optimization modules.
 
 The Simulation Model kicks off with an initialization of instances based on the dataset, where it sets up the environment for running simulations with different dispatching rules—both local and enhanced. Moreover, it generates the average processing time of operations for the scheduling purpose.
 The dispatch rules are tested under different processing times to observe their effectiveness in managing operations and lot completions, as well as the flow of work-in-process.
 
-On the optimization side, the GSACO-I algorithm—takes the stage to refine scheduling further. This component iteratively searches for the best or optimal scheduling solutions, assessing each iteration against a criterion to determine if a preferable solution has been achieved. Upon finding the best solution, it finalizes the operations schedule, which details the best sequence and allocation of operations, ready to be implemented to maximize production efficiency.
+On the optimization side, the GSACO-O algorithm takes the stage to refine scheduling further. This component iteratively searches for the best solutions, assessing each iteration against a criterion to determine if a preferable solution has been achieved. Upon finding the best solution, it finalizes the operations schedule, which details the best sequence and allocation of operations, give is given to the simulator for evaluation over different processing times.
