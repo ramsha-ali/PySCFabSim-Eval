@@ -73,14 +73,13 @@ def read_and_visualize_operations_line_graph(file_pattern, algos, output_filenam
     plt.xlabel('Dispatcher')
     plt.ylabel('Total Operations')
     plt.grid(True)
+    ax.set_ylim(1300, 6500)
+    ax.set_yticks(range(1300, 6600, 1000))
     plt.savefig(output_filename, dpi=300)
-    #plt.show()
 
     baseline = operations_df.loc[operations_df['Algorithm'] == 'fifo', 'Total Operations'].values[0]
     operations_df['% Difference from fifo'] = ((operations_df['Total Operations'] - baseline) / baseline) * 100
-    print(operations_df)
-
-
+    #print(operations_df)
 
 def read_and_visualize_wip(file_pattern, algos, output_filename, period, wip):
     data_wip = pd.read_csv(wip, delimiter="\t")
@@ -140,12 +139,13 @@ def read_and_visualize_wip(file_pattern, algos, output_filename, period, wip):
     #plt.show()
     plt.savefig(output_filename, dpi=300)
 
-period = 21600
-file_pattern = 'dispatching_output_LVHM/dispatching_seed*_{algo}_{period}s.txt'
+dataset = 'SMT2020_LVHM'
+period = 3600
+file_pattern = f'dispatching_output_{dataset}''/dispatching_seed*_{algo}_{period}s.txt'
 algos = ['fifo', 'cr', 'random', 'gsaco']
-wip = 'simulation_state/lot_instance_LVHM.txt'
-output_filename_wip = f'plots_LVHM/period_{period}s.png'
-output_filename = f'plots_LVHM/total_operations_{period}s.png'
+wip = f'simulation_state/lot_instance_{dataset}.txt'
+output_filename_wip = f'plots_{dataset}/period_{period}s.png'
+output_filename = f'plots_{dataset}/total_operations_{period}s.png'
 
 read_and_visualize_wip(file_pattern, algos, output_filename_wip, period, wip)
-read_and_visualize_operations_line_graph(file_pattern, algos, output_filename, period)
+#read_and_visualize_operations_line_graph(file_pattern, algos, output_filename, period)

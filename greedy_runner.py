@@ -6,7 +6,7 @@ import time
 
 
 threads = []
-
+dataset = 'SMT2020_HVLM' # HVLM
 
 if not os.path.exists('greedy'):
     os.mkdir('greedy')
@@ -14,7 +14,7 @@ if not os.path.exists('simulation_state'):
     os.mkdir('simulation_state')
 for seed in [0]:
     for day in [3600]:
-        for dataset, dispatcher in [('SMT2020_example_sim', 'fifo')]:
+        for dataset, dispatcher in [(f'{dataset}', 'fifo')]:
             def s(day_, dataset_, dispatcher_):
                 name_ = f'greedy/greedy_seed{seed}_{day}days_{dataset}_{dispatcher}.txt'
                 with io.open(name_, 'w') as f:

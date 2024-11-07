@@ -3,54 +3,61 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-def resource_utilization(schedule_file, tool_file):
-    time = 3600
-    df_schedule = pd.read_csv(schedule_file, delimiter='\t', usecols=['tool', 'start_time',	'end_time'])
-    df_schedule['utilization_period'] = df_schedule['end_time'] - df_schedule['start_time']
-    df_utilization = df_schedule.groupby('tool')['utilization_period'].sum().reset_index()
-    df_utilization['utilization_percentage'] = (df_utilization['utilization_period'] / time) * 100
-    df_tools = pd.read_csv(tool_file, sep='\t', usecols=['STNFAM', 'STNGRP'])
-    df_tools['STNFAM'] = df_tools['STNFAM'].str.lower()
+def read_schedule_and_visualize(schedule_file, wip, period):
+    data_wip = pd.read_csv(wip, delimiter="\t")
+    parsed_rows_wip = []
+    for index, row in data_wip.iterrows():
+        parts = row[0].split()
+        product_number = parts[1].split('_')[1]
+        parsed_rows_wip.append({
+            'Lot': int(parts[0]),
+            'Product': int(product_number),
+            'Step': int(parts[3])
+        })
+    df_wip = pd.DataFrame(parsed_rows_wip)
+    hour = int(period / 3600)
+    all_data =[]
 
-    df_merged = pd.merge(df_utilization, df_tools, left_on='tool', right_on='STNFAM', how='left')
-    df_grouped = df_merged.groupby('STNGRP')[
-        'utilization_percentage'].mean().reset_index()
-    plt.figure(figsize=(12, 8))
-    bars = plt.barh(df_grouped['STNGRP'], df_grouped['utilization_percentage'], color='blue')
+    algo= 'GSACO-O (Scheduler)'
+    data = pd.read_csv(schedule_file, delimiter='\t', usecols=['lot', 'product', 'step'])
 
-    for bar in bars:
-        plt.text(bar.get_width(), bar.get_y() + bar.get_height() / 2,
-                 f'{bar.get_width():.2f}%', va='center')  # Formatting as a percentage
+    parsed_rows = []
+    for index, row in data.iterrows():
+        parsed_rows.append({
+            'Lot': int(row[0]),
+            'Product': int(row[1]),
+            'Step': int(row[2])
+        })
 
-    plt.xlabel('Utilization Percentage (%)')
-    plt.ylabel('Station Group')
-    plt.title('Utilization Percentage by Station Group for a 1-Hour Period')
-    plt.tight_layout()
-    plt.show()
-#resource_utilization('schedule_output_HVLM/schedule_output_3600s.txt', '../datasets/SMT2020_HVLM/tool.txt.1l')
+    df = pd.DataFrame(parsed_rows)
+    dispatched_lots = df.groupby(['Lot', 'Product'])['Step'].nunique().reset_index()
+    dispatched_lots['Algorithm'] = algo
+    dispatched_lots.rename(columns={'Step': 'Count'}, inplace=True)
+    df_wip_set = set(df_wip[['Lot', 'Product']].apply(tuple, axis=1))
+    existing_set = set(dispatched_lots[['Lot', 'Product']].apply(tuple, axis=1))
+    missing_pairs = df_wip_set - existing_set
+    missing_data = [{'Lot': lot, 'Product': prod, 'Count': 0, 'Algorithm': algo} for lot, prod in missing_pairs]
+    missing_lots = pd.DataFrame(missing_data)
+    all_lots = pd.concat([dispatched_lots, missing_lots], ignore_index=True)
 
-def read_schedule_and_visualize(schedule_file):
-    df_schedule_lots = pd.read_csv(schedule_file, delimiter='\t', usecols=['lot', 'product', 'step', 'start_time'])
-    #print(df_schedule_lots)
-    df_schedule_lots_sorted = df_schedule_lots.sort_values(by='start_time')
-    distinct_steps = df_schedule_lots_sorted.groupby(['lot', 'product'])['step'].nunique()
-    lot_product_steps = distinct_steps.to_dict()
-    counts = list(lot_product_steps.values())
-    min_count = np.min(counts)
-    max_count = np.max(counts)
-    median_count = np.median(counts)
+    algorithm_data = pd.DataFrame(all_lots)
 
-    algorithm_data = pd.DataFrame({
-        'Algorithm': ['GSACO'] * len(counts),
-        'Distinct Step Counts': counts
-    })
-
-    plt.figure(figsize=(8, 6))
-    sns.boxplot(x='Algorithm', y='Distinct Step Counts', data=algorithm_data, width=0.3)
-    plt.title('WIP flow across dispatching')
-    plt.xlabel('Algorithm')
+    new_order = ['Lot', 'Product', 'Algorithm', 'Count']
+    algorithm_data = algorithm_data[new_order]
+    max_count = algorithm_data['Count'].max() + 1
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(x='Algorithm', y='Count', data=algorithm_data, width=0.3)
+    plt.title(f'WIP Flow in {hour} hours')
+    plt.xlabel('Dispatcher')
     plt.ylabel('WIP Range')
     plt.grid(True)
+    plt.ylim(0, max_count)  # Set the y-axis to start at 0 and end at max_count
+    plt.yticks(range(0, max_count, 1))
     plt.show()
+    #plt.savefig(output_filename, dpi=300)
+    return algorithm_data
 
-read_schedule_and_visualize('schedule_output_HVLM_HVLM/schedule_output_3600s.txt')
+dataset = 'SMT2020_HVLM'
+period = 21600
+wip = f'simulation_state/lot_instance_{dataset}.txt'
+algorithm_data_sch = read_schedule_and_visualize(f'schedule_output_HVLM/schedule_output_{period}s.txt', wip, period)

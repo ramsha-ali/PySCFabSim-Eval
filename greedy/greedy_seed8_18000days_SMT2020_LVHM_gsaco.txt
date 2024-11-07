@@ -1,4 +1,4 @@
-5 hour simulated in  0:00:01.107381
+5 hour simulated in  0:00:01.134354
 Machine Cnt avail util br
 DE_BE_11 9 100.0 79.1 0.0
 DE_BE_12 7 100.0 56.86 0.0

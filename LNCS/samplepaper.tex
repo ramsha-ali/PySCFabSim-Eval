@@ -117,42 +117,16 @@ even if short planning horizons cover only a fraction of the long
 production routes with hundreds of operations.
 The resulting size and complexity of large-scale SMSP instances
 exceed the capabilities of common FJSSP solving methods.
-We thus propose the GSACO algorithm combining probabilistic
-operation sequencing with greedy machine assignment.
-Its efficient implementation utilizing tensor operations and
-parallel ant simulations enables GSACO's convergence to high-quality
-solutions in short time.
-In this way, GSACO overcomes the scalability limits of
-exact optimization by means of a state-of-the-art CP approach
-and achieves the performance required for frequent re-scheduling
-in reaction to process deviations. % in physical fabs.
+In our previous work \cite{Ali2024}, we showed the scalability of our proposed approach. 
+We thus proposed the enhance variant of our previous GSACO algorithm, GSACO-O for optimizing operational troughput over different planning horizons.
 
+We evaluated our scheduler through simulation as a dispatcher and compared the performance with traditional dispatching rules. In future work, we aim to evaluate our enhanced dispatching rule under different machine breakdown scenarios. 
+Our second target of future work concerns hyperparameter tuning of GSACO-O parameetrs using machine learning.
 
-While simplified FJSSP models of semiconductor manufacturing processes
-provide insights regarding the scalability of scheduling methods,
-in future work, we aim at extending GSACO to incorporate the specific
-conditions and functionalities of tools performing the production operations.
-Such features include, e.g.,
-machine setups to be equipped before performing operations,
-preventive maintenance procedures for which a machine needs to stay idle, and
-batch processing capacities to handle several production lots in one pass.
-In practice, these specifics matter for machine assignment strategies
-and should also be reflected in the respective greedy phase of GSACO.
-
-Our second target of future work concerns the utilization of schedules 
-found by GSACO for decision making and control within simulation models
-of semiconductor fabs.
-This goes along with the extension of optimization objectives to
-practically relevant performance indicators, such as deadlines for the
-completion of jobs and minimizing the tardiness.
-In view of the dynamic nature of real-world production operations and
-unpredictable stochastic events,
-quantifying the improvements by optimized scheduling methods
-requires their integration and evaluation in simulation.
-
+We evaluated our scheduler by simulating it as a dispatcher and comparing its performance with traditional dispatching rules. The results indicate that our approach can potentially streamline operations. For future work, we plan to assess the effectiveness of our enhanced dispatching rule under various machine breakdown scenarios, which will provide insights into its resilience and adaptability in dynamic environments.
+Additionally, we aim to explore hyperparameter tuning of GSACO-O parameters through machine learning techniques to further optimize performance. Leveraging machine learning could help us identify optimal configurations more efficiently, enhancing the scheduler's responsiveness and adaptability to different manufacturing setups.
 
 \section*{Acknowledgments}
-
 This work has been funded by the FFG project 894072 (SwarmIn).
 We are grateful to the anonymous reviewers for constructive 
 comments that helped to improve the presentation of this paper.

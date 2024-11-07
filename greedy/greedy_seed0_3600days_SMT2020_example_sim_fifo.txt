@@ -1,4 +1,4 @@
-1 hour simulated in  0:00:00.088021
+1 hour simulated in  0:00:00.092059
 Machine Cnt avail util br
 LithoTrack_FE_115 2 100.0 15.79 0.0
 Litho_FE_111 2 100.0 14.05 0.0
