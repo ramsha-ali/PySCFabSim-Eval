@@ -1,7 +1,11 @@
-We briefly survey the relevant literature on the challenges inherent in SMSP, a sector marked by its complex operational dynamics and the critical need for highly efficient dispatching systems. Semiconductor production processes are characterized by their high variability, sophisticated product mixes, and stringent quality demands, which collectively necessitate innovative approaches to production scheduling and dispatching. 
-Later, we survey the relevant literature on methods for FJSSP, which we use as general
-scheduling model to represent semiconductor production processes and SMSP.
-Then we explore the traditional dispatching methods detailing their advantages and limitations within the context of semiconductor fabrication facilities. These conventional methods form the baseline against which the efficacy of advanced dispatching techniques, particularly those driven by Swarm Intelligence (SI), are evaluated. Furthermore, the review will cover essential performance metrics traditionally used to assess the effectiveness of dispatching rules.
+First, we survey the relevant literature on the challenges inherent to SMSP, a problem with complex operational dynamics and the critical need for efficient dispatching strategies. 
+% Semiconductor production processes are characterized by their high variability, sophisticated product mixes, and stringent quality demands, which collectively necessitate innovative approaches to production scheduling and dispatching. 
+Second, we address the literature on solving methods for FJSSP, which we use as general
+scheduling model to represent semiconductor manufacturing processes. % and SMSP.
+Third, we turn to SI techniques, with particular focus on the meta-heuristic ACO algorithm and its application to FJSSP.
+Finally, we review traditional dispatching methods, detailing their advantages and limitations within the context of semiconductor manufacturing.
+% These conventional methods form the baseline against which the efficacy of advanced dispatching techniques, particularly those driven by Swarm Intelligence (SI), are evaluated.
+% Finally, the review will cover essential performance metrics traditionally used to assess the effectiveness of dispatching rules.
 %This section represents a brief relevant literature on the Flexible Job Shop Scheduling Problem (FJSSP), which was initially used as a general scheduling model for semiconductor production. Alternatively, this moves on with a discussion around the Semiconductor Manufacturing Scheduling Problem (SMSP), and how it can proceed with Ant Colony Optimization (ACO) and the solution.
 \subsection{Semiconductor Manufacturing Scheduling Problem (SMSP)}
 Semiconductor manufacturing is characterized by its complex multi-step fabrication process, each involving highly precise and controlled conditions. The fabrication of semiconductor devices often requires hundreds of steps during the photolithography, etching, and chemical deposition phases, among others. This complexity is compounded by the requirement for extremely clean environments to avoid contamination of the microscopically small circuits, making operational excellence a challenging goal \cite{May2006}.
@@ -63,7 +67,7 @@ Beyond FJSSP and SMSP investigated here,
 we note that hybrid optimization algorithms integrating meta-heuristics and
 local search have also been adopted in a variety of other application settings
 \cite{abdel2021hybrid,fontes2023hybrid,li2021hybrid,mohd2023improved,suid2023novel}.
-\subsection{Dispatching}
+\subsection{Dispatching Rules}
 
 In semiconductor manufacturing, the efficient management of production flow is crucial for maintaining high throughput and minimizing delays. This section explores dispatching methods that have been traditionally employed to orchestrate the flow of work-in-process (WIP) through the various stages of production. 
 
