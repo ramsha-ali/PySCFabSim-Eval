@@ -118,22 +118,6 @@ We performed our experiments on a TUXEDO Pulse 14 Gen1 machine
 equipped with an 8-core AMD Ryzen 7 4800H processor at 2.9GHz and onboard
 Radeon graphics card.
 
-\begin{figure*}[t]
-	\centering
-	\begin{subfigure}[b]{0.45\linewidth}
-		\includegraphics[width=\textwidth]{LVHM.png}
-		\caption{LV/HM scenario}
-		\label{subfig:l}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.45\linewidth}
-		\includegraphics[width=\textwidth]{HVLM.png}
-		\caption{HV/LM scenario}
-		\label{subfig:h}
-	\end{subfigure}
-	\caption{Makespan improvements of schedules for SMSP instances obtained with CP and GSACO \cite{Ali2024}\label{fig:makespan}}
-\end{figure*}
-
 The quick convergence of our GSACO implementation is also outlined by the makespan improvements plotted in Figure~\ref{fig:makespan}.
 On the LV/HM scenario displayed in Figure~\ref{subfig:l}, 
 GSACO obtains its best schedules within $7$ minutes
@@ -156,7 +140,23 @@ OR-Tools sometimes finds outliers as its first solutions.
 This phenomenon occurs for the planning horizons $n=1$ and $n=2$
 on the LV/HM or HV/LM scenario, respectively, where the latter
 schedule of makespan $17664$ is found after more than $9$ minutes
-and thus not listed in Table~\ref{tab:results}.
+and thus not listed in Table~\ref{tab:results}.%
+%
+\begin{figure*}[t]
+	\centering
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\textwidth]{LVHM.png}
+		\caption{LV/HM scenario}
+		\label{subfig:l}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\linewidth}
+		\includegraphics[width=\textwidth]{HVLM.png}
+		\caption{HV/LM scenario}
+		\label{subfig:h}
+	\end{subfigure}
+	\caption{Makespan improvements of schedules for SMSP instances obtained with CP and GSACO \cite{Ali2024}\label{fig:makespan}}
+\end{figure*}
 
 
 \begin{table}[t]
@@ -259,7 +259,7 @@ and thus not listed in Table~\ref{tab:results}.
 	\begin{tabular}{|c|lcllllll|ll|}
 		\hline
 		\multirow{3}{*}{\begin{tabular}[c]{@{}c@{}}Planning \\ horizon\end{tabular}} &
-		\multicolumn{8}{c|}{Disaptcher} &
+		\multicolumn{8}{c|}{Dispatcher} &
 		\multicolumn{2}{c|}{Scheduler} \\ \cline{2-11} 
 		&
 		\multicolumn{2}{c|}{FIFO} &
@@ -349,7 +349,7 @@ and thus not listed in Table~\ref{tab:results}.
 
 Furthermore, this study investigates the efficiency of various dispatching strategies in a simulated manufacturing environment. Dispatchers play a critical role in production systems by determining the order in which jobs are processed. Effective dispatching can significantly enhance operational throughput and resource utilization. To this end, we compare traditional and enhanced dispatching based on a GSACO-O. The primary objective is to quantify and compare the performance changes of different dispatching strategies over multiple planning horizons.
 
-We examined the efficacy of four distinct dispatching strategies using two different datasets, characterized as High Volume Low Mix (HV/LM) and Low Volume High Mix (LV/HM), to evaluate their effectiveness across six varied planning horizons. The strategies examined included First In, First Out (FIFO), Critical Ratio (CR), Random (RANDOM), and a Greedy Search based Ant Colony Optimization variant (GSACO-O), which is also assessed as a scheduler. The performance metrics were recorded in terms of operations and lots completed, with FIFO serving as the baseline for performance comparison.
+We examine the efficacy of four distinct dispatching strategies using two different datasets, characterized as High Volume Low Mix (HV/LM) and Low Volume High Mix (LV/HM), to evaluate their effectiveness across six varied planning horizons. The dispatching strategies include FIFO, CR, RANDOM, and GSACO-O, which is also assessed as a scheduler. The performance metrics were recorded in terms of operations and lots completed, with FIFO serving as the baseline for performance comparison.
 
 The results from the LV/HM dataset shown in Table~\ref{tab:dispatchers-LVHM} indicate variable performance across the strategies and horizons. FIFO maintained consistent throughput but was generally outperformed by our GSACO-O dispatcher, which showed substantial increases in operational efficiency. Similarly, the results from HV/LM dataset shown in Table~\ref{tab:dispatchers-HVLM} further substantiate the superior performance of the GSACO-O strategy, confirming its effectiveness across different planning horizons.
 
@@ -407,8 +407,8 @@ In Figure~\ref{fig:totalopsLVHM} and Figure~\ref{fig:totalopsHVLM}, the performa
     \label{fig:wip-flows-LVHM}
 \end{figure}
 
-The plots in Figure~\ref{fig:wip-flows-LVHM} illustrate the Work in Progress (WIP) flow for LV/HM scenario across various dispatching rules FIFO, CR, RANDOM, GSACO-O and GSACO-O as scheduler over different planning horizons ranging from 1 to 6 hours. Each bar demonstrates the minimum and maximum WIP levels reached during the simulation period under each dispatching rule, with the height of the bar indicating the variability or stability of the WIP flow. 
-Across all planning horizons, the range of Work in Progress (WIP) counts is quite consistent across different dispatchers, as represented by FIFO, CR, RANDOM, GSACO-O, and GSACO-O (Scheduler). This suggests that no single dispatcher has a significantly larger WIP range, indicating a balanced approach to managing WIP levels over time.
+The plots in Figure~\ref{fig:wip-flows-LVHM} illustrate the Work-in-Progress (WIP) flow for the LV/HM scenario across various dispatching rules FIFO, CR, RANDOM, GSACO-O, and GSACO-O as scheduler over different planning horizons ranging from 1 to 6 hours. Each bar demonstrates the minimum and maximum WIP levels reached during the simulation period under each dispatching rule, with the height of the bar indicating the variability or stability of the WIP flow. 
+Across all planning horizons, the range of WIP counts is quite consistent across different dispatchers, as represented by FIFO, CR, RANDOM, GSACO-O, and GSACO-O (Scheduler). This suggests that no single dispatcher has a significantly larger WIP range, indicating a balanced approach to managing WIP levels over time.
 In case of dispatcher specific observation, FIFO shows the lowest range of WIP variability, suggesting consistent and predictable processing under this rule within the first hour. CR and Random display slightly higher variability, indicating a less stable WIP flow.
 Across the longer planning horizons such as 5 and 6 hours, there are more outliers in WIP counts across all dispatchers, which could indicate sporadic spikes in WIP. This trend shows increase in job complexity as the period extends. 
 GSACO-O, in both dispatcher and scheduler forms, demonstrates a consistent WIP distribution that does not deviate significantly across time horizons. This indicate that the GSACO-O method is robust in maintaining predictable WIP flows, regardless of operational duration.
@@ -455,7 +455,7 @@ GSACO-O, in both dispatcher and scheduler forms, demonstrates a consistent WIP d
 	\label{fig:wip-flows-HVLM}
 \end{figure}
 
-Similarly, the plots in Figure~\ref{fig:wip-flows-HVLM} illustrate the Work in Progress (WIP) flow for HV/LM scenario. The FIFO dispatcher maintains a narrow interquartile range (IQR) and a relatively low WIP count in comparison to other dispatchers.
+Similarly, the plots in Figure~\ref{fig:wip-flows-HVLM} illustrate the WIP flow for the HV/LM scenario. The FIFO dispatcher maintains a narrow interquartile range (IQR) and a relatively low WIP count in comparison to other dispatchers.
 Even at 6 hours, FIFO’s WIP values are less dispersed than other algorithms, indicating a conservative and stable approach in managing WIP.
 The CR dispatcher shows a slightly wider IQR than FIFO, especially noticeable in the 5th and 6th hour plots.
 The RANDOM dispatcher has a consistent distribution similar to FIFO. Its WIP values increase consistently across longer planning hours, suggesting a flexible approach that does not tightly control WIP levels and makes it less predictable.
